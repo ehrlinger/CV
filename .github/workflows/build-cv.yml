@@ -51,7 +51,6 @@ jobs:
           path: |
             JohnEhrlinger-CV.pdf
             JohnEhrlinger-Biosketch-NIH.pdf
-          retention-days: 90
 
       # ── 6. Deploy to gh-pages branch (serves as ehrlinger.github.io source) ──
       - name: Deploy to gh-pages

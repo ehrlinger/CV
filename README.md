@@ -52,7 +52,7 @@ xelatex JohnEhrlinger-Biosketch-NIH
 ## GitHub Setup (first time)
 
 ```bash
-cd /path/to/CV2026
+cd /path/to/CV
 git init
 
 # Stage source files (excluding HANDOFF.md and .claude/ — see .gitignore)
@@ -63,7 +63,7 @@ git add _header.tex nihbiosketch.cls README.md index.md .gitignore
 git add .github/
 
 git commit -m "Initial commit: CV and NIH biosketch source files"
-git remote add origin https://github.com/ehrlinger/CV2026.git
+git remote add origin https://github.com/ehrlinger/CV.git
 git branch -M main
 git push -u origin main
 ```
@@ -74,21 +74,21 @@ On every push to `main`, the workflow in `.github/workflows/build-cv.yml` will:
 
 1. Compile `JohnEhrlinger-CV.tex` → PDF (pdflatex + biber)
 2. Compile `JohnEhrlinger-Biosketch-NIH.tex` → PDF
-3. Upload both PDFs as build artifacts (retained 90 days)
+3. Upload both PDFs as build artifacts
 4. Deploy the PDF and `index.md` to the `gh-pages` branch
 
-## GitHub Pages (ehrlinger.github.io/CV2026)
+## GitHub Pages (ehrlinger.github.io/CV)
 
 After the first successful Actions run:
 
-1. Go to **Settings → Pages** in the CV2026 repo
+1. Go to **Settings → Pages** in the CV repo
 2. Set Source to **Deploy from branch → gh-pages → / (root)**
-3. The CV landing page will be live at `https://ehrlinger.github.io/CV2026`
+3. The CV landing page will be live at `https://ehrlinger.github.io/CV`
 
 To link from your main `ehrlinger.github.io` page, add:
 
 ```markdown
-[CV](https://ehrlinger.github.io/CV2026)
+[CV](https://ehrlinger.github.io/CV)
 ```
 
 ## Keeping formats in sync
