@@ -7,6 +7,7 @@
 *.fdb_latexmk
 *.fls
 *.html
+!index.html
 *.lof
 *.log
 *.lot
