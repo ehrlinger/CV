@@ -1,0 +1,438 @@
+\documentclass[letterpaper,11pt]{nih}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CV template.
+%%
+%% https://www.hsph.harvard.edu/~paciorek/computingTips/Latex_template_creating_CV_.html
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url}
+
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{amsfonts}
+%\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+
+\usepackage{amsmath}
+\def\vp{\vphantom{\Large{O}}}
+\def\Vp{\vphantom{\LARGE{O}}}
+\usepackage{mdwlist}
+
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\singlespacing
+\usepackage{graphicx} % for resize box
+\usepackage{booktabs} % For a better table rules
+\newenvironment{myList} {
+\vspace*{-5pt}
+\begin{list}{}{\leftmargin=1em}
+  \setlength{\itemsep}{3pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}}
+{\end{list}}
+
+\usepackage[compact]{titlesec}
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+
+%\usepackage[sort,authoryear,sectionbib,square,numbers]{natbib}
+% \usepackage[backend=biber,bibstyle=authoryear,sorting=none,maxbibnames=99,defernumbers=true, , ]{biblatex}
+\usepackage[backend=biber, style=authoryear, sorting=ynt, bibstyle=authortitle, natbib=true, maxbibnames=99, isbn=false, url=false, uniquename=false, uniquelist=false, doi=true,eprint=false, maxcitenames=2,giveninits=true]{biblatex}
+
+\DeclareNameAlias{sortname}{last-first}
+\renewcommand*{\revsdnamepunct}{}
+
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{{#1\isdot}}
+\renewbibmacro{in:}{}
+\DeclareFieldFormat{pages}{#1}
+\renewcommand*{\bibpagespunct}{\addcolon}
+
+% Normal title font (remove italic)
+\DeclareFieldFormat{journaltitle}{#1\addperiod}
+\DeclareFieldFormat{booktitle}{{#1}}
+\DeclareFieldFormat{title}{{#1}}
+
+% Year after title
+\renewbibmacro*{journal+issuetitle}{%
+    \usebibmacro{journal}%
+    \setunit*{\addspace}%
+    \iffieldundef{series}
+    {}
+    {\newunit
+        \printfield{series}%
+        \setunit{\addspace}}%
+    \usebibmacro{issue+date}%
+    \setunit{\addsemicolon\addspace}%
+    \usebibmacro{volume+number+eid}%
+    \setunit{\addcolon\space}%
+    \usebibmacro{issue}%
+    \newunit%
+}
+
+% Print only the year
+\renewbibmacro*{issue+date}{%
+    \printfield{year}%
+}
+
+% Remove "and" from list of authors
+\renewcommand*{\finalnamedelim}{\multinamedelim}
+\addbibresource{cv-primary.bib}
+\addbibresource{submitted.bib}
+% pending.bib reserved for future submitted manuscripts — currently empty
+\addbibresource{inprep.bib}
+\addbibresource{technotes.bib}
+\addbibresource{talks.bib}
+
+\usepackage[unicode,colorlinks,plainpages=false,pdfpagelabels,linkcolor=blue,urlcolor=blue, citecolor=blue]{hyperref}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex, overwrite]{
+    \map{
+      \perdatasource{cv-primary.bib}
+      \step[fieldset=KEYWORDS, fieldvalue=primary, append]
+    }
+     \map{
+      \perdatasource{talks.bib}
+      \step[fieldset=KEYWORDS, fieldvalue=presentation, append]
+    }
+    \map{
+      \perdatasource{submitted.bib}
+      \step[fieldset=KEYWORDS, fieldvalue=secondary, append]
+    }
+    \map{
+      \perdatasource{inprep.bib}
+      \step[fieldset=KEYWORDS, fieldvalue=inprep, append]
+    }
+  }
+}
+%%% biblatex for statisticians
+% Change the default formatting to be more "statistical"
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+\DeclareFieldFormat[article]{url}{}
+\DeclareFieldFormat[book]{url}{}
+\DeclareFieldFormat[inbook]{url}{}
+\DeclareFieldFormat[incollection]{url}{}
+\DeclareFieldFormat[inproceedings]{url}{}
+\DeclareFieldFormat[inproceedings]{title}{#1}
+\DeclareFieldFormat{shorthandwidth}{#1}
+% No dot before number of articles
+\usepackage{xpatch}
+\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+% Remove In: for an article.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+% Get rid of months in citations
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryCitekey{\clearfield{month}}
+%%% biblatex for statisticians
+
+%\setlength{\parskip}{0pt}
+%\setlength{\parsep}{1pt}
+%\setlength{\headsep}{1em}
+%\setlength{\topskip}{0pt}
+%\setlength{\topmargin}{0pt}
+%\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}    
+\setlength{\parindent}{0pt}
+
+\renewcommand{\today}{%
+\number\month/\number\year}
+\pagestyle{fancy}
+\setlength{\headheight}{18pt}
+\setlength{\headsep}{5pt}
+%\setlength{\textheight}{9.5in}
+%\lhead{\fancyplain{}{\textit{\leftmark}}}
+\chead{\fancyplain{}{\Large \bfseries John Ehrlinger}}
+%\rhead{\fancyplain{}{\textit{\rightmark}}}
+%\lfoot{\fancyplain{}{{\bf John Ehrlinger} }% printed: \today}}
+\cfoot{\fancyplain{}{\thepage}}
+\rfoot{\fancyplain{}{(\today)}}
+
+\renewcommand{\refname}{Publications}
+\newcommand{\myname}[1]{\textbf{#1}}
+
+\begin{document}
+
+%\thispagestyle{empty}
+\name{John Ehrlinger}
+\address{Hiram, Ohio\\ %john.ehrlinger@microsoft.com\\
+	john.ehrlinger@gmail.com}
+\address{\\Cardiovascular Outcomes, Registries and Research\\Heart, Vascular \& Thoracic Institute\\ ehrlinj@ccf.org}
+%\address{Cleveland Clinic JJ4-512 \\ 9500 Euclid Ave \\ Cleveland, Ohio 44195}
+%\address{Quantitative Health Sciences\\Lerner Research Institute\\(216) 445-8195\\ ehrlinj@ccf.org}
+%\vspace*{-3em}
+\printcentername
+\rule{\textwidth}{1pt}
+\vspace*{-2em}
+\begin{center}
+ \url{https://linkedin.com/in/ehrlinger} \hfill \url{https://orcid.org/0000-0002-5340-5154} \hfill \url{https://github.com/ehrlinger/}
+\end{center}
+
+\section*{Research Interests}
+% 
+% I am an Applied Statistician with a track record of leading teams to deliver machine learning and AI solutions for important research questions. My research includes advancing computational statistical machine learning and deep learning methods to answer questions using clinical or customer data. My areas of expertise include longitudinal time series analysis and time to event (survival) data as well as computer vision applications. I am a generalist with experience in applying supervised, unsupervised and semi-supervised machine learning for customers in diverse industries such as healthcare, engineering, energy and retail. 
+% 
+% \section*{Areas of Expertise}
+
+Applied statistical machine learning research conducted in close collaboration with cardiovascular surgeons and clinicians. Methodological focus spans random forest and ensemble methods, clustering, deep learning, and time series analysis, with emphasis on time-to-event and longitudinal data in cardiovascular outcomes. A sustained focus is the translation of methodological advances into clinical practice through open-source software development and reproducible analytical workflows, with current work centered on an R implementation of multi-phase hazard analysis methods.
+
+\section*{Professional Experience}
+
+\textbf{Cleveland Clinic}, Cleveland, Ohio\\
+{\em Assistant Staff - Lead Data Scientist} \hfill {December 2024 -- Present}\\
+{\em Department of Cardiothoracic Surgery - Heart, Vascular \& Thoracic Institute}\\
+% {\em Assistant Professor of Medicine}\hfill {March 2015 -- July 2015\\
+% {\em Cleveland Clinic Lerner College of Medicine - Case Western Reserve University}
+
+Lead a team of data engineers and data scientists supporting cardiovascular outcomes research within Cardiovascular Outcomes, Registries and Research (CORR). Drive statistical methods research as applied to observational clinical research, advancing rigorous analytic approaches for cardiovascular outcomes data, and collaborate with staff and resident physicians on grant applications and peer-reviewed publication submissions.
+
+Champion software engineering best practices — including version control, code review, and automated workflows — and implement process improvements to optimize the departmental research pipeline from data collection through publication. Lead open-source development of multi-phase hazard analysis methods in R, enabling broader adoption of methods currently accessible only through a SAS-dependent implementation.\\
+
+
+\textbf{Altamira Technologies}, McLean, VA \\
+{\em Senior Data Scientist -- Technical Lead} \hfill {March 2023 -- October 2024}\\
+
+Technical lead of the data science team supporting United States Air Force customers on secure networks. Drove team best practices in Python development and version control, and built a reusable Plotly-based dashboard application framework that enabled rapid development and refactoring of multiple analytical solutions. Developed predictive traffic flow models and a computer vision pipeline — drawing on publicly available traffic monitoring video — to estimate vehicle volumes at base entry points and guide staffing levels, improving efficiency of employee shift arrivals.\\
+
+% \begin{itemize}
+% \item 
+% 
+% \item Develop the Altamira team software development process and MLOps approach to the multi-platform delivery of data driven applications required by these government systems of delivery (version control, code review, Continuous Integration/Continuous Deployment).
+% 
+% \item Technical lead developing a repeatable application framework for delivery of multiple data driven use case applications. Implement CI/CD multi-platform solutions for local, cloud and on site development and deployment of solutions. 
+% 
+% \item Mentoring data science and software engineering team on best practice guidelines for software and data science applications to enable quality controlled solutions for our customer and their user base.  
+% \end{itemize}
+
+\textbf{Microsoft}, Cambridge, Massachusetts\\
+{\em Senior Data and Applied Scientist -- Technical Lead} \hfill {July 2015 -- April 2023}\\
+{\em Artificial Intelligence, Azure Global Commercial Industry (AGCI-AI) }\\
+
+Technical lead for customer-facing machine learning and AI engagements across industries including oil and gas (Chevron), aerospace engineering (Rolls Royce), and medical devices (Stryker). Led end-to-end solution development with focus on time series forecasting, predictive maintenance, and deep learning for imaging and sequential data. Developed published Azure Machine Learning solution accelerators for predictive maintenance and team data science practices, and returned customer findings directly to Azure ML product and engineering teams to drive platform improvements. Internal research findings were disseminated through four presentations at Microsoft's Machine Learning and Data Science (MLADS) conference (2016--2020).\\
+% 
+% \begin{itemize}
+% \item Create repeatable machine learning patterns that can be applied to related AGCI focus industries to encourage platform adoption.
+% 
+% \item Collaborating with external customer data science teams to leverage big data and machine learning Azure cloud services to build end-to-end data science pipelines solving real-world business problems.
+% 
+% \item Building out deep engagements on Azure AI solutions at scale with large--scale customers to coordinate feedback for strategic Azure platform development
+% 
+% \item Specialize on machine learning in production environments for engineering companies (i.e. Rolls--Royce aircraft engines, Chevron, Stryker, iFit) and healthcare (i.e. Dartmouth-Hitchcock). Specifically delivering solutions for predictive maintenance, demand forecasting and customer churn scenarios.
+% 
+% %\item Contributed to development of the Team Data Science Process TDSP formalizing a data science workflow and engineering best practices (version control, code review, Continuous Integration/Continuous Deployment) for mid to large size data science teams.
+% %(https://azure.microsoft.com/en-us/documentation/learning-paths/data-science-process/) 
+% % 
+% % \item Mentoring both formally and informally through new hire programs as on-boarding new team members.
+% \end{itemize}
+
+\textbf{Cleveland Clinic}, Cleveland, Ohio\\
+{\em Assistant Staff} \hfill {August 2012 -- July 2015}\\
+{\em Department of Quantitative Health Sciences - Learner Research Institute}\\
+{\em Assistant Professor of Medicine}\hfill {March 2015 -- July 2015\\
+{\em Cleveland Clinic Lerner College of Medicine - Case Western Reserve University}\\
+
+Applied machine learning methods — principally random survival forests via the randomForestSRC framework — to cardiovascular and thoracic outcomes research in collaboration with cardiology and surgical staff, research fellows, and medical students. This role established the foundation of a clinical research publication pipeline now being reestablished. Initiated development of the ggRandomForests R package for visualizing random forest models, and began migration of the institutional SAS-based multi-phase hazard implementation to R.\\
+
+% 
+% \begin{itemize}
+% \item Statistics, machine learning and mathematics methodology for application to medical data.
+% 
+% \item Statistical analysis, in collaboration with medical professionals, for grant funded and institution funded research projects.
+% 
+% \item Statistical workflow improvements for biostatistician productivity within the Clinical Investigations department of the Heart and Vascular Institute.
+% 
+% \item Training and mentoring of biostatisticians, medical students and research fellows in statistical analysis, methods and programming practices.
+% \end{itemize}
+% % \newpage
+ 
+\textbf{Cleveland Clinic}, Cleveland, Ohio\\
+{\em Lead Systems Analyst: Scientific Programmer} \hfill {August 1999 -- August 2012}\\
+{\em Department of Thoracic and Cardiovascular Surgery - Heart and Vascular Institute}\\
+
+Supported the Cardiac and Thoracic Surgery research department's computing infrastructure, statistical software development, and high-performance computing operations. Completed doctoral research in Statistics at Case Western Reserve University during this period, with dissertation focused on regularization and machine learning methods.\\
+
+\section*{Education}
+\begin{center}
+\begin{tabular*}{1\textwidth}{@{\extracolsep{\fill} } lccl}
+\toprule
+\Vp{\bf Institution} & {\bf Degree} & {\bf Year} & {\bf Field of study}\\
+\midrule
+\Vp{Case Western Reserve University} & Doctor of Philosophy (PhD) & 2011 & Statistics\\
+\multicolumn{4}{l}{Dissertation: {\it Regularization: Stagewise Regression and Bagging}}\\
+\multicolumn{4}{l}{Advisor: Hemant Ishwaran}\\
+\midrule
+\Vp{Case Western Reserve University} & Master of Science (MS) & 1994 & Mechanical Engineering\\
+ & & & Aerospace Engineering\\
+\multicolumn{4}{l}{Thesis: {\it A comparison of empirical axial flow compressor models}}\\
+\multicolumn{4}{l}{Advisor: Frances E. McCaughan}\\
+\midrule
+\Vp{Case Western Reserve University} & Bachelor of Science (BS) & 1993 & Mechanical Engineering\\
+\bottomrule
+\end{tabular*}
+\end{center}
+
+\bigskip
+\newpage
+\section*{Mentoring \& Teaching}
+\begin{myList}
+\item[] Statistical and computational co-mentor for a Cleveland Clinic Lerner College of Medicine (CCLCM) MD/MS student, providing guidance in statistical methods, machine learning, and software development as applied to clinical research; her master's work contributes to the open-source R implementation of multi-phase hazard analysis methods.
+\item[] Mentoring multiple research fellows in statistical methods and machine learning as applied to cardiovascular outcomes research.
+\item[] Co-facilitates monthly statistical training sessions for research fellows in collaboration with the Heart, Vascular \& Thoracic Institute biostatistics team.
+\end{myList}
+
+\section*{Research Support}
+
+\textbf{Pending}
+\begin{myList}
+\item[] {\em Improving Waitlist and Transplant Survival in Advanced Heart Failure Populations} \\
+NIH -- R01\\
+Eileen Hsich, M.D. and Eugene H. Blackstone, M.D. (Multiple PIs)\hfill Submitted February 2026\\
+Role: Co-Investigator
+\end{myList}
+
+\textbf{Completed}
+\begin{myList}
+\item[] {\em Ancillary Comparative Effectiveness of Atrial Fibrillation Ablation Surgery} \\
+NIH -- 1R01HL103552-01A1\\
+Eugene H. Blackstone, M.D. (P.I.)\hfill 8/10/2011 -- 5/31/2014
+% A collaboration of researchers from The Cleveland Clinic, University of Miami, and The Mount Sinai Hospital in New York. The objectives of this ancillary study are to develop and disseminate novel and innovative analytic methods for longitudinal data, of which cardiac rhythm data for parent trial is one important example. (3.5 year timeline)\\
+% Role: Co-investigator
+
+\item[] {\em Atrial Fibrillation Innovation Center State of Ohio, an Ohio Wright Center of Innovation} \\
+State of Ohio\\
+A. Marc Gillinov, M.D. (P.I.)  \hfill 8/1/2005 -- 12/31/2010 
+% Establish the Atrial Fibrillation Innovation Center (AFIC). AFIC falls under Third Frontier human genetics and biomedical engineering areas and addresses the suffering imposed by atrial fibrillation (AF) while catalyzing an emerging Ohio AF therapeutic industry.\\
+% Role: Scientific programming and computing systems management
+
+\item[] {\em National Heart, Lung \& Blood Institute Quantitative Clinical Cardiovascular Epidemiology Projects} \\
+NIH -- HHSN26820080026C \\
+Eugene H. Blackstone, M.D. (P.I.)	\hfill	9/30/2008 -- 9/29/2010
+% Objectives 1.) invent innovative analytic methods based on an underlying strategy of using computer learning to distinguish signal from noise and minimize prediction error, 2.) apply and validate these methods in determining prognostic value of several diagnostic measures in heart disease, 3.) identify new risk factors that have public health implications.\\
+% Role: Scientific programming and computing systems management \\
+
+
+\item[] {\em Logical Analysis of Data and Cardiac Surgery Risk} \\
+NIH -- 5R01HL072771 \\
+Michael S Lauer, M.D. (P.I.)	\hfill	10/1/2005 – 9/30/2008
+\end{myList}
+
+
+
+%\section*{Certificates}
+%Deep Learning Specialization, deeplearning.ai  \hfill March 2018
+%\begin{myList}
+%\item[] Neural Networks and Deep Learning
+%\item[] Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
+%\item[] Structuring Machine Learning Projects
+%\item[] Convolutional Neural Networks
+%\item[] Sequence Models
+%\end{myList}
+
+
+%
+%\section*{Academic Experience}
+%\underline{Case Western Reserve University}, Cleveland, Ohio USA \\
+%{\em Instructor} -- {\em Department of Mathematics}
+%\begin{myList}
+%\item[] Calculus for Science and Engineering I \hfill Spring 2003
+%\item[] Elementary Functions and Analytic Geometry \hfill Fall 2001, Spring/Fall 2002
+%\end{myList}
+%{\em Teaching Assistant} -- {\em Department of Mechanical and Aerospace Engineering}
+%\begin{myList}
+%\item[] Mechanical Engineering Analysis. \hfill {Fall 1993}
+%\end{myList}
+%{\em Program Instructor} -- {\em Center for Stochastic and Chaotic Processes in Science and Technology}
+%\begin{myList}
+%\item[] Office of Naval Research high school mathematics apprenticeship program\hfill {Summer 1992}\\
+%Project: Exploring dynamical systems with computer programming (Mathematica programming).
+%\end{myList}
+
+%% By default, \bibliography posts it's own \section... so we don't have to.
+%%\section*{Publications}
+%% As they are published. place a nocite line... in order, I guess. 
+%
+%\nocite{Ishwaran:2014}
+%\nocite{residualCells:2015}
+%%\nocite{phenotypes:2014}
+%\nocite{partnerLearningCurveTF:2014}
+%\nocite{partnerLearningCurveTF-Tech:2014}
+%%\nocite{threePart:2015}
+%
+%\newpage
+%\printbibliography[title=Submitted Manuscripts, keyword=secondary]
+%%\subsubsection*{In preparation}
+%\nocite{multiPhaseLongitudinal:2015}
+
+% --- In Preparation ---
+\nocite{Barron2026Achalasia}
+\nocite{Alshneikat2026CAA}
+\nocite{Belitsis2026AVSD}
+\nocite{Fang2026CPB}
+\nocite{Stembal2026CPB}
+\printbibliography[title=In Preparation, keyword=inprep]
+
+% --- In Revision ---
+\nocite{Robinson2026AVSD}
+\printbibliography[title=In Revision, keyword=secondary]
+
+% --- Publications ---
+\nocite{BLACKSTONE2019234}
+\nocite{Hurst2019}
+\nocite{Wojnarski2018TCS}
+\nocite{Rajeswaran2018}
+\nocite{Pande2017}
+\nocite{li2017}
+\nocite{Raja2016}
+\nocite{Suri2016}
+\nocite{Kapadia2016}
+\nocite{Minha2016}
+\nocite{Alli2016}
+\nocite{Smedira2015}
+\nocite{Wojnarski2015ATS}
+\nocite{partnerNonagenarians:2015}
+\nocite{partnerSurgicalOutcomes:2014}
+\nocite{Wojnarski2015ACC}
+\nocite{starling:2013}
+\nocite{dalton2013impact}
+\nocite{ehrlinger:2012a}
+\printbibliography[title=Publications, keyword=primary]
+
+% --- Technical Notes ---
+\nocite{ehrlinger:rfsrcRegression:2015}
+\nocite{ehrlinger:rfsrcSurvival:2016}
+\printbibliography[title=Technical Notes, keyword=technote]
+
+% --- Conference Presentations ---
+\nocite{Ehrlinger2026RMedicine}
+\nocite{ZamanianEhrlinger2020}
+\nocite{EhrlingerPraneet2019}
+\nocite{EhrlingerShah2018}
+% MathewEhrlinger2017 and EhrlingerZoran2017 commented out in talks.bib
+%\nocite{MathewEhrlinger2017}
+%\nocite{EhrlingerZoran2017}
+\nocite{Ehrlinger2016}
+\nocite{Ehrlinger2014}
+\printbibliography[title=Conference Presentations, keyword=presentation]
+
+\section*{Software}
+\textbf{R Packages}
+\begin{myList}
+\item[] {\em ggRandomForests} -- Visually Exploring Random Forests. Graphics for random forest models (survival, regression, classification) using the randomForestSRC and ggplot2 packages. Formerly published on CRAN; now maintained on GitHub.\\ \url{https://github.com/ehrlinger/ggRandomForests}
+\item[] {\em boostmtree} -- Boosted multivariate trees for longitudinal data. Nonparametric ensemble method for flexible modeling of multivariate continuous longitudinal outcomes. Formerly published on CRAN; now maintained on GitHub.\\ \url{https://github.com/ehrlinger/boostmtree}
+\item[] {\em hazard} -- Maintained R package implementing multi-phase hazard analysis for time-to-event decomposition---an open-source replacement for the Hazard SAS module developed at Cleveland Clinic. (Maintainer)\\ \url{https://github.com/ehrlinger/hazard}
+\item[] {\em mixhazard} -- R port of the C code underlying the Cleveland Clinic Hazard SAS module, providing direct access to the computational core of the hazard analysis engine. Pre-release.\\ \url{https://github.com/ehrlinger/mixhazard}
+\item[] {\em hvtiPlotR} -- Publication-quality graphics conforming to the statistical reporting standards of the Heart, Vascular \& Thoracic Institute at Cleveland Clinic.\\ \url{https://github.com/ehrlinger/hvtiPlotR}
+\item[] {\em hvtiRutilities} -- Utility functions supporting reproducible research workflows within the Heart, Vascular \& Thoracic Institute.\\ \url{https://github.com/ehrlinger/hvtiRutilities}
+\end{myList}
+Contributor to several open-source R packages in the randomForestSRC and survival analysis ecosystem.\\
+
+\section*{Honors and Awards}
+NASA Graduate Research Fellowship \hfill 1992 -- 1994\\
+Cleveland Clinic Innovations Award \hfill 2003\\
+
+\end{document}

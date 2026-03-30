@@ -1,0 +1,282 @@
+%% NIH Biosketch — John Ehrlinger
+%% Uses nihbiosketch.cls by Paul Magwene
+%% https://github.com/pmagwene/latex-nihbiosketch
+%%
+%% Compile with XeLaTeX:
+%%   xelatex JohnEhrlinger-Biosketch-NIH.tex
+%%
+%% nihbiosketch.cls must be in the same directory or on your TeX path.
+%% Download: curl -fsSL https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls -o nihbiosketch.cls
+
+\documentclass{nihbiosketch}
+
+%% Personal information — auto-inserted as header via \piinfo
+\name{Ehrlinger, John}
+\eracommons{EHRLINJ}
+\position{Assistant Staff -- Lead Data Scientist}
+%% ORCID — add \orcid{} if supported by your version of nihbiosketch.cls,
+%% otherwise include manually in the header or cover page.
+%% ORCID iD: 0000-0002-5340-5154  https://orcid.org/0000-0002-5340-5154
+
+\begin{document}
+
+%% ================================================================
+%% Education
+%% ================================================================
+\begin{education}
+Case Western Reserve University, Cleveland, OH  & BS  & 05/1993 & Mechanical Engineering \\
+Case Western Reserve University, Cleveland, OH  & MS  & 05/1994 & Mechanical / Aerospace Engineering \\
+Case Western Reserve University, Cleveland, OH  & PhD & 05/2011 & Statistics \\
+\end{education}
+
+%% ================================================================
+\section*{A. Personal Statement}
+%% ================================================================
+
+\begin{statement}
+I am an applied statistician and data scientist with expertise in computational
+statistical machine learning, deep learning, and their application to clinical
+and engineering data. My research career spans both the theoretical development
+of machine learning methods and their direct application to health outcomes,
+with a particular focus on time-to-event data, longitudinal and temporal data
+analysis, and survival methods.
+
+My foundational methodological work on regularization and gradient
+boosting---specifically the theoretical characterization of
+$\ell_2$Boosting and its connections to the lasso and stagewise
+regression---established a principled framework for understanding regularized
+machine learning in high-dimensional settings. I have extended this work to
+multivariate longitudinal settings through boosted tree ensembles, enabling
+richer modeling of complex clinical trajectories. In parallel, I have developed
+open-source R software tools (ggRandomForests, hazard) that make these methods
+accessible to the broader statistical and biomedical research community.
+
+I have since returned to Cleveland Clinic's Heart, Vascular \& Thoracic
+Institute as Assistant Staff -- Lead Data Scientist in the Department of
+Cardiothoracic Surgery, where I lead a team of data engineers and data
+scientists focused on cardiovascular outcomes research. In this role I
+drive statistical methods research as applied to observational clinical
+research, establish best practices in software engineering and reproducible
+research, and implement process improvements to optimize the departmental
+research pipeline from data collection through publication.
+
+\bigskip
+\noindent\textbf{Selected citations relevant to this application:}
+
+\begin{enumerate}
+
+\item \textbf{Ehrlinger J}, Ishwaran H. Characterizing $\ell_2$Boosting.
+\textit{The Annals of Statistics.} \textbf{40}(2): 1074--1101. 2012.
+
+\item Pande A, Li L, Rajeswaran J, \textbf{Ehrlinger J}, Blackstone EH,
+Ishwaran H, Lauer MS. Boosted multivariate trees for longitudinal data.
+\textit{Machine Learning.} \textbf{106}(2): 277--305. 2017.
+
+\item Hurst T, Xanthopoulos A, \textbf{Ehrlinger J}, et al. Dynamic
+prediction of LVAD pump thrombosis based on lactate dehydrogenase trends.
+\textit{ESC Heart Failure.} \textbf{6}(5): 1005--1014. 2019.
+
+\item \textbf{Ehrlinger J}. ggRandomForests: Exploring Random Forest
+Survival. \textit{arXiv preprint} arXiv:1612.08974 [stat.CO]. 2016.
+
+\end{enumerate}
+\end{statement}
+
+%% ================================================================
+\section*{B. Positions, Scientific Appointments, and Honors}
+%% ================================================================
+
+\subsection*{Positions and Scientific Appointments}
+
+\begin{datetbl}
+1994--1995    & Mechanical Engineer, Life Systems, Inc., Beachwood, OH \\
+1995--1998    & Aerodynamic Engineer, Cooper Turbocompressor, Inc., Buffalo, NY \\
+1999--2012    & Lead Systems Analyst: Scientific Programmer, Dept.\ of Thoracic and
+                Cardiovascular Surgery, Cleveland Clinic, Cleveland, OH \\
+2012--2015    & Assistant Staff, Dept.\ of Quantitative Health Sciences, Lerner Research
+                Institute, Cleveland Clinic, Cleveland, OH \\
+2015          & Assistant Professor of Medicine, Cleveland Clinic Lerner College of
+                Medicine -- Case Western Reserve University \\
+2015--2023    & Senior Data and Applied Scientist, Artificial Intelligence, Azure Global
+                Commercial Industry (AGCI-AI), Microsoft, Cambridge, MA \\
+2023--2024    & Senior Data Scientist -- Technical Lead, Altamira Technologies,
+                McLean, VA \\
+2024--present & Assistant Staff -- Lead Data Scientist, Dept.\ of Cardiothoracic Surgery,
+                Heart, Vascular \& Thoracic Institute, Cleveland Clinic, Cleveland, OH \\
+\end{datetbl}
+
+\subsection*{Honors}
+
+\begin{datetbl}
+1992--1994  & NASA Graduate Research Fellowship \\
+2003        & Cleveland Clinic Innovations Award \\
+\end{datetbl}
+
+%% ================================================================
+\section*{C. Contributions to Science}
+%% ================================================================
+
+\begin{enumerate}
+
+\item \textbf{Theoretical Foundations of Regularized Statistical Machine Learning.}
+
+My dissertation and early research established rigorous theoretical properties
+of gradient boosting under an $\ell_2$ loss function, characterizing the
+functional form and convergence behavior of $\ell_2$Boosting in terms of
+well-known shrinkage estimators including the lasso and LARS. I extended this
+work to multivariate longitudinal settings via boosted tree ensembles, enabling
+flexible nonparametric modeling of clinical time-course data.
+
+\begin{enumerate}
+\item \textbf{Ehrlinger J}, Ishwaran H. Characterizing $\ell_2$Boosting.
+\textit{The Annals of Statistics.} \textbf{40}(2): 1074--1101. 2012.
+
+\item Pande A, Li L, Rajeswaran J, \textbf{Ehrlinger J}, Blackstone EH,
+Ishwaran H, Lauer MS. Boosted multivariate trees for longitudinal data.
+\textit{Machine Learning.} \textbf{106}(2): 277--305. 2017.
+\end{enumerate}
+
+\item \textbf{Random Forest Methods and Open-Source Statistical Software.}
+
+I have contributed to the development and dissemination of random forest
+methods for survival, regression, and classification settings via the
+ggRandomForests R package, and maintain the hazard R package, an open-source
+implementation of multi-phase hazard analysis methods for time-to-event
+decomposition currently available only through a SAS-dependent implementation.
+
+\begin{enumerate}
+\item \textbf{Ehrlinger J}. ggRandomForests: Visually Exploring a Random
+Forest for Regression. \textit{arXiv preprint} arXiv:1501.07196 [stat.CO]. 2015.
+
+\item \textbf{Ehrlinger J}. ggRandomForests: Exploring Random Forest
+Survival. \textit{arXiv preprint} arXiv:1612.08974 [stat.CO]. 2016.
+\end{enumerate}
+
+\item \textbf{Temporal and Longitudinal Modeling for Cardiac Outcomes.}
+
+A core application of my methodological work has been the modeling of
+time-varying clinical data from cardiac patients, including parametric nonlinear
+temporal decomposition models and mixture approaches to characterize atrial
+fibrillation recurrence and prevalence.
+
+\begin{enumerate}
+\item Rajeswaran J, Blackstone EH, \textbf{Ehrlinger J}, Thuita L, et al.
+Probability of atrial fibrillation after ablation: Using a parametric nonlinear
+temporal decomposition mixed effects model. \textit{Statistical Methods in
+Medical Research.} \textbf{27}(1): 126--141. 2018.
+
+\item Li L, Mao H, Ishwaran H, \textbf{Ehrlinger J}, et al. Estimating the
+prevalence of atrial fibrillation from a three class mixture model for repeated
+diagnoses. \textit{Biometrical Journal.} \textbf{59}(2): 331--343. 2017.
+
+\item Blackstone EH, Chang HL, Rajeswaran J, \textbf{Ehrlinger J}, et al.
+Biatrial maze procedure versus pulmonary vein isolation for atrial fibrillation
+during mitral valve surgery. \textit{The Journal of Thoracic and Cardiovascular
+Surgery.} \textbf{157}(1): 234--243.e9. 2019.
+
+\item Hurst T, Xanthopoulos A, \textbf{Ehrlinger J}, et al. Dynamic
+prediction of LVAD pump thrombosis based on lactate dehydrogenase trends.
+\textit{ESC Heart Failure.} \textbf{6}(5): 1005--1014. 2019.
+\end{enumerate}
+
+\item \textbf{Machine Learning Applications in Mechanical Circulatory Support.}
+
+My clinical collaboration work at Cleveland Clinic's Heart and Vascular
+Institute yielded several high-impact contributions identifying risk factors and
+predictive biomarkers for LVAD pump thrombosis. The 2014 NEJM paper documenting
+an abrupt increase in LVAD thrombosis rates had immediate regulatory and
+clinical implications nationally.
+
+\begin{enumerate}
+\item Starling RC, Moazami N, Silvestry SC, Ewald G, Rogers JG, Milano CA,
+Rame JE, Acker MA, Blackstone EH, \textbf{Ehrlinger J}, et al. Unexpected
+Abrupt Increase in Left Ventricular Assist Device Thrombosis. \textit{New
+England Journal of Medicine.} \textbf{370}(1): 33--40. 2014.
+
+\item Smedira NG, Blackstone EH, \textbf{Ehrlinger J}, Thuita L, Pierce CD,
+Moazami N, Starling RC. Current risks of HeartMate II pump thrombosis.
+\textit{The Journal of Heart and Lung Transplantation.} \textbf{34}(12):
+1527--1534. 2015.
+
+\item Wojnarski CM, Roselli EE, Idrees JJ, et al. Machine-learning phenotypic
+classification of bicuspid aortopathy. \textit{The Journal of Thoracic and
+Cardiovascular Surgery.} \textbf{155}(2): 461--469.e4. 2018.
+\end{enumerate}
+
+\item \textbf{Cardiovascular Surgical Outcomes and Decision Support.}
+
+Spanning my career at Cleveland Clinic, I have contributed analytical expertise
+to outcomes studies covering LVAD support, transcatheter aortic valve
+replacement (TAVR/PARTNER trial), and esophageal cancer surgery.
+
+\begin{enumerate}
+\item Szeto WY, Svensson LG, Rajeswaran J, \textbf{Ehrlinger J}, et al.
+Appropriate Patient Selection or Healthcare Rationing? Lessons from Surgical
+Aortic Valve Replacement in the PARTNER-I Trial. \textit{The Journal of
+Thoracic and Cardiovascular Surgery.} \textbf{150}(3): 557--568. 2015.
+
+\item Raja S, Rice TW, \textbf{Ehrlinger J}, et al. Importance of Residual
+Cancer after Induction Therapy for Esophageal Adenocarcinoma. \textit{The
+Journal of Thoracic and Cardiovascular Surgery.} \textbf{152}(3): 756--761.
+2016.
+
+\item Dalton JE, Glance LG, Mascha EJ, \textbf{Ehrlinger J}, Chamoun N,
+Sessler DI. Impact of Present-on-admission Indicators on Risk-adjusted Hospital
+Mortality Measurement. \textit{Anesthesiology.} \textbf{118}(6): 1298--1306.
+2013.
+
+\item Wojnarski CM, Svensson LG, Roselli EE, et al. Aortic Dissection in
+Patients with Bicuspid Aortic Valve--Associated Aneurysm. \textit{Annals of
+Thoracic Surgery.} \textbf{100}(5): 1666--1674. 2015.
+\end{enumerate}
+
+\end{enumerate}
+
+%% ================================================================
+\section*{D. Additional Information: Research Support and/or Scholastic
+Performance}
+%% ================================================================
+
+\subsection*{Pending Research Support}
+
+%% \grantinfo{source}{dates}{effort}{title}{PI}{role}
+\grantinfo{NIH -- R01 (submitted Feb 2026)}
+          {2026--}
+          {N/A}
+          {Improving Waitlist and Transplant Survival in Advanced Heart Failure
+           Populations}
+          {Multiple PIs: Eileen Hsich, M.D.\ and Eugene H. Blackstone, M.D.}
+          {Co-Investigator}
+
+\subsection*{Completed Research Support}
+
+\grantinfo{NIH -- 1R01HL103552-01A1}
+          {8/2011--5/2014}
+          {N/A}
+          {Ancillary Comparative Effectiveness of Atrial Fibrillation Ablation
+           Surgery}
+          {P.I.: Eugene H. Blackstone, M.D.}
+          {Co-Investigator}
+
+\grantinfo{State of Ohio -- Wright Center of Innovation}
+          {8/2005--12/2010}
+          {N/A}
+          {Atrial Fibrillation Innovation Center State of Ohio}
+          {P.I.: A. Marc Gillinov, M.D.}
+          {Scientific programming and computing systems management}
+
+\grantinfo{NIH -- HHSN26820080026C}
+          {9/2008--9/2010}
+          {N/A}
+          {NHLBI Quantitative Clinical Cardiovascular Epidemiology Projects}
+          {P.I.: Eugene H. Blackstone, M.D.}
+          {Scientific programming and computing systems management}
+
+\grantinfo{NIH -- 5R01HL072771}
+          {10/2005--9/2008}
+          {N/A}
+          {Logical Analysis of Data and Cardiac Surgery Risk}
+          {P.I.: Michael S.\ Lauer, M.D.}
+          {Scientific programming and computing systems management}
+
+\end{document}

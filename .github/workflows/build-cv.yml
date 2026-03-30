@@ -1,0 +1,75 @@
+name: Build CV PDFs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # allow manual trigger from GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Check out the repo ────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Download nihbiosketch.cls (not committed to repo) ─────────────────
+      - name: Download nihbiosketch.cls
+        run: |
+          curl -fsSL \
+            https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
+            -o nihbiosketch.cls
+
+      # ── 3. Compile CV (pdflatex + biber) ─────────────────────────────────────
+      - name: Compile CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: JohnEhrlinger-CV.tex
+          latexmk_use_xelatex: false
+          latexmk_shell_escape: false
+          extra_system_packages: "biber"
+          args: "-pdf -interaction=nonstopmode -file-line-error"
+          post_compile: |
+            biber JohnEhrlinger-CV
+            pdflatex JohnEhrlinger-CV.tex
+            pdflatex JohnEhrlinger-CV.tex
+
+      # ── 4. Compile NIH Biosketch ─────────────────────────────────────────────
+      - name: Compile NIH Biosketch
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: JohnEhrlinger-Biosketch-NIH.tex
+          args: "-pdf -interaction=nonstopmode -file-line-error"
+
+      # ── 5. Upload PDFs as build artifacts ────────────────────────────────────
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdfs
+          path: |
+            JohnEhrlinger-CV.pdf
+            JohnEhrlinger-Biosketch-NIH.pdf
+          retention-days: 90
+
+      # ── 6. Deploy to gh-pages branch (serves as ehrlinger.github.io source) ──
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .          # copies everything to gh-pages
+          publish_branch: gh-pages
+          keep_files: false
+          exclude_assets: |
+            .github
+            *.tex
+            *.bib
+            *.cls
+            *.log
+            *.aux
+            *.bbl
+            *.bcf
+            *.blg
+            *.run.xml
+            *.gitignore
