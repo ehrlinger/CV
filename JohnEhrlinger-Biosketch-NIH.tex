@@ -8,11 +8,15 @@
 %% nihbiosketch.cls must be in the same directory or on your TeX path.
 %% Download: curl -fsSL https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls -o nihbiosketch.cls
 
+%% nihbiosketch.cls calls \setmainfont{Arial} during class loading, which
+%% causes a fatal fontspec error on systems without Arial (e.g. Linux CI).
+%% quiet mode demotes that fatal error to a warning so the class loads;
+%% the preamble below then sets the real font.
+\PassOptionsToPackage{quiet}{fontspec}
 \documentclass{nihbiosketch}
 
-%% nihbiosketch.cls hardcodes \setmainfont{Arial}. Override here so the file
-%% compiles on systems without Arial (e.g. Linux CI). TeX Gyre Heros is an
-%% Arial/Helvetica-compatible font included in TeX Live Full.
+%% Use Arial when available (Mac), fall back to TeX Gyre Heros on CI
+%% (metrically compatible, OpenType, ships with TeX Live Full).
 \IfFontExistsTF{Arial}{%
   \setmainfont[Ligatures=TeX]{Arial}%
 }{%
