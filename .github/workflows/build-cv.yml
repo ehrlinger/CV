@@ -45,7 +45,7 @@ jobs:
         with:
           root_file: JohnEhrlinger-Biosketch-NIH.tex
           latexmk_use_xelatex: true
-          args: "-xelatex -interaction=nonstopmode -file-line-error"
+          args: "-f -xelatex -interaction=nonstopmode -file-line-error"
 
       # ── 5. Upload PDFs as build artifacts ────────────────────────────────────
       - name: Upload PDFs
