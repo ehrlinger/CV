@@ -37,17 +37,15 @@ jobs:
             pdflatex JohnEhrlinger-CV.tex
             pdflatex JohnEhrlinger-CV.tex
 
-      # ── 4. Compile NIH Biosketch (XeLaTeX — nihbiosketch.cls requires Arial) ───
+      # ── 4. Compile NIH Biosketch (XeLaTeX) ──────────────────────────────────
+      # nihbiosketch.cls requires Arial; the .tex file falls back to TeX Gyre
+      # Heros (Arial-compatible, included in TeX Live Full) when Arial is absent.
       - name: Compile NIH Biosketch
         uses: xu-cheng/latex-action@v3
         with:
           root_file: JohnEhrlinger-Biosketch-NIH.tex
           latexmk_use_xelatex: true
           args: "-xelatex -interaction=nonstopmode -file-line-error"
-          pre_compile: |
-            apk add --no-cache font-liberation
-            printf '<fontconfig>\n  <alias><family>Arial</family><prefer><family>Liberation Sans</family></prefer></alias>\n</fontconfig>\n' > /etc/fonts/local.conf
-            fc-cache -f
 
       # ── 5. Upload PDFs as build artifacts ────────────────────────────────────
       - name: Upload PDFs

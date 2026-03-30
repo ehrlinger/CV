@@ -10,6 +10,15 @@
 
 \documentclass{nihbiosketch}
 
+%% nihbiosketch.cls hardcodes \setmainfont{Arial}. Override here so the file
+%% compiles on systems without Arial (e.g. Linux CI). TeX Gyre Heros is an
+%% Arial/Helvetica-compatible font included in TeX Live Full.
+\IfFontExistsTF{Arial}{%
+  \setmainfont[Ligatures=TeX]{Arial}%
+}{%
+  \setmainfont[Ligatures=TeX]{TeX Gyre Heros}%
+}
+
 %% Personal information — auto-inserted as header via \piinfo
 \name{Ehrlinger, John}
 \eracommons{EHRLINJ}
