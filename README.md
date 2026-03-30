@@ -46,7 +46,7 @@ curl -fsSL \
 Then compile:
 
 ```bash
-pdflatex JohnEhrlinger-Biosketch-NIH
+xelatex JohnEhrlinger-Biosketch-NIH
 ```
 
 ## GitHub Setup (first time)

@@ -3,8 +3,10 @@
 *.bbl
 *.bcf
 *.blg
+*.dvi
 *.fdb_latexmk
 *.fls
+*.html
 *.lof
 *.log
 *.lot

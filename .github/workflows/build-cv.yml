@@ -40,6 +40,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: JohnEhrlinger-Biosketch-NIH.tex
+          latexmk_use_xelatex: true
           args: "-pdf -interaction=nonstopmode -file-line-error"
 
       # ── 5. Upload PDFs as build artifacts ────────────────────────────────────
