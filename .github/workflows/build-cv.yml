@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'   # opt into Node 24 ahead of June 2026 forced migration
 
     steps:
       # ── 1. Check out the repo ────────────────────────────────────────────────
@@ -35,13 +37,18 @@ jobs:
             pdflatex JohnEhrlinger-CV.tex
             pdflatex JohnEhrlinger-CV.tex
 
-      # ── 4. Compile NIH Biosketch ─────────────────────────────────────────────
+      # ── 4. Compile NIH Biosketch (XeLaTeX — nihbiosketch.cls requires Arial) ───
       - name: Compile NIH Biosketch
         uses: xu-cheng/latex-action@v3
         with:
           root_file: JohnEhrlinger-Biosketch-NIH.tex
           latexmk_use_xelatex: true
-          args: "-pdf -interaction=nonstopmode -file-line-error"
+          args: "-xelatex -interaction=nonstopmode -file-line-error"
+          pre_compile: |
+            apt-get update -qq
+            echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
+            DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ttf-mscorefonts-installer
+            fc-cache -f
 
       # ── 5. Upload PDFs as build artifacts ────────────────────────────────────
       - name: Upload PDFs
