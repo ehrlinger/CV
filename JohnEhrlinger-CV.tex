@@ -179,7 +179,7 @@
 % 
 % \section*{Areas of Expertise}
 
-Applied statistical machine learning research conducted in close collaboration with cardiovascular surgeons and clinicians. Methodological focus spans random forest and ensemble methods, clustering, deep learning, and time series analysis, with emphasis on time-to-event and longitudinal data in cardiovascular outcomes. A sustained focus is the translation of methodological advances into clinical practice through open-source software development and reproducible analytical workflows, with current work centered on an R implementation of multi-phase hazard analysis methods.
+Applied statistical machine learning research conducted in close collaboration with cardiovascular surgeons and clinicians. Methodological focus spans random forest and ensemble methods, clustering, deep learning, and time series analysis, with emphasis on time-to-event and longitudinal data in cardiovascular outcomes. A sustained focus is the translation of methodological advances into clinical practice through open-source software development and reproducible analytical workflows, with current work centered on open-source implementations of multi-phase hazard analysis methods.
 
 \section*{Professional Experience}
 
@@ -191,7 +191,7 @@ Applied statistical machine learning research conducted in close collaboration w
 
 Lead a team of data engineers and data scientists supporting cardiovascular outcomes research within Cardiovascular Outcomes, Registries and Research (CORR). Drive statistical methods research as applied to observational clinical research, advancing rigorous analytic approaches for cardiovascular outcomes data, and collaborate with staff and resident physicians on grant applications and peer-reviewed publication submissions.
 
-Champion software engineering best practices — including version control, code review, and automated workflows — and implement process improvements to optimize the departmental research pipeline from data collection through publication. Lead open-source development of multi-phase hazard analysis methods in R, enabling broader adoption of methods currently accessible only through a SAS-dependent implementation.\\
+Champion software engineering best practices — including version control, code review, and automated workflows — and implement process improvements to optimize the departmental research pipeline from data collection through publication. Lead open-source development of multi-phase hazard analysis methods, enabling broader access to tools currently dependent on a proprietary SAS implementation.\\
 
 
 \textbf{Altamira Technologies}, McLean, VA \\
@@ -424,10 +424,13 @@ Michael S Lauer, M.D. (P.I.)	\hfill	10/1/2005 – 9/30/2008
 \begin{myList}
 \item[] {\em ggRandomForests} -- Visually Exploring Random Forests. Graphics for random forest models (survival, regression, classification) using the randomForestSRC and ggplot2 packages. Formerly published on CRAN; now maintained on GitHub.\\ \url{https://github.com/ehrlinger/ggRandomForests}
 \item[] {\em boostmtree} -- Boosted multivariate trees for longitudinal data. Nonparametric ensemble method for flexible modeling of multivariate continuous longitudinal outcomes. Formerly published on CRAN; now maintained on GitHub.\\ \url{https://github.com/ehrlinger/boostmtree}
-\item[] {\em hazard} -- Maintained R package implementing multi-phase hazard analysis for time-to-event decomposition---an open-source replacement for the Hazard SAS module developed at Cleveland Clinic. (Maintainer)\\ \url{https://github.com/ehrlinger/hazard}
 \item[] {\em mixhazard} -- R port of the C code underlying the Cleveland Clinic Hazard SAS module, providing direct access to the computational core of the hazard analysis engine. Pre-release.\\ \url{https://github.com/ehrlinger/mixhazard}
 \item[] {\em hvtiPlotR} -- Publication-quality graphics conforming to the statistical reporting standards of the Heart, Vascular \& Thoracic Institute at Cleveland Clinic.\\ \url{https://github.com/ehrlinger/hvtiPlotR}
 \item[] {\em hvtiRutilities} -- Utility functions supporting reproducible research workflows within the Heart, Vascular \& Thoracic Institute.\\ \url{https://github.com/ehrlinger/hvtiRutilities}
+\end{myList}
+\textbf{SAS/C Software}
+\begin{myList}
+\item[] {\em hazard} -- SAS and C implementation of multi-phase hazard analysis for time-to-event decomposition. Includes C source code and SAS macros and modules. (Maintainer)\\ \url{https://github.com/ehrlinger/hazard}
 \end{myList}
 Contributor to several open-source R packages in the randomForestSRC and survival analysis ecosystem.\\
 
