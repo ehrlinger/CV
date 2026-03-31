@@ -24,14 +24,9 @@ jobs:
         with:
           tinytex: true
 
-      # ── 3. Install extra packages needed by biosketch (xelatex) ─────────────
-      - name: Install extra LaTeX packages
-        run: |
-          tlmgr install \
-            xetex \
-            collection-fontsrecommended \
-            collection-latexrecommended \
-            lm-math
+      # ── 3. Install XeTeX for biosketch via apt (Quarto handles its own packages) ─
+      - name: Install XeTeX
+        run: sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-latex-recommended
 
       # ── 4. Download nihbiosketch.cls (not committed to repo) ─────────────────
       - name: Download nihbiosketch.cls
