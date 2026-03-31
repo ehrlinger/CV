@@ -1,0 +1,178 @@
+---
+# ============================================================
+# LATEX BACKEND — produnis/quarto-cv  (moderncv "classic")
+# Install once: quarto use template produnis/quarto-cv
+# Render:       quarto render cv.qmd
+# Output:       cv.pdf  cv.html  cv.md
+#
+# moderncv "classic" style is visually close to the current
+# nih.cls formatting: left-aligned section headers, name at
+# top, contact line underneath.
+# ============================================================
+title: "Curriculum Vitae"
+author: "John Ehrlinger, PhD"
+
+format:
+  quarto-cv-pdf:
+    keep-tex: false
+    lang: en
+    date-format: "MMMM YYYY"
+    biblatexoptions:
+      - style=authoryear
+      - backend=biber
+      - sorting=ydnt
+      - maxbibnames=99
+  html:
+    toc: true
+    theme: cosmo
+    embed-resources: true
+  gfm:
+    output-file: JohnEhrlinger-CV.md
+
+moderncvtheme: classic   # classic | casual
+cvoption: blue           # blue | orange | green | red | grey
+
+# moderncv header fields (template uses German variable names)
+vorname: "John"
+nachname: "Ehrlinger, PhD"
+graduate: "Assistant Staff, Lead Data Scientist"
+strasse: ""
+plz: ""
+ort: "Hiram, Ohio"
+telefon: ""
+
+# Contact block (classic style renders these in header)
+address: "Hiram, Ohio"
+phone: ~                 # omit if not wanted
+email: "ehrlinj@ccf.org"
+homepage: "ehrlinger.github.io"
+github: "ehrlinger"
+linkedin: "ehrlinger"
+orcid: "0000-0002-5340-5154"
+
+# Bibliography — same .bib files as current LaTeX CV
+bibliography:
+  - cv-primary.bib
+  - submitted.bib
+  - inprep.bib
+  - technotes.bib
+  - talks.bib
+
+# keyword → section heading mapping (matches existing bib keywords)
+subbibliography: true
+publikationen:
+  - list:
+      key: primary
+      title: "Publications"
+  - list:
+      key: secondary
+      title: "In Revision / Submitted"
+  - list:
+      key: inprep
+      title: "In Preparation"
+  - list:
+      key: technote
+      title: "Technical Reports"
+  - list:
+      key: presentation
+      title: "Conference Presentations"
+
+# Author highlighting in bibliography
+# Add  author+an = {1=highlight}  to .bib entries where Ehrlinger is author 1
+# or use the biblatex myname command from existing CV
+---
+
+## Research Interests
+
+Applied statistical machine learning research conducted in close collaboration with
+cardiovascular surgeons and clinicians. Methodological focus spans random forest and
+ensemble methods, clustering, deep learning, and time series analysis, with emphasis
+on time-to-event and longitudinal data in cardiovascular outcomes. A sustained focus
+is the translation of methodological advances into clinical practice through open-source
+software development and reproducible analytical workflows.
+
+## Professional Experience
+
+```{=latex}
+\cventry{Dec 2024--Present}{Assistant Staff, Lead Data Scientist}{Cleveland Clinic}{Cleveland, OH}{}{
+  Cardiovascular Outcomes, Registries and Research (CORR) ---
+  Heart, Vascular \& Thoracic Institute.
+  Lead a team of data engineers and data scientists supporting cardiovascular outcomes
+  research within CORR. Drive statistical methods research as applied to observational
+  clinical research. Champion software engineering best practices and implement process
+  improvements to optimize the departmental research pipeline.
+}
+
+\cventry{Jun 2025--Present}{Clinical Assistant Professor \textnormal{(Joint Appointment)}}{Cleveland Clinic Lerner College of Medicine}{Cleveland, OH}{}{
+  Serving as faculty mentor and statistical advisor to medical students and trainees
+  conducting clinical research within the Heart, Vascular \& Thoracic Institute.
+  Providing guidance in statistical methods, research design, and data analysis
+  for trainee-led research projects.
+}
+
+\cventry{Mar 2023--Oct 2024}{Senior Data Scientist -- Technical Lead}{Altamira Technologies}{McLean, VA}{}{
+  Technical lead of data science team supporting USAF customers on secure networks.
+  Built reusable Plotly-based dashboard framework; developed predictive traffic flow
+  models and computer vision pipeline for vehicle volume estimation at base entry points.
+}
+
+\cventry{Jul 2015--Apr 2023}{Senior Data and Applied Scientist -- Technical Lead}{Microsoft}{Cambridge, MA}{}{
+  Azure Global Commercial Industry (AGCI-AI). Technical lead for ML/AI customer
+  engagements across oil \& gas (Chevron), aerospace (Rolls Royce), and medical devices
+  (Stryker). Developed published Azure ML solution accelerators for predictive
+  maintenance. Presented at MLADS conference four times (2016--2020).
+}
+
+\newpage
+
+\cventry{Aug 2012--Jul 2015}{Assistant Staff / Assistant Professor of Medicine}{Cleveland Clinic}{Cleveland, OH}{}{
+  Department of Quantitative Health Sciences -- Lerner Research Institute.
+  Applied random survival forests to cardiovascular outcomes research.
+  Initiated development of the ggRandomForests R package.
+}
+
+\cventry{2015}{Clinical Assistant Professor \textnormal{(Joint Appointment)}}{Cleveland Clinic Lerner College of Medicine}{Cleveland, OH}{}{
+  Mentored medical students and fellows in statistical methods and research design
+  as part of joint fellowship programs within the Cardiovascular Outcomes,
+  Registries and Research (CORR) group.
+}
+
+\cventry{Aug 1999--Aug 2012}{Lead Systems Analyst: Scientific Programmer}{Cleveland Clinic}{Cleveland, OH}{}{
+  Department of Thoracic and Cardiovascular Surgery -- Heart and Vascular Institute.
+  Supported research computing infrastructure, statistical software development,
+  and HPC operations. Completed doctoral research in Statistics at CWRU during this period.
+}
+```
+
+## Education
+
+```{=latex}
+\cventry{2011}{Doctor of Philosophy (PhD)}{Case Western Reserve University}{Cleveland, OH}{Statistics}{
+  Dissertation: \textit{Regularization: Stagewise Regression and Bagging} ---
+  Advisor: Hemant Ishwaran
+}
+\cventry{1994}{Master of Science (MS)}{Case Western Reserve University}{Cleveland, OH}{Mechanical Engineering / Aerospace Engineering}{
+  Thesis: \textit{A comparison of empirical axial flow compressor models} ---
+  Advisor: Frances E.\ McCaughan
+}
+\cventry{1993}{Bachelor of Science (BS)}{Case Western Reserve University}{Cleveland, OH}{Mechanical Engineering}{}
+```
+
+## Software
+
+**R Packages**
+
+- *ggRandomForests* — Visual exploration of random forest models. <https://github.com/ehrlinger/ggRandomForests>
+- *boostmtree* — Boosted multivariate trees for longitudinal data. <https://github.com/ehrlinger/boostmtree>
+- *mixhazard* — R port of the C code underlying the Cleveland Clinic Hazard SAS module. <https://github.com/ehrlinger/mixhazard>
+- *hvtiPlotR* — Publication-quality HVTI graphics. <https://github.com/ehrlinger/hvtiPlotR>
+- *hvtiRutilities* — Reproducible research utilities. <https://github.com/ehrlinger/hvtiRutilities>
+
+**SAS/C Software**
+
+- *hazard* — SAS and C implementation of multi-phase hazard analysis for time-to-event decomposition. Includes C source code, SAS macros and modules. (Maintainer) <https://github.com/ehrlinger/hazard>
+
+## Honors & Awards
+
+- NASA Graduate Research Fellowship · 1992–1994
+- Cleveland Clinic Innovations Award · 2003

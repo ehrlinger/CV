@@ -66,10 +66,12 @@
 \newcommand{\@name}{}
 \newcommand{\@eracommons}{}
 \newcommand{\@position}{}
+\newcommand{\@orcid}{}
 
 \newcommand{\name}[1]{\renewcommand{\@name}{#1}}
 \newcommand{\eracommons}[1]{\renewcommand{\@eracommons}{#1}}
 \newcommand{\position}[1]{\renewcommand{\@position}{#1}}
+\newcommand{\orcid}[1]{\renewcommand{\@orcid}{#1}}
 
 \newcommand{\pgline}{\noindent\makebox[\linewidth]{\rule{\textwidth}{0.5pt}}\newline}
 
@@ -86,6 +88,8 @@ NAME: \@name\\
 eRA COMMONS USER NAME (credential, e.g., agency login): \@eracommons\\
 \pgline
 POSITION TITLE: \@position\\
+\pgline
+ORCID iD: \ifx\@orcid\empty\hspace{2em}---\else\href{https://orcid.org/\@orcid}{\@orcid}\fi\\
 \pgline
 EDUCATION/TRAINING (\textit{Begin with baccalaureate or other initial professional education, such as nursing, include postdoctoral training and residency training if applicable. Add/delete rows as necessary.})\\}
 

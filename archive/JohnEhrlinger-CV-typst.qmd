@@ -1,0 +1,164 @@
+---
+format:
+  awesomecv-typst:
+    keep-typ: true
+
+author:
+  firstname: John
+  lastname: "Ehrlinger, PhD"
+  position: "Assistant Staff, Lead Data Scientist"
+  address: "Hiram, Ohio"
+  contacts:
+    - icon: fa envelope
+      text: ehrlinj@ccf.org
+      url: "mailto:ehrlinj@ccf.org"
+    - icon: fa brands github
+      text: github.com/ehrlinger
+      url: "https://github.com/ehrlinger"
+    - icon: fa brands linkedin
+      text: linkedin.com/in/ehrlinger
+      url: "https://linkedin.com/in/ehrlinger"
+    - icon: fa globe
+      text: ehrlinger.github.io
+      url: "https://ehrlinger.github.io"
+
+brand:
+  color:
+    primary: "#1a3a5c"
+---
+
+## Research Interests
+
+Applied statistical machine learning research conducted in close collaboration
+with cardiovascular surgeons and clinicians. Methodological focus spans random
+forest and ensemble methods, clustering, deep learning, and time series analysis,
+with emphasis on time-to-event and longitudinal data in cardiovascular outcomes.
+A sustained focus is the translation of methodological advances into clinical
+practice through open-source software development and reproducible analytical
+workflows, with current work centered on open-source implementations of
+multi-phase hazard analysis methods.
+
+---
+
+## Professional Experience
+
+### Cleveland Clinic {.employer}
+
+Assistant Staff, Lead Data Scientist — Cardiovascular Outcomes, Registries and Research (CORR), Heart, Vascular & Thoracic Institute {.position}
+
+December 2024 – Present {.date}
+
+Lead a team of data engineers and data scientists supporting cardiovascular
+outcomes research. Drive statistical methods research as applied to observational
+clinical research, advancing rigorous analytic approaches for cardiovascular
+outcomes data. Champion software engineering best practices and implement process
+improvements to optimize the departmental research pipeline from data collection
+through publication.
+
+### Cleveland Clinic Lerner College of Medicine {.employer}
+
+Clinical Assistant Professor (Joint Appointment) {.position}
+
+June 2025 – Present {.date}
+
+Teaching graduate students, medical students, and residents in statistical methods
+to support participation in clinical and translational research programs.
+
+### Altamira Technologies {.employer}
+
+Senior Data Scientist – Technical Lead {.position}
+
+March 2023 – October 2024 {.date}
+
+Technical lead of the data science team supporting USAF customers on secure
+networks. Built a reusable Plotly-based dashboard framework; developed predictive
+traffic flow models and a computer vision pipeline for vehicle volume estimation
+at base entry points.
+
+### Microsoft — Azure Global Commercial Industry {.employer}
+
+Senior Data and Applied Scientist – Technical Lead {.position}
+
+July 2015 – April 2023 {.date}
+
+Technical lead for customer-facing ML/AI engagements across oil & gas (Chevron),
+aerospace (Rolls Royce), and medical devices (Stryker). Developed Azure ML
+solution accelerators for predictive maintenance. Presented at Microsoft MLADS
+conference four times (2016–2020).
+
+### Cleveland Clinic — Quantitative Health Sciences {.employer}
+
+Assistant Staff / Assistant Professor of Medicine {.position}
+
+August 2012 – July 2015 {.date}
+
+Applied random survival forests to cardiovascular outcomes research. Initiated
+development of the ggRandomForests R package. Began migration of institutional
+SAS-based hazard analysis to open-source implementations.
+
+### Cleveland Clinic — Thoracic and Cardiovascular Surgery {.employer}
+
+Lead Systems Analyst: Scientific Programmer {.position}
+
+August 1999 – August 2012 {.date}
+
+Supported research computing infrastructure, statistical software development,
+and HPC operations. Completed doctoral research in Statistics at Case Western
+Reserve University during this period.
+
+---
+
+## Education
+
+### Case Western Reserve University {.employer}
+
+Doctor of Philosophy (PhD) — Statistics {.position}
+
+2011 {.date}
+
+*Dissertation: Regularization: Stagewise Regression and Bagging*
+Advisor: Hemant Ishwaran
+
+### Case Western Reserve University {.employer}
+
+Master of Science (MS) — Mechanical Engineering / Aerospace Engineering {.position}
+
+1994 {.date}
+
+### Case Western Reserve University {.employer}
+
+Bachelor of Science (BS) — Mechanical Engineering {.position}
+
+1993 {.date}
+
+---
+
+## Publications
+
+```{=typst}
+#set bibliography(style: "cv-year-desc.csl")
+#bibliography("typst-all.bib", title: none, full: true)
+```
+
+---
+
+## Software
+
+**R Packages**
+
+- *ggRandomForests* — Visual exploration of random forest models. <https://github.com/ehrlinger/ggRandomForests>
+- *boostmtree* — Boosted multivariate trees for longitudinal data. <https://github.com/ehrlinger/boostmtree>
+- *mixhazard* — R port of the C code underlying the Cleveland Clinic Hazard SAS module. <https://github.com/ehrlinger/mixhazard>
+- *hvtiPlotR* — Publication-quality HVTI graphics. <https://github.com/ehrlinger/hvtiPlotR>
+- *hvtiRutilities* — Reproducible research utilities. <https://github.com/ehrlinger/hvtiRutilities>
+
+**SAS/C Software**
+
+- *hazard* — SAS and C implementation of multi-phase hazard analysis for time-to-event decomposition. Includes C source code, SAS macros and modules. (Maintainer) <https://github.com/ehrlinger/hazard>
+
+---
+
+## Honors & Awards
+
+- NASA Graduate Research Fellowship · 1992–1994
+- Cleveland Clinic Innovations Award · 2003

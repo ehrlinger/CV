@@ -1,0 +1,209 @@
+\documentclass[letterpaper,
+            11pt]
+            {moderncv}
+\setcounter{tocdepth}{3}
+\usepackage{geometry}
+\geometry{letterpaper,left=25mm,right=20mm, bottom=30mm}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{wrapfig}
+\usepackage{times} 
+\usepackage{lastpage}
+% Biblatex with BIBER---------------------------------
+\usepackage[style=apa,sortcites=true,sorting=ydnt,backend=biber]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{cv-primary.bib}
+\addbibresource{submitted.bib}
+\addbibresource{inprep.bib}
+\addbibresource{technotes.bib}
+\addbibresource{talks.bib}
+
+\moderncvtheme[blue]{classic}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%-----------------------------------------------------
+% hebe mich als Autoren hervor
+% erfordert manuelle Bearbeitung der .bib-Datei,
+% ergänze bei jedem Eintrag
+%     author+an = {3=highlight},
+% und ersetze die "3" durch deine Position
+% in der Autorenreihe
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifitemannotation{highlight}
+    {\textbf{#1}}
+    {#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifitemannotation{highlight}
+    {\textbf{#1}}
+    {#1}}
+%-----------------------------------------------------
+
+\rfoot{\textit{\small{\thepage/\pageref{LastPage}}}}
+\name{John}{Ehrlinger, PhD}
+\firstname{John}
+\familyname{Ehrlinger, PhD}
+\address{}{Hiram, Ohio}
+
+\email{ehrlinj@ccf.org}
+
+\title{Assistant Staff, Lead Data Scientist}
+
+
+
+% Uniform name color — both parts in dark gray
+\renewcommand*{\firstnamestyle}[1]{{\firstnamefont\color{color2!85!black}#1}}
+
+% Pandoc compact-list compatibility
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Author name highlighting — \myname{} in .bib files bolds the author
+\newcommand{\myname}[1]{\textbf{#1}}
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifitemannotation{highlight}{\textbf{#1}}{#1}}
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifitemannotation{highlight}{\textbf{#1}}{#1}}
+
+\begin{document}
+
+\makecvtitle
+
+
+\subsection{Research Interests}\label{research-interests}
+
+Applied statistical machine learning research conducted in close
+collaboration with cardiovascular surgeons and clinicians.
+Methodological focus spans random forest and ensemble methods,
+clustering, deep learning, and time series analysis, with emphasis on
+time-to-event and longitudinal data in cardiovascular outcomes. A
+sustained focus is the translation of methodological advances into
+clinical practice through open-source software development and
+reproducible analytical workflows.
+
+\subsection{Professional Experience}\label{professional-experience}
+
+\cventry{Dec 2024--Present}{Assistant Staff, Lead Data Scientist}{Cleveland Clinic}{Cleveland, OH}{}{
+  Cardiovascular Outcomes, Registries and Research (CORR) ---
+  Heart, Vascular \& Thoracic Institute.
+  Lead a team of data engineers and data scientists supporting cardiovascular outcomes
+  research within CORR. Drive statistical methods research as applied to observational
+  clinical research. Champion software engineering best practices and implement process
+  improvements to optimize the departmental research pipeline.
+}
+
+\cventry{Jun 2025--Present}{Clinical Assistant Professor \textnormal{(Joint Appointment)}}{Cleveland Clinic Lerner College of Medicine}{Cleveland, OH}{}{
+  Serving as faculty mentor and statistical advisor to medical students and trainees
+  conducting clinical research within the Heart, Vascular \& Thoracic Institute.
+  Providing guidance in statistical methods, research design, and data analysis
+  for trainee-led research projects.
+}
+
+\cventry{Mar 2023--Oct 2024}{Senior Data Scientist -- Technical Lead}{Altamira Technologies}{McLean, VA}{}{
+  Technical lead of data science team supporting USAF customers on secure networks.
+  Built reusable Plotly-based dashboard framework; developed predictive traffic flow
+  models and computer vision pipeline for vehicle volume estimation at base entry points.
+}
+
+\cventry{Jul 2015--Apr 2023}{Senior Data and Applied Scientist -- Technical Lead}{Microsoft}{Cambridge, MA}{}{
+  Azure Global Commercial Industry (AGCI-AI). Technical lead for ML/AI customer
+  engagements across oil \& gas (Chevron), aerospace (Rolls Royce), and medical devices
+  (Stryker). Developed published Azure ML solution accelerators for predictive
+  maintenance. Presented at MLADS conference four times (2016--2020).
+}
+
+\newpage
+
+\cventry{Aug 2012--Jul 2015}{Assistant Staff / Assistant Professor of Medicine}{Cleveland Clinic}{Cleveland, OH}{}{
+  Department of Quantitative Health Sciences -- Lerner Research Institute.
+  Applied random survival forests to cardiovascular outcomes research.
+  Initiated development of the ggRandomForests R package.
+}
+
+\cventry{2015}{Clinical Assistant Professor \textnormal{(Joint Appointment)}}{Cleveland Clinic Lerner College of Medicine}{Cleveland, OH}{}{
+  Mentored medical students and fellows in statistical methods and research design
+  as part of joint fellowship programs within the Cardiovascular Outcomes,
+  Registries and Research (CORR) group.
+}
+
+\cventry{Aug 1999--Aug 2012}{Lead Systems Analyst: Scientific Programmer}{Cleveland Clinic}{Cleveland, OH}{}{
+  Department of Thoracic and Cardiovascular Surgery -- Heart and Vascular Institute.
+  Supported research computing infrastructure, statistical software development,
+  and HPC operations. Completed doctoral research in Statistics at CWRU during this period.
+}
+
+\subsection{Education}\label{education}
+
+\cventry{2011}{Doctor of Philosophy (PhD)}{Case Western Reserve University}{Cleveland, OH}{Statistics}{
+  Dissertation: \textit{Regularization: Stagewise Regression and Bagging} ---
+  Advisor: Hemant Ishwaran
+}
+\cventry{1994}{Master of Science (MS)}{Case Western Reserve University}{Cleveland, OH}{Mechanical Engineering / Aerospace Engineering}{
+  Thesis: \textit{A comparison of empirical axial flow compressor models} ---
+  Advisor: Frances E.\ McCaughan
+}
+\cventry{1993}{Bachelor of Science (BS)}{Case Western Reserve University}{Cleveland, OH}{Mechanical Engineering}{}
+
+\subsection{Software}\label{software}
+
+\textbf{R Packages}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{ggRandomForests} --- Visual exploration of random forest models.
+  \url{https://github.com/ehrlinger/ggRandomForests}
+\item
+  \emph{boostmtree} --- Boosted multivariate trees for longitudinal
+  data. \url{https://github.com/ehrlinger/boostmtree}
+\item
+  \emph{mixhazard} --- R port of the C code underlying the Cleveland
+  Clinic Hazard SAS module. \url{https://github.com/ehrlinger/mixhazard}
+\item
+  \emph{hvtiPlotR} --- Publication-quality HVTI graphics.
+  \url{https://github.com/ehrlinger/hvtiPlotR}
+\item
+  \emph{hvtiRutilities} --- Reproducible research utilities.
+  \url{https://github.com/ehrlinger/hvtiRutilities}
+\end{itemize}
+
+\textbf{SAS/C Software}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{hazard} --- SAS and C implementation of multi-phase hazard
+  analysis for time-to-event decomposition. Includes C source code, SAS
+  macros and modules. (Maintainer)
+  \url{https://github.com/ehrlinger/hazard}
+\end{itemize}
+
+\subsection{Honors \& Awards}\label{honors-awards}
+
+\begin{itemize}
+\tightlist
+\item
+  NASA Graduate Research Fellowship · 1992--1994
+\item
+  Cleveland Clinic Innovations Award · 2003
+\end{itemize}
+
+%----------CAVE ! --------------------------------------------
+% this "\nocite{*}" command has to be set. 
+% it will mark all non-cited entries for bibliography.
+% Otherwise, you will get "empty bibliography"
+\nocite{*}
+%-------------------------------------------------------------
+\printbibliography[keyword={primary}, title={Publications}, heading=subbibliography]
+\printbibliography[keyword={secondary}, title={In Revision /
+Submitted}, heading=subbibliography]
+\printbibliography[keyword={inprep}, title={In
+Preparation}, heading=subbibliography]
+\printbibliography[keyword={technote}, title={Technical
+Reports}, heading=subbibliography]
+\printbibliography[keyword={presentation}, title={Conference
+Presentations}, heading=subbibliography]
+
+\end{document}
