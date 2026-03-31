@@ -18,40 +18,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ── 2. Download nihbiosketch.cls (not committed to repo) ─────────────────
+      # ── 2. Install Quarto with TinyTeX (auto-installs missing LaTeX packages) ─
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      # ── 3. Install extra packages needed by biosketch (xelatex) ─────────────
+      - name: Install extra LaTeX packages
+        run: |
+          tlmgr install \
+            xetex \
+            collection-fontsrecommended \
+            collection-latexrecommended \
+            lm-math
+
+      # ── 4. Download nihbiosketch.cls (not committed to repo) ─────────────────
       - name: Download nihbiosketch.cls
         run: |
           curl -fsSL \
             https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
             -o nihbiosketch.cls
 
-      # ── 3. Compile CV (pdflatex + biber) ─────────────────────────────────────
-      - name: Compile CV
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: JohnEhrlinger-CV.tex
-          latexmk_use_xelatex: false
-          latexmk_shell_escape: false
-          extra_system_packages: "biber"
-          args: "-pdf -interaction=nonstopmode -file-line-error"
-          post_compile: |
-            biber JohnEhrlinger-CV
-            pdflatex JohnEhrlinger-CV.tex
-            pdflatex JohnEhrlinger-CV.tex
+      # ── 5. Render CV via Quarto (lualatex, via mps9506/quarto-cv extension) ──
+      - name: Render CV
+        run: quarto render JohnEhrlinger-CV.qmd
 
-      # ── 4. Compile NIH Biosketch (XeLaTeX) ──────────────────────────────────
-      # nihbiosketch.cls requires Arial; the .tex file falls back to TeX Gyre
-      # Heros (Arial-compatible, included in TeX Live Full) when Arial is absent.
-      # continue-on-error: the PDF IS produced (xdvipdfmx runs successfully) but
-      # xelatex exits code 1 for ~38 nullfont warnings in a table; latexmk then
-      # exits code 12.  The verify step below confirms the PDF actually exists.
+      # ── 6. Compile NIH Biosketch (XeLaTeX) ──────────────────────────────────
+      # continue-on-error: the PDF IS produced but xelatex exits code 1 for
+      # ~38 nullfont warnings in a table; the verify step confirms it exists.
       - name: Compile NIH Biosketch
         continue-on-error: true
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: JohnEhrlinger-Biosketch-NIH.tex
-          latexmk_use_xelatex: true
-          args: "-f -xelatex -interaction=nonstopmode -file-line-error"
+        run: |
+          xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
+          xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
 
       - name: Verify biosketch PDF was produced
         run: |
@@ -61,7 +61,7 @@ jobs:
           fi
           echo "OK: biosketch PDF exists ($(wc -c < JohnEhrlinger-Biosketch-NIH.pdf) bytes)"
 
-      # ── 5. Upload PDFs as build artifacts ────────────────────────────────────
+      # ── 7. Upload PDFs as build artifacts ────────────────────────────────────
       - name: Upload PDFs
         uses: actions/upload-artifact@v4
         with:
@@ -70,17 +70,18 @@ jobs:
             JohnEhrlinger-CV.pdf
             JohnEhrlinger-Biosketch-NIH.pdf
 
-      # ── 6. Deploy to gh-pages branch (serves as ehrlinger.github.io source) ──
+      # ── 8. Deploy to gh-pages branch ─────────────────────────────────────────
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .          # copies everything to gh-pages
+          publish_dir: .
           publish_branch: gh-pages
           keep_files: false
           exclude_assets: |
             .github
+            archive
             *.tex
             *.bib
             *.cls
