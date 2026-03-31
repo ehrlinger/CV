@@ -6,10 +6,13 @@ date-format: "MMMM YYYY"
 
 filters:
   - bold-author.lua
+  - strip-rawlatex.lua
 
 format:
   quarto-cv-pdf:
     pdf-engine: lualatex
+  gfm:
+    output-file: JohnEhrlinger-CV.md
 
 fontsize: 11pt
 geometry: margin=1in
