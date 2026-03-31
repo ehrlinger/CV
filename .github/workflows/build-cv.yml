@@ -35,7 +35,7 @@ jobs:
             https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
             -o nihbiosketch.cls
 
-      # ── 5. Render CV via Quarto (lualatex, via mps9506/quarto-cv extension) ──
+      # ── 5. Render CV — PDF (lualatex) and GFM Markdown both in one pass ────────
       - name: Render CV
         run: quarto render JohnEhrlinger-CV.qmd
 
@@ -63,6 +63,7 @@ jobs:
           name: cv-pdfs
           path: |
             JohnEhrlinger-CV.pdf
+            JohnEhrlinger-CV.md
             JohnEhrlinger-Biosketch-NIH.pdf
 
       # ── 8. Deploy to gh-pages branch ─────────────────────────────────────────
