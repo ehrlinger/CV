@@ -5,7 +5,7 @@ title: John Ehrlinger — CV
 
 # John Ehrlinger, PhD
 
-**Assistant Staff – Lead Data Scientist**
+**Assistant Staff, Lead Data Scientist**
 Department of Cardiothoracic Surgery
 Heart, Vascular & Thoracic Institute
 Cleveland Clinic

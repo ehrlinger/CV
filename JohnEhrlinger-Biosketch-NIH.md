@@ -9,7 +9,7 @@
 
 **eRA COMMONS USER NAME:** EHRLINJ
 
-**POSITION TITLE:** Assistant Staff – Lead Data Scientist
+**POSITION TITLE:** Assistant Staff, Lead Data Scientist
 
 **ORCID iD:** [0000-0002-5340-5154](https://orcid.org/0000-0002-5340-5154)
 
@@ -29,7 +29,7 @@ I am an applied statistician and data scientist with expertise in computational 
 
 My foundational methodological work on regularization and gradient boosting—specifically the theoretical characterization of L₂Boosting and its connections to the lasso and stagewise regression—established a principled framework for understanding regularized machine learning in high-dimensional settings. I have extended this work to multivariate longitudinal settings through boosted tree ensembles, enabling richer modeling of complex clinical trajectories. In parallel, I have developed open-source R software tools (ggRandomForests, l2boost) that make these methods accessible to the broader statistical and biomedical research community.
 
-At Microsoft's Azure AI group, I applied these methods at scale across healthcare and engineering industries, building production machine learning pipelines and contributing to the Azure Machine Learning platform. I have since returned to Cleveland Clinic's Heart, Vascular & Thoracic Institute as Assistant Staff – Lead Data Scientist in the Department of Cardiothoracic Surgery, where I lead a team of data engineers and data scientists focused on cardiovascular outcomes research. In this role I drive statistical methods research as applied to observational clinical research, establish best practices in software engineering and reproducible research, and implement process improvements to optimize the departmental research pipeline from data collection through publication.
+At Microsoft's Azure AI group, I applied these methods at scale across healthcare and engineering industries, building production machine learning pipelines and contributing to the Azure Machine Learning platform. I have since returned to Cleveland Clinic's Heart, Vascular & Thoracic Institute as Assistant Staff, Lead Data Scientist in the Department of Cardiothoracic Surgery, where I lead a team of data engineers and data scientists focused on cardiovascular outcomes research. In this role I drive statistical methods research as applied to observational clinical research, establish best practices in software engineering and reproducible research, and implement process improvements to optimize the departmental research pipeline from data collection through publication.
 
 I am well positioned to contribute to projects at the intersection of machine learning methodology and clinical data science, particularly those involving survival or longitudinal outcomes, mechanically assisted circulatory support, or predictive modeling for surgical decision support.
 
@@ -58,7 +58,7 @@ I am well positioned to contribute to projects at the intersection of machine le
 | 2015 | Assistant Professor of Medicine, Cleveland Clinic Lerner College of Medicine – Case Western Reserve University |
 | 2015–2023 | Senior Data and Applied Scientist, Artificial Intelligence, Azure Global Commercial Industry (AGCI-AI), Microsoft, Cambridge, MA |
 | 2023–2024 | Senior Data Scientist, Altamira Technologies, McLean, VA |
-| 2024–present | Assistant Staff – Lead Data Scientist, Dept. of Cardiothoracic Surgery, Heart, Vascular & Thoracic Institute, Cleveland Clinic, Cleveland, OH |
+| 2024–present | Assistant Staff, Lead Data Scientist, Dept. of Cardiothoracic Surgery, Heart, Vascular & Thoracic Institute, Cleveland Clinic, Cleveland, OH |
 
 ### Honors
 
