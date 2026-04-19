@@ -1,6 +1,6 @@
 # Curriculum Vitae
 John Ehrlinger, PhD
-March 2026
+April 2026
 
 # Research Interests
 
@@ -141,9 +141,9 @@ graphical analysis of survival, regression, and classification forests.
 *boostmtree* — Boosted multivariate trees for longitudinal data.
 <https://github.com/ehrlinger/boostmtree>
 
-*mixhazard* — R port of the C computational core underlying the
+*TemporalHazard* — R port of the C computational core underlying the
 Cleveland Clinic Hazard SAS module.
-<https://github.com/ehrlinger/mixhazard>
+<https://github.com/ehrlinger/TemporalHazard>
 
 *hvtiPlotR* — Publication-quality HVTI-standard graphics for
 reproducible clinical research figures.
