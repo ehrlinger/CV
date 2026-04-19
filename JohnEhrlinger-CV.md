@@ -143,7 +143,7 @@ graphical analysis of survival, regression, and classification forests.
 
 *TemporalHazard* — R port of the C computational core underlying the
 Cleveland Clinic Hazard SAS module.
-<https://github.com/ehrlinger/TemporalHazard>
+<https://github.com/ehrlinger/temporal_hazard>
 
 *hvtiPlotR* — Publication-quality HVTI-standard graphics for
 reproducible clinical research figures.
