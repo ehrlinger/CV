@@ -18,28 +18,48 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ── 2. Install Quarto with TinyTeX (auto-installs missing LaTeX packages) ─
+      # ── 2. Restore TinyTeX cache (skips slow package installs on repeat runs) ─
+      - name: Cache TinyTeX
+        id: cache-tinytex
+        uses: actions/cache@v4
+        with:
+          path: ~/.TinyTeX
+          key: tinytex-${{ runner.os }}-v1
+          restore-keys: tinytex-${{ runner.os }}-
+
+      # ── 3. Install Quarto with TinyTeX ───────────────────────────────────────
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           tinytex: true
 
-      # ── 3. Install XeTeX for biosketch via apt (Quarto handles its own packages) ─
-      - name: Install XeTeX
-        run: sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-latex-recommended
+      # ── 4. Install extra packages (xetex for biosketch) — cache miss only ────
+      - name: Install extra LaTeX packages
+        if: steps.cache-tinytex.outputs.cache-hit != 'true'
+        run: |
+          export PATH="$HOME/.TinyTeX/bin/x86_64-linux:$PATH"
+          tlmgr install \
+            xetex \
+            collection-fontsrecommended \
+            collection-latexrecommended \
+            lm-math
 
-      # ── 4. Download nihbiosketch.cls (not committed to repo) ─────────────────
+      # ── 5. Ensure TinyTeX bin is on PATH for all subsequent steps ────────────
+      - name: Add TinyTeX to PATH
+        run: echo "$HOME/.TinyTeX/bin/x86_64-linux" >> $GITHUB_PATH
+
+      # ── 6. Download nihbiosketch.cls (not committed to repo) ─────────────────
       - name: Download nihbiosketch.cls
         run: |
           curl -fsSL \
             https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
             -o nihbiosketch.cls
 
-      # ── 5. Render CV — PDF (lualatex) and GFM Markdown both in one pass ────────
+      # ── 7. Render CV — PDF (lualatex) and GFM Markdown both in one pass ──────
       - name: Render CV
         run: quarto render JohnEhrlinger-CV.qmd
 
-      # ── 6. Compile NIH Biosketch (XeLaTeX) ──────────────────────────────────
+      # ── 8. Compile NIH Biosketch (XeLaTeX) ──────────────────────────────────
       # continue-on-error: the PDF IS produced but xelatex exits code 1 for
       # ~38 nullfont warnings in a table; the verify step confirms it exists.
       - name: Compile NIH Biosketch
@@ -56,7 +76,7 @@ jobs:
           fi
           echo "OK: biosketch PDF exists ($(wc -c < JohnEhrlinger-Biosketch-NIH.pdf) bytes)"
 
-      # ── 7. Upload PDFs as build artifacts ────────────────────────────────────
+      # ── 9. Upload PDFs as build artifacts ────────────────────────────────────
       - name: Upload PDFs
         uses: actions/upload-artifact@v4
         with:
@@ -66,7 +86,7 @@ jobs:
             JohnEhrlinger-CV.md
             JohnEhrlinger-Biosketch-NIH.pdf
 
-      # ── 8. Deploy to gh-pages branch ─────────────────────────────────────────
+      # ── 10. Deploy to gh-pages branch ────────────────────────────────────────
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/main'
