@@ -136,13 +136,13 @@ Cleveland Clinic Innovations Award 2003
 
 *ggRandomForests* — Visual exploration of random forest models via
 graphical analysis of survival, regression, and classification forests.
-<https://github.com/ehrlinger/ggRandomForests>
+v2.7.3 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
 
 *boostmtree* — Boosted multivariate trees for longitudinal data.
 <https://github.com/ehrlinger/boostmtree>
 
 *TemporalHazard* — R port of the C computational core underlying the
-Cleveland Clinic Hazard SAS module.
+Cleveland Clinic Hazard SAS module. Submitted to CRAN 2026-05-12.
 <https://github.com/ehrlinger/temporal_hazard>
 
 *hvtiPlotR* — Publication-quality HVTI-standard graphics for
