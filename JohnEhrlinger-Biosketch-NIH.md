@@ -59,6 +59,7 @@ I am well positioned to contribute to projects at the intersection of machine le
 | 2015–2023 | Senior Data and Applied Scientist, Artificial Intelligence, Azure Global Commercial Industry (AGCI-AI), Microsoft, Cambridge, MA |
 | 2023–2024 | Senior Data Scientist, Altamira Technologies, McLean, VA |
 | 2024–present | Assistant Staff, Lead Data Scientist, Dept. of Cardiothoracic Surgery, Heart, Vascular & Thoracic Institute, Cleveland Clinic, Cleveland, OH |
+| 2025–present | Clinical Assistant Professor, Cleveland Clinic Lerner College of Medicine, Cleveland, OH |
 
 ### Honors
 
@@ -120,6 +121,8 @@ b. Raja S, Rice TW, **Ehrlinger J**, et al. Importance of Residual Cancer after 
 c. Dalton JE, Glance LG, Mascha EJ, **Ehrlinger J**, Chamoun N, Sessler DI. Impact of Present-on-admission Indicators on Risk-adjusted Hospital Mortality Measurement. *Anesthesiology.* **118**(6): 1298–1306. 2013.
 
 d. Wojnarski CM, Svensson LG, Roselli EE, et al. Aortic Dissection in Patients with Bicuspid Aortic Valve–Associated Aneurysm. *Annals of Thoracic Surgery.* **100**(5): 1666–1674. 2015.
+
+e. Robinson J, Belitsis G, **Ehrlinger J**, Blackstone EH, et al. The Search for Borderline Hearts within Biventricular Repairs of Complete Atrioventricular Septal Defects. *The Journal of Thoracic and Cardiovascular Surgery.* 2026. Published online June 12, 2026. doi:10.1016/j.jtcvs.2026.05.027. PMID: 42285288.
 
 ---
 

@@ -160,8 +160,8 @@ Cleveland Clinic Innovations Award \hfill 2003
 of survival, regression, and classification forests. v2.7.3 on CRAN.
 <https://CRAN.R-project.org/package=ggRandomForests>
 
-*boostmtree* — Boosted multivariate trees for longitudinal data.
-<https://github.com/ehrlinger/boostmtree>
+*hvtiBoostmtree* — Boosted multivariate trees for longitudinal data.
+<https://github.com/ehrlinger/hvtiBoostmtree>
 
 *TemporalHazard* — R port of the C computational core underlying the Cleveland Clinic
 Hazard SAS module. Submitted to CRAN 2026-05-12.
