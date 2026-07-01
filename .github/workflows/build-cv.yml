@@ -56,7 +56,8 @@ jobs:
             collection-latexrecommended \
             lm-math \
             ebgaramond \
-            ebgaramond-maths
+            ebgaramond-maths \
+            tex-gyre
 
       # ── 5. Ensure TinyTeX bin is on PATH for all subsequent steps ────────────
       - name: Add TinyTeX to PATH
@@ -65,15 +66,16 @@ jobs:
       # ── 6. Download nihbiosketch.cls (not committed to repo) ─────────────────
       # The class does \setmainfont{Arial}; Arial is proprietary and absent on
       # Ubuntu runners, so xelatex emergency-stops ("can't find file `Arial'").
-      # Patch it to TeX Gyre Heros — a Helvetica/Arial-metric font shipped with
-      # TeX Live (collection-fontsrecommended), found by fontspec with no system
-      # font or fontconfig dependency.
+      # Patch it to TeX Gyre Heros (Helvetica/Arial-metric, shipped with TeX
+      # Live via tex-gyre). Load BY FILENAME, not by name: XeTeX's by-name
+      # lookup uses fontconfig, which doesn't index TinyTeX's bundled fonts,
+      # whereas filename loading uses kpathsea/texmf and always resolves.
       - name: Download nihbiosketch.cls
         run: |
           curl -fsSL \
             https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
             -o nihbiosketch.cls
-          sed -i 's/{Arial}/{TeX Gyre Heros}/' nihbiosketch.cls
+          sed -i 's|\\setmainfont\[Ligatures=TeX\]{Arial}|\\setmainfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic,Ligatures=TeX]|' nihbiosketch.cls
           grep setmainfont nihbiosketch.cls
 
       # ── 7. Render CV — PDF (lualatex) and GFM Markdown both in one pass ──────
