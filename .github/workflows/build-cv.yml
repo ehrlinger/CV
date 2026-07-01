@@ -1,4 +1,4 @@
-name: Build CV PDFs
+name: Build & Deploy CV
 
 on:
   push:
@@ -11,48 +11,54 @@ jobs:
     permissions:
       contents: write   # required for peaceiris/actions-gh-pages to push to gh-pages branch
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'   # opt into Node 24 ahead of June 2026 forced migration
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'   # opt into Node 24 ahead of forced migration
 
     steps:
       # ── 1. Check out the repo ────────────────────────────────────────────────
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ── 2. Restore TinyTeX cache (skips slow package installs on repeat runs) ─
+      # ── 2. Quarto (+ TinyTeX, used only by the best-effort PDF steps below) ──
       - name: Cache TinyTeX
         id: cache-tinytex
         uses: actions/cache@v4
         with:
           path: ~/.TinyTeX
-          # v2: force a fresh TinyTeX after the TeX Live year rollover. No
-          # restore-keys — a prefix fallback would resurrect the stale v1
-          # cache (old TL year) whose tlmgr can no longer reach CTAN's tlnet.
+          # v2: force a fresh TinyTeX after the TeX Live year rollover.
           key: tinytex-${{ runner.os }}-v2
 
-      # ── 3. Install Quarto with TinyTeX ───────────────────────────────────────
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           tinytex: true
 
-      # ── 4. Install extra packages (xetex for biosketch) — cache miss only ────
-      - name: Install extra LaTeX packages
+      # ── 3. Render the Markdown CV — REQUIRED, pure pandoc + citeproc, NO LaTeX.
+      # This is the primary deliverable (ehrlinger.github.io/CV/JohnEhrlinger-CV.md).
+      # It is deliberately decoupled from the fragile LaTeX toolchain below so a
+      # TeX failure can never block the Markdown deploy. If this step fails, the
+      # whole job fails (that is intended — the .md is the point). ──────────────
+      - name: Render CV (Markdown)
+        run: quarto render JohnEhrlinger-CV.qmd --to gfm
+
+      # ══ Everything below is BEST-EFFORT: the PDF and NIH biosketch build when
+      #    the LaTeX toolchain cooperates, but never block the Markdown deploy. ══
+
+      # ── 4. Extra LaTeX packages for the PDF + biosketch (cache miss only) ────
+      - name: Install extra LaTeX packages (best-effort)
         if: steps.cache-tinytex.outputs.cache-hit != 'true'
+        continue-on-error: true
         run: |
           export PATH="$HOME/.TinyTeX/bin/x86_64-linux:$PATH"
-          # CTAN only serves the current TeX Live year under tlnet/. When TL
-          # rolls over, the bundled tlmgr fails with "tlmgr itself needs to be
-          # updated" / "could not get texlive.tlpdb". Pin to TUG's authoritative
-          # mirror (always the current release) and update tlmgr before install.
-          # NB: do NOT use mirror.ctan.org here — it's a redirector that picks a
-          # random mirror per call, so `install` can land on a stale mirror
-          # (e.g. ctan.math.illinois.edu) even after `update --self` succeeded.
+          # tlnet serves only the current TeX Live year; after a rollover the
+          # bundled tlmgr can't install ("tlmgr itself needs to be updated" /
+          # "could not get texlive.tlpdb"). Pin to TUG's authoritative mirror
+          # (NOT the mirror.ctan.org redirector, which round-robins to
+          # sometimes-stale mirrors) and update tlmgr before installing.
           tlmgr option repository https://ftp.tug.org/texlive/tlnet
           tlmgr update --self
-          # ebgaramond(-maths): the quarto-cv template loads ebgaramond-maths
-          # (doc-class.tex), which needs the base ebgaramond font for
-          # ebgaramond.sty. Quarto's per-file auto-install fails to resolve the
-          # base package ("no matching packages"), so install it explicitly.
+          # ebgaramond(-maths): quarto-cv loads ebgaramond-maths, which needs the
+          # base ebgaramond for ebgaramond.sty (quarto's auto-install misses it).
+          # tex-gyre: Arial replacement for the biosketch (see step 6).
           tlmgr install \
             xetex \
             collection-fontsrecommended \
@@ -62,57 +68,61 @@ jobs:
             ebgaramond-maths \
             tex-gyre
 
-      # ── 5. Ensure TinyTeX bin is on PATH for all subsequent steps ────────────
       - name: Add TinyTeX to PATH
         run: echo "$HOME/.TinyTeX/bin/x86_64-linux" >> $GITHUB_PATH
 
-      # ── 6. Download nihbiosketch.cls (not committed to repo) ─────────────────
-      # The class does \setmainfont{Arial}; Arial is proprietary and absent on
-      # Ubuntu runners, so xelatex emergency-stops ("can't find file `Arial'").
-      # Patch it to TeX Gyre Heros (Helvetica/Arial-metric, shipped with TeX
-      # Live via tex-gyre). Load BY FILENAME, not by name: XeTeX's by-name
-      # lookup uses fontconfig, which doesn't index TinyTeX's bundled fonts,
-      # whereas filename loading uses kpathsea/texmf and always resolves.
-      - name: Download nihbiosketch.cls
+      # ── 5. Render the PDF CV (lualatex) ──────────────────────────────────────
+      - name: Render CV (PDF, best-effort)
+        continue-on-error: true
+        run: quarto render JohnEhrlinger-CV.qmd --to quarto-cv-pdf
+
+      # ── 6. NIH Biosketch (XeLaTeX) ───────────────────────────────────────────
+      # nihbiosketch.cls does \setmainfont{Arial}; Arial is proprietary/absent on
+      # Ubuntu, so patch it to TeX Gyre Heros loaded BY FILENAME (XeTeX by-name
+      # lookup uses fontconfig, which doesn't index TinyTeX fonts; filename
+      # loading uses kpathsea/texmf and always resolves).
+      - name: Compile NIH Biosketch (best-effort)
+        continue-on-error: true
         run: |
           curl -fsSL \
             https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
             -o nihbiosketch.cls
           sed -i 's|\\setmainfont\[Ligatures=TeX\]{Arial}|\\setmainfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic,Ligatures=TeX]|' nihbiosketch.cls
           grep setmainfont nihbiosketch.cls
-
-      # ── 7. Render CV — PDF (lualatex) and GFM Markdown both in one pass ──────
-      - name: Render CV
-        run: quarto render JohnEhrlinger-CV.qmd
-
-      # ── 8. Compile NIH Biosketch (XeLaTeX) ──────────────────────────────────
-      # continue-on-error: the PDF IS produced but xelatex exits code 1 for
-      # ~38 nullfont warnings in a table; the verify step confirms it exists.
-      - name: Compile NIH Biosketch
-        continue-on-error: true
-        run: |
           xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
           xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
 
-      - name: Verify biosketch PDF was produced
+      # ── 7. Report which artifacts built (loud, but non-blocking) ─────────────
+      - name: Report build status
+        if: always()
         run: |
-          if [ ! -s JohnEhrlinger-Biosketch-NIH.pdf ]; then
-            echo "ERROR: biosketch PDF is missing or empty — compilation truly failed"
-            exit 1
-          fi
-          echo "OK: biosketch PDF exists ($(wc -c < JohnEhrlinger-Biosketch-NIH.pdf) bytes)"
+          echo "### CV build status" >> "$GITHUB_STEP_SUMMARY"
+          for f in JohnEhrlinger-CV.md JohnEhrlinger-CV.pdf JohnEhrlinger-Biosketch-NIH.pdf; do
+            if [ -s "$f" ]; then
+              echo "- ✅ $f ($(wc -c < "$f") bytes)" >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo "- ⚠️ $f MISSING — last-good copy retained on gh-pages" >> "$GITHUB_STEP_SUMMARY"
+              echo "::warning::$f was not produced this run (best-effort LaTeX build)"
+            fi
+          done
+          # Fail loud if the REQUIRED Markdown is missing.
+          test -s JohnEhrlinger-CV.md || { echo "::error::JohnEhrlinger-CV.md was not produced"; exit 1; }
 
-      # ── 9. Upload PDFs as build artifacts ────────────────────────────────────
-      - name: Upload PDFs
+      # ── 8. Upload artifacts (whatever built) ─────────────────────────────────
+      - name: Upload artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cv-pdfs
+          name: cv-outputs
+          if-no-files-found: warn
           path: |
-            JohnEhrlinger-CV.pdf
             JohnEhrlinger-CV.md
+            JohnEhrlinger-CV.pdf
             JohnEhrlinger-Biosketch-NIH.pdf
 
-      # ── 10. Deploy to gh-pages branch ────────────────────────────────────────
+      # ── 9. Deploy to gh-pages ────────────────────────────────────────────────
+      # keep_files: true so a best-effort LaTeX miss (no new PDF this run) keeps
+      # the last-good PDF/biosketch on gh-pages instead of deleting them.
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/main'
@@ -120,7 +130,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
           publish_branch: gh-pages
-          keep_files: false
+          keep_files: true
           exclude_assets: |
             .github
             archive
