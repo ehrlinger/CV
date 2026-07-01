@@ -86,18 +86,16 @@ jobs:
         run: quarto render JohnEhrlinger-CV.qmd --to quarto-cv-pdf
 
       # ── 6. NIH Biosketch (XeLaTeX) ───────────────────────────────────────────
-      # nihbiosketch.cls does \setmainfont{Arial}; Arial is proprietary/absent on
-      # Ubuntu, so patch it to TeX Gyre Heros loaded BY FILENAME (XeTeX by-name
-      # lookup uses fontconfig, which doesn't index TinyTeX fonts; filename
-      # loading uses kpathsea/texmf and always resolves).
+      # nihbiosketch.cls does \setmainfont{Arial} at class load; the .tex passes
+      # {quiet} to fontspec (demoting that to a warning on Arial-less CI) and
+      # sets the real font itself — Arial if present, else TeX Gyre Heros loaded
+      # by filename. So no .cls patch is needed here.
       - name: Compile NIH Biosketch (best-effort)
         continue-on-error: true
         run: |
           curl -fsSL \
             https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
             -o nihbiosketch.cls
-          sed -i 's|\\setmainfont\[Ligatures=TeX\]{Arial}|\\setmainfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic,Ligatures=TeX]|' nihbiosketch.cls
-          grep setmainfont nihbiosketch.cls
           xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
           xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
 
