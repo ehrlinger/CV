@@ -42,9 +42,12 @@ jobs:
           export PATH="$HOME/.TinyTeX/bin/x86_64-linux:$PATH"
           # CTAN only serves the current TeX Live year under tlnet/. When TL
           # rolls over, the bundled tlmgr fails with "tlmgr itself needs to be
-          # updated" / "could not get texlive.tlpdb". Point at the CTAN
-          # multiplexer and update the infrastructure before installing.
-          tlmgr option repository https://mirror.ctan.org/systems/texlive/tlnet
+          # updated" / "could not get texlive.tlpdb". Pin to TUG's authoritative
+          # mirror (always the current release) and update tlmgr before install.
+          # NB: do NOT use mirror.ctan.org here — it's a redirector that picks a
+          # random mirror per call, so `install` can land on a stale mirror
+          # (e.g. ctan.math.illinois.edu) even after `update --self` succeeded.
+          tlmgr option repository https://ftp.tug.org/texlive/tlnet
           tlmgr update --self
           # ebgaramond(-maths): the quarto-cv template loads ebgaramond-maths
           # (doc-class.tex), which needs the base ebgaramond font for
