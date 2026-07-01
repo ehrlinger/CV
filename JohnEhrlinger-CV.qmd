@@ -13,6 +13,13 @@ format:
     pdf-engine: lualatex
   gfm:
     output-file: JohnEhrlinger-CV.md
+    # The multibib filter (which fills the #refs-* section divs from the named
+    # bibliographies) is contributed only by the PDF format above. Register it
+    # here too, otherwise the Markdown build leaves Publications / Technical
+    # Reports / Conference Presentations etc. empty. Format-level filters run
+    # before the top-level bold-author.lua, so author bolding still applies.
+    filters:
+      - _extensions/mps9506/quarto-cv/_extensions/pandoc-ext/multibib/multibib.lua
 
 fontsize: 11pt
 geometry: margin=1in
@@ -157,21 +164,28 @@ Cleveland Clinic Innovations Award \hfill 2003
 **R Packages**
 
 *ggRandomForests* — Visual exploration of random forest models via graphical analysis
-of survival, regression, and classification forests. v2.7.3 on CRAN.
+of survival, regression, and classification forests. v3.1.2 on CRAN.
 <https://CRAN.R-project.org/package=ggRandomForests>
 
-*boostmtree* — Boosted multivariate trees for longitudinal data.
-<https://github.com/ehrlinger/boostmtree>
+*hvtiBoostmtree* — Boosted multivariate trees for longitudinal data; an extended fork of
+boostmtree. <https://github.com/ehrlinger/hvtiBoostmtree>
 
 *TemporalHazard* — R port of the C computational core underlying the Cleveland Clinic
-Hazard SAS module. Submitted to CRAN 2026-05-12.
-<https://github.com/ehrlinger/temporal_hazard>
+Hazard SAS module. v1.1.0 on CRAN.
+<https://CRAN.R-project.org/package=TemporalHazard>
 
 *hvtiPlotR* — Publication-quality HVTI-standard graphics for reproducible clinical
 research figures. <https://github.com/ehrlinger/hvtiPlotR>
 
-*hvtiRutilities* — Utility functions supporting reproducible HVTI research workflows.
-<https://github.com/ehrlinger/hvtiRutilities>
+*hvtiRutilities* — Utility functions supporting reproducible HVTI research workflows; in
+active development. <https://github.com/ehrlinger/hvtiRutilities>
+
+**Open-Source Documentation**
+
+*HVTI ggplot Graphics Recipes* — Working catalog of publication figures for clinical
+outcomes research (Kaplan-Meier, propensity balance, CONSORT, random-forest
+visualizations), each paired with reproducible code. Quarto book, CC BY 4.0.
+<https://ehrlinger.github.io/hvti_graphics/>
 
 **SAS/C Software**
 
