@@ -13,6 +13,13 @@ format:
     pdf-engine: lualatex
   gfm:
     output-file: JohnEhrlinger-CV.md
+    # The multibib filter (which fills the #refs-* section divs from the named
+    # bibliographies) is contributed only by the PDF format above. Register it
+    # here too, otherwise the Markdown build leaves Publications / Technical
+    # Reports / Conference Presentations etc. empty. Format-level filters run
+    # before the top-level bold-author.lua, so author bolding still applies.
+    filters:
+      - _extensions/mps9506/quarto-cv/_extensions/pandoc-ext/multibib/multibib.lua
 
 fontsize: 11pt
 geometry: margin=1in
