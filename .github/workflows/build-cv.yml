@@ -24,8 +24,10 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.TinyTeX
-          # v2: force a fresh TinyTeX after the TeX Live year rollover.
-          key: tinytex-${{ runner.os }}-v2
+          # v3: discard the incomplete v2 cache (saved when the package install
+          # kept failing → no ebgaramond etc.). A cache hit skips the install
+          # step, so a broken cache perpetuates PDF failures until the key bumps.
+          key: tinytex-${{ runner.os }}-v3
 
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -49,24 +51,31 @@ jobs:
         continue-on-error: true
         run: |
           export PATH="$HOME/.TinyTeX/bin/x86_64-linux:$PATH"
-          # tlnet serves only the current TeX Live year; after a rollover the
-          # bundled tlmgr can't install ("tlmgr itself needs to be updated" /
-          # "could not get texlive.tlpdb"). Pin to TUG's authoritative mirror
-          # (NOT the mirror.ctan.org redirector, which round-robins to
-          # sometimes-stale mirrors) and update tlmgr before installing.
-          tlmgr option repository https://ftp.tug.org/texlive/tlnet
-          tlmgr update --self
           # ebgaramond(-maths): quarto-cv loads ebgaramond-maths, which needs the
           # base ebgaramond for ebgaramond.sty (quarto's auto-install misses it).
           # tex-gyre: Arial replacement for the biosketch (see step 6).
-          tlmgr install \
-            xetex \
-            collection-fontsrecommended \
-            collection-latexrecommended \
-            lm-math \
-            ebgaramond \
-            ebgaramond-maths \
-            tex-gyre
+          pkgs="xetex collection-fontsrecommended collection-latexrecommended lm-math ebgaramond ebgaramond-maths tex-gyre"
+          # tlnet only serves the current TeX Live year; a fetch can fail two
+          # ways: mirror.ctan.org is a redirector that round-robins to
+          # sometimes-stale mirrors (e.g. ctan.math.illinois.edu → "could not
+          # get texlive.tlpdb"), and a pinned single mirror (ftp.tug.org) can be
+          # transiently unreachable. So per attempt, resolve the redirector to
+          # ONE concrete mirror and pin it (so update+install use the same host),
+          # then retry with a fresh resolution if that mirror is bad.
+          ok=0
+          for attempt in 1 2 3 4 5; do
+            repo=$(curl -fsSL --max-time 30 -o /dev/null -w '%{url_effective}' https://mirror.ctan.org/systems/texlive/tlnet/ || true)
+            repo="${repo%/}"
+            [ -n "$repo" ] || repo="https://mirror.ctan.org/systems/texlive/tlnet"
+            echo "::group::tlmgr attempt $attempt via $repo"
+            tlmgr option repository "$repo" || true
+            if tlmgr update --self && tlmgr install $pkgs; then ok=1; fi
+            echo "::endgroup::"
+            [ "$ok" = 1 ] && { echo "tlmgr install OK via $repo"; break; }
+            echo "attempt $attempt failed; retrying with a fresh mirror…"
+            sleep 5
+          done
+          [ "$ok" = 1 ] || { echo "::warning::LaTeX package install failed after 5 mirror attempts; PDF/biosketch skipped this run"; exit 1; }
 
       - name: Add TinyTeX to PATH
         run: echo "$HOME/.TinyTeX/bin/x86_64-linux" >> $GITHUB_PATH
