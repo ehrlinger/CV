@@ -16,11 +16,20 @@
 \documentclass{nihbiosketch}
 
 %% Use Arial when available (Mac), fall back to TeX Gyre Heros on CI
-%% (metrically compatible, OpenType, ships with TeX Live Full).
+%% (metrically compatible, OpenType, ships with TeX Live via tex-gyre).
+%% The fallback loads by FILENAME, not by name: XeTeX's by-name lookup
+%% uses fontconfig, which doesn't index TeX Live's bundled fonts, whereas
+%% filename loading resolves via kpathsea/texmf and always works on CI.
 \IfFontExistsTF{Arial}{%
   \setmainfont[Ligatures=TeX]{Arial}%
 }{%
-  \setmainfont[Ligatures=TeX]{TeX Gyre Heros}%
+  \setmainfont{texgyreheros}[%
+    Extension=.otf,%
+    UprightFont=*-regular,%
+    BoldFont=*-bold,%
+    ItalicFont=*-italic,%
+    BoldItalicFont=*-bolditalic,%
+    Ligatures=TeX]%
 }
 
 %% Personal information — auto-inserted as header via \piinfo
