@@ -46,11 +46,17 @@ jobs:
           # multiplexer and update the infrastructure before installing.
           tlmgr option repository https://mirror.ctan.org/systems/texlive/tlnet
           tlmgr update --self
+          # ebgaramond(-maths): the quarto-cv template loads ebgaramond-maths
+          # (doc-class.tex), which needs the base ebgaramond font for
+          # ebgaramond.sty. Quarto's per-file auto-install fails to resolve the
+          # base package ("no matching packages"), so install it explicitly.
           tlmgr install \
             xetex \
             collection-fontsrecommended \
             collection-latexrecommended \
-            lm-math
+            lm-math \
+            ebgaramond \
+            ebgaramond-maths
 
       # ── 5. Ensure TinyTeX bin is on PATH for all subsequent steps ────────────
       - name: Add TinyTeX to PATH
