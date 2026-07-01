@@ -24,8 +24,10 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.TinyTeX
-          key: tinytex-${{ runner.os }}-v1
-          restore-keys: tinytex-${{ runner.os }}-
+          # v2: force a fresh TinyTeX after the TeX Live year rollover. No
+          # restore-keys — a prefix fallback would resurrect the stale v1
+          # cache (old TL year) whose tlmgr can no longer reach CTAN's tlnet.
+          key: tinytex-${{ runner.os }}-v2
 
       # ── 3. Install Quarto with TinyTeX ───────────────────────────────────────
       - name: Setup Quarto
@@ -38,6 +40,12 @@ jobs:
         if: steps.cache-tinytex.outputs.cache-hit != 'true'
         run: |
           export PATH="$HOME/.TinyTeX/bin/x86_64-linux:$PATH"
+          # CTAN only serves the current TeX Live year under tlnet/. When TL
+          # rolls over, the bundled tlmgr fails with "tlmgr itself needs to be
+          # updated" / "could not get texlive.tlpdb". Point at the CTAN
+          # multiplexer and update the infrastructure before installing.
+          tlmgr option repository https://mirror.ctan.org/systems/texlive/tlnet
+          tlmgr update --self
           tlmgr install \
             xetex \
             collection-fontsrecommended \
