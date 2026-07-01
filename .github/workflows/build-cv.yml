@@ -63,26 +63,22 @@ jobs:
         run: echo "$HOME/.TinyTeX/bin/x86_64-linux" >> $GITHUB_PATH
 
       # ── 6. Download nihbiosketch.cls (not committed to repo) ─────────────────
+      # The class does \setmainfont{Arial}; Arial is proprietary and absent on
+      # Ubuntu runners, so xelatex emergency-stops ("can't find file `Arial'").
+      # Patch it to TeX Gyre Heros — a Helvetica/Arial-metric font shipped with
+      # TeX Live (collection-fontsrecommended), found by fontspec with no system
+      # font or fontconfig dependency.
       - name: Download nihbiosketch.cls
         run: |
           curl -fsSL \
             https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
             -o nihbiosketch.cls
+          sed -i 's/{Arial}/{TeX Gyre Heros}/' nihbiosketch.cls
+          grep setmainfont nihbiosketch.cls
 
       # ── 7. Render CV — PDF (lualatex) and GFM Markdown both in one pass ──────
       - name: Render CV
         run: quarto render JohnEhrlinger-CV.qmd
-
-      # ── 7b. Arial for the biosketch — nihbiosketch.cls does \setmainfont{Arial},
-      # which isn't on Ubuntu runners (proprietary). Liberation Sans is
-      # metric-identical and fontconfig aliases "Arial" -> it, so xelatex
-      # resolves the font. Without this, xelatex emergency-stops ("can't find
-      # file `Arial'") and produces no PDF. ───────────────────────────────────
-      - name: Install Arial-compatible font (NIH biosketch)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y fonts-liberation fontconfig
-          fc-cache -f
 
       # ── 8. Compile NIH Biosketch (XeLaTeX) ──────────────────────────────────
       # continue-on-error: the PDF IS produced but xelatex exits code 1 for
