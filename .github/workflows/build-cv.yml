@@ -73,6 +73,17 @@ jobs:
       - name: Render CV
         run: quarto render JohnEhrlinger-CV.qmd
 
+      # ── 7b. Arial for the biosketch — nihbiosketch.cls does \setmainfont{Arial},
+      # which isn't on Ubuntu runners (proprietary). Liberation Sans is
+      # metric-identical and fontconfig aliases "Arial" -> it, so xelatex
+      # resolves the font. Without this, xelatex emergency-stops ("can't find
+      # file `Arial'") and produces no PDF. ───────────────────────────────────
+      - name: Install Arial-compatible font (NIH biosketch)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-liberation fontconfig
+          fc-cache -f
+
       # ── 8. Compile NIH Biosketch (XeLaTeX) ──────────────────────────────────
       # continue-on-error: the PDF IS produced but xelatex exits code 1 for
       # ~38 nullfont warnings in a table; the verify step confirms it exists.
