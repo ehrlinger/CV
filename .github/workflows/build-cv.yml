@@ -3,6 +3,8 @@ name: Build & Deploy CV
 on:
   push:
     branches: [main]
+  pull_request:        # validate renders on PRs; the deploy step is main-only
+    branches: [main]
   workflow_dispatch:   # allow manual trigger from GitHub UI
 
 jobs:
@@ -155,3 +157,28 @@ jobs:
             *.xdv
             *.out
             .gitignore
+
+      # ── 10. Gate: a main build that produced no LaTeX artifact is FAILED ─────
+      # Deliberately placed AFTER the deploy, not inside step 7. Failing earlier
+      # would skip the deploy and re-block the Markdown behind the LaTeX
+      # toolchain — exactly what 966132a decoupled. Here the .md still ships and
+      # keep_files retains the last-good artifacts, but the run goes red instead
+      # of green-with-a-warning, so silently stale published files can't hide.
+      - name: Verify LaTeX artifacts were rebuilt (main only)
+        if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          missing=0
+          for f in JohnEhrlinger-CV.pdf JohnEhrlinger-Biosketch-NIH.pdf; do
+            if [ -s "$f" ]; then
+              echo "rebuilt: $f ($(wc -c < "$f") bytes)"
+            else
+              echo "::error::$f was not produced; gh-pages still serves the previous copy, which is now stale relative to source."
+              missing=1
+            fi
+          done
+          # Report every missing artifact before failing, so one run tells the
+          # whole story rather than surfacing them one re-run at a time.
+          [ "$missing" = 0 ] || {
+            echo "::error::LaTeX artifacts missing. Re-run once the toolchain recovers."
+            exit 1
+          }
