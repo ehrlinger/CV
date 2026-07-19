@@ -518,6 +518,10 @@ Cleveland Clinic Hazard SAS module. v1.1.0 on CRAN.
 reproducible clinical research figures.
 <https://github.com/ehrlinger/hvtiPlotR>
 
+*hvtiRtables* — Manuscript-compliant Word tables from gtsummary objects,
+following HVTI CORR table construction standards.
+<https://github.com/ehrlinger/hvtiRtables>
+
 *hvtiRutilities* — Utility functions supporting reproducible HVTI
 research workflows; in active development.
 <https://github.com/ehrlinger/hvtiRutilities>
