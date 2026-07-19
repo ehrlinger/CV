@@ -140,6 +140,23 @@ jobs:
           publish_dir: .
           publish_branch: gh-pages
           keep_files: true
+          exclude_assets: |
+            .github
+            archive
+            *.tex
+            *.bib
+            *.cls
+            *.log
+            *.aux
+            *.bbl
+            *.bcf
+            *.blg
+            *.run.xml
+            *.fdb_latexmk
+            *.fls
+            *.xdv
+            *.out
+            .gitignore
 
       # ── 10. Gate: a main build that produced no LaTeX artifact is FAILED ─────
       # Deliberately placed AFTER the deploy, not inside step 7. Failing earlier
@@ -165,20 +182,3 @@ jobs:
             echo "::error::LaTeX artifacts missing. Re-run once the toolchain recovers."
             exit 1
           }
-          exclude_assets: |
-            .github
-            archive
-            *.tex
-            *.bib
-            *.cls
-            *.log
-            *.aux
-            *.bbl
-            *.bcf
-            *.blg
-            *.run.xml
-            *.fdb_latexmk
-            *.fls
-            *.xdv
-            *.out
-            .gitignore
