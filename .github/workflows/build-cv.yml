@@ -3,6 +3,8 @@ name: Build & Deploy CV
 on:
   push:
     branches: [main]
+  pull_request:        # validate renders on PRs; the deploy step is main-only
+    branches: [main]
   workflow_dispatch:   # allow manual trigger from GitHub UI
 
 jobs:
@@ -138,6 +140,21 @@ jobs:
           publish_dir: .
           publish_branch: gh-pages
           keep_files: true
+
+      # ── 10. Gate: a main build that produced no PDF is a FAILED build ────────
+      # Deliberately placed AFTER the deploy, not inside step 7. Failing earlier
+      # would skip the deploy and re-block the Markdown behind the LaTeX
+      # toolchain — exactly what 966132a decoupled. Here the .md still ships and
+      # keep_files retains the last-good PDF, but the run goes red instead of
+      # green-with-a-warning, so a silently stale published PDF can't hide.
+      - name: Verify PDF was rebuilt (main only)
+        if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          test -s JohnEhrlinger-CV.pdf || {
+            echo "::error::PDF was not produced; gh-pages still serves the previous PDF, which is now stale relative to the CV source. Re-run once the LaTeX toolchain recovers."
+            exit 1
+          }
+          echo "PDF rebuilt: $(wc -c < JohnEhrlinger-CV.pdf) bytes"
           exclude_assets: |
             .github
             archive
