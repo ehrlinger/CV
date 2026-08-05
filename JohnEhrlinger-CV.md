@@ -1,6 +1,6 @@
 # Curriculum Vitae
 John Ehrlinger, PhD
-July 2026
+August 2026
 
 # Research Interests
 
@@ -103,7 +103,7 @@ Cleveland Clinic Innovations Award 2003
 # Publications
 
 <div id="refs-peer" class="references csl-bib-body hanging-indent"
-entry-spacing="0" line-spacing="2">
+data-entry-spacing="0" data-line-spacing="2">
 
 <div id="ref-Robinson2026AVSD" class="csl-entry">
 
@@ -327,7 +327,7 @@ Annals of Statistics*, *40*(2), 1074–1101.
 # In Revision / Submitted
 
 <div id="refs-submitted" class="references csl-bib-body hanging-indent"
-entry-spacing="0" line-spacing="2">
+data-entry-spacing="0" data-line-spacing="2">
 
 <div id="ref-Alshneikat2026CAA" class="csl-entry">
 
@@ -368,7 +368,7 @@ Surgery*.
 # In Preparation
 
 <div id="refs-inprep" class="references csl-bib-body hanging-indent"
-entry-spacing="0" line-spacing="2">
+data-entry-spacing="0" data-line-spacing="2">
 
 <div id="ref-Belitsis2026AVSD" class="csl-entry">
 
@@ -417,7 +417,7 @@ perioperative lactate levels*.
 # Technical Reports
 
 <div id="refs-technote" class="references csl-bib-body hanging-indent"
-entry-spacing="0" line-spacing="2">
+data-entry-spacing="0" data-line-spacing="2">
 
 <div id="ref-ehrlinger:rfsrcSurvival:2016" class="csl-entry">
 
@@ -440,7 +440,7 @@ Exploring a Random Forest for Regression</span>*. arXiv preprint.
 # Conference Presentations
 
 <div id="refs-talks" class="references csl-bib-body hanging-indent"
-entry-spacing="0" line-spacing="2">
+data-entry-spacing="0" data-line-spacing="2">
 
 <div id="ref-Ehrlinger2026RMedicine" class="csl-entry">
 
@@ -517,6 +517,10 @@ Cleveland Clinic Hazard SAS module. v1.1.0 on CRAN.
 *hvtiPlotR* — Publication-quality HVTI-standard graphics for
 reproducible clinical research figures.
 <https://github.com/ehrlinger/hvtiPlotR>
+
+*hvtiRdatasets* — Analysis-ready clinical datasets for HVTI CORR
+studies, with verification against the legacy SAS datasets they replace;
+in active development. <https://github.com/ehrlinger/hvtiRdatasets>
 
 *hvtiRtables* — Manuscript-compliant Word tables from gtsummary objects,
 following HVTI CORR table construction standards.
