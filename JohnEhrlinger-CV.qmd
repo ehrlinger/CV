@@ -177,6 +177,10 @@ Hazard SAS module. v1.1.0 on CRAN.
 *hvtiPlotR* — Publication-quality HVTI-standard graphics for reproducible clinical
 research figures. <https://github.com/ehrlinger/hvtiPlotR>
 
+*hvtiRdatasets* — Analysis-ready clinical datasets for HVTI CORR studies, with
+verification against the legacy SAS datasets they replace; in active development.
+<https://github.com/ehrlinger/hvtiRdatasets>
+
 *hvtiRtables* — Manuscript-compliant Word tables from gtsummary objects, following HVTI
 CORR table construction standards. <https://github.com/ehrlinger/hvtiRtables>
 
