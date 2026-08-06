@@ -49,6 +49,7 @@ jobs:
 
       # ── 4. Extra LaTeX packages for the PDF + biosketch (cache miss only) ────
       - name: Install extra LaTeX packages (best-effort)
+        id: latex-pkgs
         if: steps.cache-tinytex.outputs.cache-hit != 'true'
         continue-on-error: true
         run: |
@@ -88,16 +89,31 @@ jobs:
         run: quarto render JohnEhrlinger-CV.qmd --to quarto-cv-pdf
 
       # ── 6. NIH Biosketch (XeLaTeX) ───────────────────────────────────────────
-      # nihbiosketch.cls does \setmainfont{Arial} at class load; the .tex passes
-      # {quiet} to fontspec (demoting that to a warning on Arial-less CI) and
-      # sets the real font itself — Arial if present, else TeX Gyre Heros loaded
-      # by filename. So no .cls patch is needed here.
-      - name: Compile NIH Biosketch (best-effort)
+      # nihbiosketch.cls does \setmainfont{Arial} at class load. Arial is a
+      # Microsoft font: present on macOS, absent on ubuntu-latest. fontspec's
+      # {quiet} option silences fontspec WARNINGS, not the font-not-found
+      # ERROR, so on CI that line hard-errors and xelatex exits 1 — the build
+      # still produced a correct PDF (the .tex falls back to TeX Gyre Heros by
+      # filename), but the noise buried real failures. Neutralise the class's
+      # font line and let the .tex be the only thing that picks a font.
+      # The sed is fail-loud: if upstream changes that line, the build stops
+      # rather than silently reverting to the broken state.
+      # This step is no longer best-effort in the sense of "may fail, ignore".
+      # It builds clean, so a non-zero exit is a regression. continue-on-error
+      # stays ONLY so a failure cannot skip the deploy below — the Markdown CV
+      # must always publish. Step 11 then fails the job, loudly.
+      - name: Compile NIH Biosketch
+        id: biosketch
         continue-on-error: true
         run: |
           curl -fsSL \
             https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
             -o nihbiosketch.cls
+          grep -q '^\\setmainfont\[Ligatures=TeX\]{Arial}$' nihbiosketch.cls || {
+            echo "::error::nihbiosketch.cls no longer has the expected \\setmainfont{Arial} line; re-check the font patch"
+            exit 1
+          }
+          sed -i 's|^\\setmainfont\[Ligatures=TeX\]{Arial}$|%% patched by build-cv.yml: font is selected in the .tex preamble|' nihbiosketch.cls
           xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
           xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
 
@@ -182,3 +198,21 @@ jobs:
             echo "::error::LaTeX artifacts missing. Re-run once the toolchain recovers."
             exit 1
           }
+
+      # ── 11. Gate: the biosketch must exit clean, not merely emit a file ──────
+      # Step 10 checks that artifacts EXIST. That is not enough: the biosketch
+      # step exited 1 on every run for months while still writing a PDF, so a
+      # file-existence gate stayed green the whole time. It was a page short.
+      # This gate watches the exit status instead, and unlike step 10 it runs on
+      # pull requests too — a regression should be caught before merge, not
+      # after it is already published.
+      #
+      # Tolerated only when the LaTeX package install itself failed: a CTAN
+      # mirror outage is a flaky runner, not a defect in the document. Note
+      # that step is skipped on a TinyTeX cache hit, and 'skipped' != 'failure',
+      # so the gate stays armed on the normal path.
+      - name: Verify the biosketch built cleanly
+        if: always() && steps.biosketch.outcome == 'failure' && steps.latex-pkgs.outcome != 'failure'
+        run: |
+          echo "::error::NIH biosketch exited non-zero — see the 'Compile NIH Biosketch' step. This build is known-good, so treat a failure as a regression, not as expected LaTeX noise."
+          exit 1
