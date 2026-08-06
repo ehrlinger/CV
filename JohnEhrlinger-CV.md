@@ -518,6 +518,10 @@ Cleveland Clinic Hazard SAS module. v1.1.0 on CRAN.
 reproducible clinical research figures.
 <https://github.com/ehrlinger/hvtiPlotR>
 
+*hvtiPropensityScores* — Propensity score methods for cardiac surgery
+comparative-effectiveness research; ports SAS balancing logic into a
+tidy R API. <https://github.com/ehrlinger/hvtiPropensityScores>
+
 *hvtiRdatasets* — Analysis-ready clinical datasets for HVTI CORR
 studies, with verification against the legacy SAS datasets they replace;
 in active development. <https://github.com/ehrlinger/hvtiRdatasets>
@@ -532,10 +536,10 @@ research workflows; in active development.
 
 **Open-Source Documentation**
 
-*HVTI ggplot Graphics Recipes* — Working catalog of publication figures
-for clinical outcomes research (Kaplan-Meier, propensity balance,
-CONSORT, random-forest visualizations), each paired with reproducible
-code. Quarto book, CC BY 4.0.
+*HVTI Recipes* — Working catalog of publication-ready figures, tables,
+and datasets for clinical outcomes research (Kaplan-Meier, propensity
+balance, CONSORT, random-forest visualizations), each paired with
+reproducible code. Quarto book, CC BY 4.0.
 <https://ehrlinger.github.io/hvti_graphics/>
 
 **SAS/C Software**
