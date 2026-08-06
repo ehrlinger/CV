@@ -88,16 +88,26 @@ jobs:
         run: quarto render JohnEhrlinger-CV.qmd --to quarto-cv-pdf
 
       # ── 6. NIH Biosketch (XeLaTeX) ───────────────────────────────────────────
-      # nihbiosketch.cls does \setmainfont{Arial} at class load; the .tex passes
-      # {quiet} to fontspec (demoting that to a warning on Arial-less CI) and
-      # sets the real font itself — Arial if present, else TeX Gyre Heros loaded
-      # by filename. So no .cls patch is needed here.
+      # nihbiosketch.cls does \setmainfont{Arial} at class load. Arial is a
+      # Microsoft font: present on macOS, absent on ubuntu-latest. fontspec's
+      # {quiet} option silences fontspec WARNINGS, not the font-not-found
+      # ERROR, so on CI that line hard-errors and xelatex exits 1 — the build
+      # still produced a correct PDF (the .tex falls back to TeX Gyre Heros by
+      # filename), but the noise buried real failures. Neutralise the class's
+      # font line and let the .tex be the only thing that picks a font.
+      # The sed is fail-loud: if upstream changes that line, the build stops
+      # rather than silently reverting to the broken state.
       - name: Compile NIH Biosketch (best-effort)
         continue-on-error: true
         run: |
           curl -fsSL \
             https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls \
             -o nihbiosketch.cls
+          grep -q '^\\setmainfont\[Ligatures=TeX\]{Arial}$' nihbiosketch.cls || {
+            echo "::error::nihbiosketch.cls no longer has the expected \\setmainfont{Arial} line; re-check the font patch"
+            exit 1
+          }
+          sed -i 's|^\\setmainfont\[Ligatures=TeX\]{Arial}$|%% patched by build-cv.yml: font is selected in the .tex preamble|' nihbiosketch.cls
           xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
           xelatex -interaction=nonstopmode JohnEhrlinger-Biosketch-NIH.tex
 

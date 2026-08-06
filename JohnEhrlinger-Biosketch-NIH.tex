@@ -9,9 +9,11 @@
 %% Download: curl -fsSL https://raw.githubusercontent.com/pmagwene/latex-nihbiosketch/master/nihbiosketch.cls -o nihbiosketch.cls
 
 %% nihbiosketch.cls calls \setmainfont{Arial} during class loading, which
-%% causes a fatal fontspec error on systems without Arial (e.g. Linux CI).
-%% quiet mode demotes that fatal error to a warning so the class loads;
-%% the preamble below then sets the real font.
+%% errors on systems without Arial (e.g. Linux CI). Note that {quiet} does
+%% NOT rescue that: it silences fontspec's warnings, not the font-not-found
+%% error. CI neutralises the class's font line instead (see build-cv.yml);
+%% {quiet} is kept only to mute the ordinary shape warnings that follow.
+%% Either way, the preamble below is what actually sets the font.
 \PassOptionsToPackage{quiet}{fontspec}
 \documentclass{nihbiosketch}
 
@@ -32,11 +34,15 @@
     Ligatures=TeX]%
 }
 
-%% Personal information — auto-inserted as header via \piinfo
+%% Personal information — auto-inserted as header via \piinfo.
+%% Only these three fields exist: nihbiosketch.cls defines \name,
+%% \eracommons and \position, and \piinfo renders exactly those three rows.
+%% There is no \orcid — the NIH biosketch form has no ORCID field, and
+%% calling it raised "Undefined control sequence" on every build, macOS
+%% included. ORCID is carried on the CV instead.
 \name{Ehrlinger, John}
 \eracommons{EHRLINJ}
 \position{Assistant Staff, Lead Data Scientist}
-\orcid{0000-0002-5340-5154}
 
 \begin{document}
 
