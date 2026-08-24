@@ -500,39 +500,62 @@ UCLA, Los Angeles, CA.
 
 # Software
 
-**R Packages**
+**R Packages (CRAN)**
 
 *ggRandomForests* — Visual exploration of random forest models via
 graphical analysis of survival, regression, and classification forests.
-v3.1.2 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
-
-*hvtiBoostmtree* — Boosted multivariate trees for longitudinal data; an
-extended fork of boostmtree.
-<https://github.com/ehrlinger/hvtiBoostmtree>
+v3.5.2 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
 
 *TemporalHazard* — R port of the C computational core underlying the
 Cleveland Clinic Hazard SAS module. v1.1.0 on CRAN.
 <https://CRAN.R-project.org/package=TemporalHazard>
 
+**HVTI R Package Family**
+
+Eleven member packages — the nine below, plus *ggRandomForests* and
+*TemporalHazard* above — resolved from public GitHub repositories and
+installed, updated and version-checked as a unit by *hvtiR*, a
+one-command installer and environment diagnostic.
+<https://github.com/ehrlinger/hvtiR>
+
+*hvtiBoostmtree* — Boosted multivariate trees for longitudinal data; an
+extended fork of boostmtree.
+<https://github.com/ehrlinger/hvtiBoostmtree>
+
 *hvtiPlotR* — Publication-quality HVTI-standard graphics for
 reproducible clinical research figures.
 <https://github.com/ehrlinger/hvtiPlotR>
 
-*hvtiPropensityScores* — Propensity score methods for cardiac surgery
-comparative-effectiveness research; ports SAS balancing logic into a
-tidy R API. <https://github.com/ehrlinger/hvtiPropensityScores>
+*hvtiRbootstrap* — Bootstrap model building — fit across many bootstrap
+replicates and report how often each variable survives selection; an R
+port of the CORR bootreg, SUMBOOT and cluster SAS macros; in active
+development. <https://github.com/ehrlinger/hvtiRbootstrap>
 
 *hvtiRdatasets* — Analysis-ready clinical datasets for HVTI CORR
 studies, with verification against the legacy SAS datasets they replace;
 in active development. <https://github.com/ehrlinger/hvtiRdatasets>
 
+*hvtiRlifetables* — Age-, sex- and race-matched US reference survival,
+reproducing the usmatchd SAS macro by evaluating a stored three-phase
+parametric hazard fit rather than interpolating a life table; in active
+development. <https://github.com/ehrlinger/hvtiRlifetables>
+
+*hvtiRpropensity* — Propensity score estimation, matching, and
+inverse-probability treatment weighting with standardized balance
+diagnostics, for cardiac surgery comparative-effectiveness research; in
+active development. <https://github.com/ehrlinger/hvtiPropensityScores>
+
 *hvtiRtables* — Manuscript-compliant Word tables from gtsummary objects,
-following HVTI CORR table construction standards.
-<https://github.com/ehrlinger/hvtiRtables>
+following HVTI CORR table construction standards, with a JTCVS
+submission mode. <https://github.com/ehrlinger/hvtiRtables>
+
+*hvtiRtemplates* — Versioned analysis job templates and the
+analysis-prefix taxonomy the CORR group organizes jobs by, so a study
+binds to a versioned template rather than to a copy.
+<https://github.com/ehrlinger/hvtiRtemplates>
 
 *hvtiRutilities* — Utility functions supporting reproducible HVTI
-research workflows; in active development.
-<https://github.com/ehrlinger/hvtiRutilities>
+research workflows. <https://github.com/ehrlinger/hvtiRutilities>
 
 **Open-Source Documentation**
 
