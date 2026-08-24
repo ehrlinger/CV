@@ -173,11 +173,9 @@ Hazard SAS module. v1.1.0 on CRAN.
 
 **HVTI R Package Family**
 
-*hvtiR* installs and version-checks the family as a unit: eleven member packages — the
-nine below, plus *ggRandomForests* and *TemporalHazard* above.
-
-*hvtiR* — One-command installer, version status table, and environment diagnostic for the
-package family; members resolve from public GitHub repositories.
+Eleven member packages — the nine below, plus *ggRandomForests* and *TemporalHazard*
+above — resolved from public GitHub repositories and installed, updated and
+version-checked as a unit by *hvtiR*, a one-command installer and environment diagnostic.
 <https://github.com/ehrlinger/hvtiR>
 
 *hvtiBoostmtree* — Boosted multivariate trees for longitudinal data; an extended fork of
