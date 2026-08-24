@@ -173,8 +173,8 @@ Hazard SAS module. v1.1.0 on CRAN.
 
 **HVTI R Package Family**
 
-A coordinated family of eleven R packages supporting the HVTI CORR analytic pipeline,
-installed and version-checked as a unit; the two CRAN packages above are members.
+*hvtiR* installs and version-checks the family as a unit: eleven member packages — the
+nine below, plus *ggRandomForests* and *TemporalHazard* above.
 
 *hvtiR* — One-command installer, version status table, and environment diagnostic for the
 package family; members resolve from public GitHub repositories.
