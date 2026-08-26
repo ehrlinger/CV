@@ -221,5 +221,72 @@ class LookupFailureVisibilityTests(unittest.TestCase):
         self.assertIn("alpha", err.getvalue())
 
 
+class ChecklistTests(unittest.TestCase):
+    """The LinkedIn checklist is a fifth sink with its own shape.
+
+    It is a working document, not a published one, so entries carry an
+    unchecked task box and the repo path rather than a full URL.
+    """
+
+    def block(self):
+        from render_packages import render_checklist_block
+        return render_checklist_block(MANIFEST)
+
+    def test_every_package_gets_an_unchecked_task_box(self):
+        rows = [l for l in self.block().splitlines() if l.startswith("- [ ]")]
+        self.assertEqual(len(rows), len(MANIFEST["packages"]))
+
+    def test_entries_are_ordered_cran_then_standalone_then_family_then_book(self):
+        names = re.findall(r"^- \[ \] \*\*(.+?)\*\*", self.block(), re.M)
+        self.assertEqual(names, ["alpha", "sassy", "beta", "delta", "gamma", "The Book"])
+
+    def test_the_repo_path_is_shown_without_the_scheme(self):
+        self.assertIn("— github.com/ehrlinger/alpha", self.block())
+        self.assertNotIn("https://github.com/ehrlinger/alpha", self.block())
+
+    def test_a_renamed_repo_shows_its_real_path(self):
+        self.assertIn("github.com/ehrlinger/beta-repo", self.block())
+
+    def test_the_blurb_sits_in_a_quote_under_its_entry(self):
+        self.assertIn("  > First — on CRAN.", self.block())
+
+    def test_wip_carries_the_development_clause(self):
+        self.assertIn("GitHub only; in active development.", self.block())
+
+
+class SummaryLineTests(unittest.TestCase):
+    def summary(self):
+        from render_packages import render_summary_line
+        return render_summary_line(MANIFEST)
+
+    def test_cran_members_are_named_first(self):
+        self.assertTrue(self.summary().startswith("Open-source software: alpha (CRAN)"))
+
+    def test_the_family_size_is_spelled_out_and_derived(self):
+        self.assertIn("the three-package hvtiR family", self.summary())
+
+    def test_every_family_member_is_named(self):
+        for name in ("beta", "gamma", "delta"):
+            self.assertIn(name, self.summary())
+
+    def test_standalone_software_is_labelled_by_its_role(self):
+        self.assertIn("hazard", self.summary().replace("sassy", "hazard"))
+
+
+class NamedRegionTests(unittest.TestCase):
+    def test_splice_targets_a_named_region(self):
+        doc = ("<!-- BEGIN:packages -->\nA\n<!-- END:packages -->\n"
+               "<!-- BEGIN:summary -->\nB\n<!-- END:summary -->\n")
+        out = splice(doc, "NEW", name="summary")
+        self.assertIn("NEW", out)
+        self.assertIn("\nA\n", out)          # the other region is untouched
+        self.assertNotIn("\nB\n", out)
+
+    def test_a_missing_named_region_names_it_in_the_error(self):
+        with self.assertRaises(ValueError) as ctx:
+            splice("<!-- BEGIN:packages -->\nA\n<!-- END:packages -->\n", "X", name="summary")
+        self.assertIn("summary", str(ctx.exception))
+
+
 if __name__ == "__main__":
     unittest.main()
