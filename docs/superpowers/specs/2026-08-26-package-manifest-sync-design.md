@@ -36,7 +36,7 @@ Two further sinks have already drifted:
   artifact, two names, live today.
 
 Meanwhile the authoritative membership list already exists and is already
-tested: `hvtiR::members()` in `hvtiverse/R/members.R` returns the 11 member
+tested: `hvtiR::members()` in `hvtiR/R/members.R` returns the 11 member
 packages with their `owner/repo` mapping, including the two whose package name
 differs from their repository (`hvtiRpropensity` → `ehrlinger/hvtiPropensityScores`,
 `TemporalHazard` → `ehrlinger/temporal_hazard`). Every CV sink is a hand-copied
@@ -53,12 +53,11 @@ one is checked out as inside `CV2026`:
 | `CV/` | `ehrlinger/CV` | This repository. |
 | `ehrlinger/` | `ehrlinger/ehrlinger` | The GitHub profile repo. |
 | `ehrlinger.github.io/` | `ehrlinger/ehrlinger.github.io` | The user site. |
-| `hvtiverse/` | `ehrlinger/hvtiverse` | **Repo is `hvtiverse`; the R package it contains is `hvtiR`.** |
+| `hvtiR/` | `ehrlinger/hvtiR` | The upstream registry. Formerly `ehrlinger/hvtiverse`; the repo was renamed to match the package it contains, and the old name still redirects. Some local checkouts are still in a `hvtiverse/` directory. |
 
-The `hvtiverse` / `hvtiR` split is the reason paths are prefixed rather than
-left bare: an unqualified `R/members.R` gives no clue which of the four repos
-it lives in, and an implementer looking for a `hvtiR/` directory will not find
-one.
+Paths are prefixed rather than left bare because this design spans four
+repositories: an unqualified `R/members.R` gives no clue which of them it lives
+in.
 
 An unprefixed path is relative to whichever repo that section is about, and is
 used only where a section applies to every consumer repo alike (for example
@@ -85,7 +84,7 @@ retyping anything, and no sink should be able to silently disagree.
 | Question | Decision |
 |---|---|
 | Prose model | **One canonical blurb, three renderers.** Status / CRAN / role are manifest *fields*, not prose, so each renderer decorates the shared blurb in its own style. |
-| Manifest home | **Published by `hvtiR` (repo `ehrlinger/hvtiverse`).** The registry that already exists becomes the single upstream source. |
+| Manifest home | **Published by `hvtiR` (`ehrlinger/hvtiR`).** The registry that already exists becomes the single upstream source. |
 | Update trigger | **Scheduled PR bot per repo.** Weekly cron + `workflow_dispatch`; opens a PR, never pushes to `main`. |
 | Generation scope | **The three repos only.** The NIH biosketch and LinkedIn checklist are fixed once by hand, not generated. |
 
@@ -100,7 +99,7 @@ on it. Adding presentation columns would break that contract for no gain.
 Presentation metadata goes in a sibling data file:
 
 ```
-hvtiverse/inst/extdata/catalog.csv
+hvtiR/inst/extdata/catalog.csv
 ```
 
 ### Schema
@@ -165,7 +164,7 @@ favour of "HVTI Recipes".**
 
 ### Validation at the source
 
-A `testthat` test in `hvtiverse/tests/testthat/test-catalog.R` asserts:
+A `testthat` test in `hvtiR/tests/testthat/test-catalog.R` asserts:
 
 1. Rows with `family == "member"` are **exactly** `members()$package` — no
    extras, none missing.
@@ -183,8 +182,8 @@ Reading uses `utils::read.csv()` — already in `Imports`. **No new R dependency
 
 ## 2. Published artifact
 
-The existing `hvtiverse/.github/workflows/pkgdown.yaml` gains one step that
-converts `hvtiverse/inst/extdata/catalog.csv` to `members.json` and includes it in the gh-pages
+The existing `hvtiR/.github/workflows/pkgdown.yaml` gains one step that
+converts `hvtiR/inst/extdata/catalog.csv` to `members.json` and includes it in the gh-pages
 payload. The conversion is a stdlib-only Python script (`csv` + `json`) run on
 the runner, so no R package dependency is added for JSON writing.
 
@@ -194,9 +193,8 @@ Published at:
 https://ehrlinger.github.io/hvtiR/members.json
 ```
 
-Note the path is `/hvtiR/` — the package is `hvtiR` even though the repository
-is `ehrlinger/hvtiverse`, and pkgdown publishes under the package name (see
-`DESCRIPTION` `URL:`).
+The path is `/hvtiR/` because pkgdown publishes under the package name (see
+`DESCRIPTION` `URL:`). Repo and package now share that name.
 
 ### `members.json` schema
 
@@ -336,7 +334,7 @@ the one outcome to avoid, because it would look like a successful sync.
 ## 6. Testing
 
 **`hvtiR` (upstream)**
-- `hvtiverse/tests/testthat/test-catalog.R` — the five assertions in §1.
+- `hvtiR/tests/testthat/test-catalog.R` — the five assertions in §1.
 - A test that the CSV → JSON converter round-trips the catalog and that
   `counts` match a hand-computed expectation for a fixture.
 
@@ -401,5 +399,5 @@ fastest way to prove the whole pipeline end to end.
 2. **Spec location.** This document lives in `CV/` because `CV2026` is not a
    repository and `CV/` is the primary consumer and not an R package (so no
    `.Rbuildignore` concerns). If the work is better tracked upstream, it could
-   move to the `ehrlinger/hvtiverse` repo, which would need a `.Rbuildignore`
+   move to the `ehrlinger/hvtiR` repo, which would need a `.Rbuildignore`
    entry so the spec does not ship inside the `hvtiR` tarball.
