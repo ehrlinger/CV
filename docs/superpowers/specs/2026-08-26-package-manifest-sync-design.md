@@ -42,6 +42,28 @@ differs from their repository (`hvtiRpropensity` → `ehrlinger/hvtiPropensitySc
 `TemporalHazard` → `ehrlinger/temporal_hazard`). Every CV sink is a hand-copied
 projection of that table.
 
+## Path conventions in this document
+
+This design spans four repositories. Paths are therefore written
+`<repo>/<path-from-that-repo-root>`, where `<repo>` is the directory name each
+one is checked out as inside `CV2026`:
+
+| Prefix | Repository | Note |
+|---|---|---|
+| `CV/` | `ehrlinger/CV` | This repository. |
+| `ehrlinger/` | `ehrlinger/ehrlinger` | The GitHub profile repo. |
+| `ehrlinger.github.io/` | `ehrlinger/ehrlinger.github.io` | The user site. |
+| `hvtiverse/` | `ehrlinger/hvtiverse` | **Repo is `hvtiverse`; the R package it contains is `hvtiR`.** |
+
+The `hvtiverse` / `hvtiR` split is the reason paths are prefixed rather than
+left bare: an unqualified `R/members.R` gives no clue which of the four repos
+it lives in, and an implementer looking for a `hvtiR/` directory will not find
+one.
+
+An unprefixed path is relative to whichever repo that section is about, and is
+used only where a section applies to every consumer repo alike (for example
+`tools/render_packages.py`, which each of the three sinks gets its own copy of).
+
 ## Goal
 
 One source of truth for *which* packages exist and *what each one is*, with
@@ -161,8 +183,8 @@ Reading uses `utils::read.csv()` — already in `Imports`. **No new R dependency
 
 ## 2. Published artifact
 
-The existing `pkgdown.yaml` workflow gains one step that converts
-`inst/extdata/catalog.csv` to `members.json` and includes it in the gh-pages
+The existing `hvtiverse/.github/workflows/pkgdown.yaml` gains one step that
+converts `hvtiverse/inst/extdata/catalog.csv` to `members.json` and includes it in the gh-pages
 payload. The conversion is a stdlib-only Python script (`csv` + `json`) run on
 the runner, so no R package dependency is added for JSON writing.
 
@@ -286,9 +308,9 @@ Steps:
 5. Changed: `peter-evans/create-pull-request` opens or updates a single branch,
    `chore/sync-packages`.
 
-You review and merge. Nothing reaches `main` unreviewed — consistent with the
-branch-and-PR rule in `CLAUDE.md`. Reusing one branch means repeated runs
-update the existing PR rather than opening a second.
+You review and merge. Nothing reaches `main` unreviewed: every change to a
+published sink arrives as a pull request, never as a direct push. Reusing one
+branch means repeated runs update the existing PR rather than opening a second.
 
 `ehrlinger/` and `ehrlinger.github.io/` get their first workflows; `CV/` gets a
 second alongside `build-cv.yml`.
@@ -314,7 +336,7 @@ the one outcome to avoid, because it would look like a successful sync.
 ## 6. Testing
 
 **`hvtiR` (upstream)**
-- `test-catalog.R` — the five assertions in §1.
+- `hvtiverse/tests/testthat/test-catalog.R` — the five assertions in §1.
 - A test that the CSV → JSON converter round-trips the catalog and that
   `counts` match a hand-computed expectation for a fixture.
 
@@ -379,4 +401,5 @@ fastest way to prove the whole pipeline end to end.
 2. **Spec location.** This document lives in `CV/` because `CV2026` is not a
    repository and `CV/` is the primary consumer and not an R package (so no
    `.Rbuildignore` concerns). If the work is better tracked upstream, it could
-   move to `hvtiverse/` with a `.Rbuildignore` entry.
+   move to the `ehrlinger/hvtiverse` repo, which would need a `.Rbuildignore`
+   entry so the spec does not ship inside the `hvtiR` tarball.
