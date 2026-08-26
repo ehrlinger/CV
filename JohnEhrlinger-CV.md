@@ -500,9 +500,11 @@ UCLA, Los Angeles, CA.
 
 # Software
 
+<!-- BEGIN:packages -->
+
 **R Packages (CRAN)**
 
-*ggRandomForests* — Visual exploration of random forest models via
+*ggRandomForests* — Visual exploration of random forest models —
 graphical analysis of survival, regression, and classification forests.
 v3.5.2 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
 
@@ -522,28 +524,27 @@ one-command installer and environment diagnostic.
 extended fork of boostmtree.
 <https://github.com/ehrlinger/hvtiBoostmtree>
 
-*hvtiPlotR* — Publication-quality HVTI-standard graphics for
-reproducible clinical research figures.
-<https://github.com/ehrlinger/hvtiPlotR>
+*hvtiPlotR* — HVTI-standard publication graphics for reproducible
+clinical research figures. <https://github.com/ehrlinger/hvtiPlotR>
 
-*hvtiRbootstrap* — Bootstrap model building — fit across many bootstrap
-replicates and report how often each variable survives selection; an R
-port of the CORR bootreg, SUMBOOT and cluster SAS macros; in active
-development. <https://github.com/ehrlinger/hvtiRbootstrap>
+*hvtiRbootstrap* — Bootstrap model building — fit across many replicates
+and report how often each variable survives selection; an R port of the
+bootreg, SUMBOOT and cluster SAS macros; in active development.
+<https://github.com/ehrlinger/hvtiRbootstrap>
 
 *hvtiRdatasets* — Analysis-ready clinical datasets for HVTI CORR
-studies, with verification against the legacy SAS datasets they replace;
-in active development. <https://github.com/ehrlinger/hvtiRdatasets>
+studies, verified against the legacy SAS datasets they replace; in
+active development. <https://github.com/ehrlinger/hvtiRdatasets>
 
-*hvtiRlifetables* — Age-, sex- and race-matched US reference survival,
-reproducing the usmatchd SAS macro by evaluating a stored three-phase
+*hvtiRlifetables* — Age-, sex- and race-matched US reference survival;
+replaces the usmatchd SAS macro by evaluating a stored three-phase
 parametric hazard fit rather than interpolating a life table; in active
 development. <https://github.com/ehrlinger/hvtiRlifetables>
 
-*hvtiRpropensity* — Propensity score estimation, matching, and
-inverse-probability treatment weighting with standardized balance
-diagnostics, for cardiac surgery comparative-effectiveness research; in
-active development. <https://github.com/ehrlinger/hvtiPropensityScores>
+*hvtiRpropensity* — Propensity score estimation, matching and IPTW with
+standardized balance diagnostics, for cardiac surgery
+comparative-effectiveness research; in active development.
+<https://github.com/ehrlinger/hvtiPropensityScores>
 
 *hvtiRtables* — Manuscript-compliant Word tables from gtsummary objects,
 following HVTI CORR table construction standards, with a JTCVS
@@ -559,14 +560,14 @@ research workflows. <https://github.com/ehrlinger/hvtiRutilities>
 
 **Open-Source Documentation**
 
-*HVTI Recipes* — Working catalog of publication-ready figures, tables,
-and datasets for clinical outcomes research (Kaplan-Meier, propensity
-balance, CONSORT, random-forest visualizations), each paired with
+*HVTI Recipes* — Catalog of publication-ready figures, tables, and
+datasets for clinical outcomes research — Kaplan-Meier, propensity
+balance, CONSORT, random-forest visualizations — each paired with
 reproducible code. Quarto book, CC BY 4.0.
 <https://ehrlinger.github.io/hvti_graphics/>
 
 **SAS/C Software**
 
 *hazard* — SAS and C implementation of multi-phase hazard analysis for
-time-to-event decomposition. Includes C source code, SAS macros and
-modules. (Maintainer) <https://github.com/ehrlinger/hazard>
+time-to-event decomposition. (Maintainer)
+<https://github.com/ehrlinger/hazard> <!-- END:packages -->
