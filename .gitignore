@@ -42,3 +42,5 @@ JohnEhrlinger-CV-2025.tex
 JohnEhrlinger-CV-2025.md
 JohnEhrlinger-Biosketch-NIH-2026.tex
 JohnEhrlinger-Biosketch-NIH.docx
+__pycache__/
+*.pyc
