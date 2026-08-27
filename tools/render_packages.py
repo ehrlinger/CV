@@ -141,14 +141,65 @@ def render_block(manifest: dict, versions: dict) -> str:
     return "\n".join(lines)
 
 
-def splice(document: str, block: str) -> str:
-    start = document.find(MARKER_BEGIN)
+def _ordered(manifest: dict) -> list[dict]:
+    pkgs = manifest["packages"]
+    return (
+        [p for p in pkgs if p["family"] == "member" and p["cran"]]
+        + [p for p in pkgs if p["family"] == "standalone"]
+        + sorted((p for p in pkgs if p["family"] == "member" and not p["cran"]),
+                 key=lambda p: p["package"].lower())
+        + [p for p in pkgs if p["family"] == "book"]
+    )
+
+
+def _decorated_blurb(pkg: dict) -> str:
+    text = pkg["blurb"].replace(" -- ", " — ")
+    if pkg["family"] == "book":
+        text += " Quarto book, CC BY 4.0."
+    if pkg["status"] == "wip":
+        text = text.rstrip().removesuffix(".") + "; in active development."
+    if pkg["role"]:
+        text += f" ({pkg['role']})"
+    return text
+
+
+def render_checklist_block(manifest: dict) -> str:
+    """Rows for the LinkedIn checklist: an unchecked box per published item."""
+    rows = []
+    for pkg in _ordered(manifest):
+        path = pkg["url"].replace("https://", "").rstrip("/")
+        if pkg["family"] == "book":
+            path = pkg["url"].replace("https://", "")
+        rows.append(f"- [ ] **{pkg['package']}** — {path}\n  > {_decorated_blurb(pkg)}")
+    return "\n\n".join(rows)
+
+
+def render_summary_line(manifest: dict) -> str:
+    """The one-line \"open-source software\" summary pasted into a profile."""
+    pkgs = manifest["packages"]
+    cran = [p["package"] for p in pkgs if p["family"] == "member" and p["cran"]]
+    fam = sorted((p["package"] for p in pkgs if p["family"] == "member" and not p["cran"]),
+                 key=str.lower)
+    sas = [p["package"] for p in pkgs if p["family"] == "standalone"]
+    parts = []
+    if cran:
+        parts.append(f"{' · '.join(cran)} (CRAN)")
+    parts.append(f"the {number_word(len(fam))}-package hvtiR family ({', '.join(fam)})")
+    if sas:
+        parts.append(f"{' · '.join(sas)} (SAS/C)")
+    return "Open-source software: " + " · ".join(parts)
+
+
+def splice(document: str, block: str, name: str = "packages") -> str:
+    """Replace one named region, leaving every other region untouched."""
+    begin, end_marker = f"<!-- BEGIN:{name} -->", f"<!-- END:{name} -->"
+    start = document.find(begin)
     if start < 0:
-        raise ValueError(f"{MARKER_BEGIN} not found; cannot splice")
-    end = document.find(MARKER_END, start)
+        raise ValueError(f"{begin} not found; cannot splice")
+    end = document.find(end_marker, start)
     if end < 0:
-        raise ValueError(f"{MARKER_END} not found after {MARKER_BEGIN}; cannot splice")
-    return f"{document[: start + len(MARKER_BEGIN)]}\n{block}\n{document[end:]}"
+        raise ValueError(f"{end_marker} not found after {begin}; cannot splice")
+    return f"{document[: start + len(begin)]}\n{block}\n{document[end:]}"
 
 
 def _fetch_text(url: str, timeout: int = 30) -> str:
@@ -210,11 +261,26 @@ def load_manifest(source: str, attempts: int = 3) -> dict:
     return manifest
 
 
+def targets(root: Path) -> list:
+    """Every generated region, as (path, region name, renderer).
+
+    The CV and the checklist share a manifest but not a shape: one is Quarto
+    prose, the other a working task list with an unchecked box per item.
+    """
+    return [
+        (root / "JohnEhrlinger-CV.qmd", "packages",
+         lambda m, v: render_block(m, v)),
+        (root / "linkedin-update-checklist.md", "packages",
+         lambda m, v: render_checklist_block(m)),
+        (root / "linkedin-update-checklist.md", "summary",
+         lambda m, v: "> " + render_summary_line(m)),
+    ]
+
+
 def main(argv=None) -> int:
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", default=MANIFEST_URL)
-    parser.add_argument("--target", type=Path, default=root / "JohnEhrlinger-CV.qmd")
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--no-cran", action="store_true",
                         help="skip crandb lookups; entries render without versions")
@@ -231,21 +297,29 @@ def main(argv=None) -> int:
 
     versions = {} if args.no_cran else cran_versions(manifest["cran_member_names"])
 
-    current = args.target.read_text()
-    rendered = splice(current, render_block(manifest, versions))
+    # Group by file so a file with several regions is written once, and a
+    # partial failure never leaves it half-rendered.
+    pending: dict = {}
+    for path, name, render in targets(root):
+        text = pending.get(path, path.read_text())
+        pending[path] = splice(text, render(manifest, versions), name=name)
+
+    stale = [p for p, text in pending.items() if text != p.read_text()]
 
     if args.check:
-        if rendered != current:
-            print(f"{args.target} is out of date with {args.manifest}", file=sys.stderr)
+        if stale:
+            for p in stale:
+                print(f"{p} is out of date with {args.manifest}", file=sys.stderr)
             return 1
-        print(f"{args.target} is up to date")
+        print(f"{len(pending)} file(s) up to date")
         return 0
 
-    if rendered == current:
-        print(f"{args.target} already up to date")
+    if not stale:
+        print(f"{len(pending)} file(s) already up to date")
         return 0
-    args.target.write_text(rendered)
-    print(f"updated {args.target}")
+    for p in stale:
+        p.write_text(pending[p])
+        print(f"updated {p}")
     return 0
 
 

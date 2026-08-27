@@ -20,15 +20,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # The Software section is generated from hvtiR's manifest. Verify it
-      # before the expensive toolchain runs: a hand-edit inside the markers
-      # would otherwise be silently overwritten by the next scheduled sync.
+      # The CV's Software section and the LinkedIn checklist's project list
+      # are both generated from hvtiR's manifest. Verify before the expensive
+      # toolchain runs: a hand-edit inside the markers would otherwise be
+      # silently overwritten by the next scheduled sync.
       # --check skips (exit 0) if the manifest host is unreachable, so a
       # network blip cannot block a CV rebuild.
-      - name: Test the Software-section renderer
+      - name: Test the manifest renderers
         run: python3 -m unittest discover -s tools -p 'test_*.py'
 
-      - name: Verify the Software section matches the manifest
+      - name: Verify the generated sections match the manifest
         run: python3 tools/render_packages.py --check
 
       # ── 2. Quarto (+ TinyTeX, used only by the best-effort PDF steps below) ──
