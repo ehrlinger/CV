@@ -500,8 +500,6 @@ UCLA, Los Angeles, CA.
 
 # Software
 
-<!-- BEGIN:packages -->
-
 **R Packages (CRAN)**
 
 *ggRandomForests* — Visual exploration of random forest models —
@@ -570,4 +568,4 @@ reproducible code. Quarto book, CC BY 4.0.
 
 *hazard* — SAS and C implementation of multi-phase hazard analysis for
 time-to-event decomposition. (Maintainer)
-<https://github.com/ehrlinger/hazard> <!-- END:packages -->
+<https://github.com/ehrlinger/hazard>
