@@ -7,6 +7,7 @@ date-format: "MMMM YYYY"
 filters:
   - bold-author.lua
   - strip-rawlatex.lua
+  - strip-sync-markers.lua
 
 format:
   quarto-cv-pdf:
