@@ -25,7 +25,7 @@ Replace with:
 > I translate methodological advances into clinical practice through open-source software development and reproducible analytical workflows. Current work is centered on open-source implementations of multi-phase hazard analysis methods — including the hazard SAS/C package and the TemporalHazard R port — and on establishing rigorous, version-controlled research pipelines for cardiovascular outcomes data.
 >
 <!-- BEGIN:summary -->
-> Open-source software: ggRandomForests · TemporalHazard (CRAN) · the nine-package hvtiR family (hvtiBoostmtree, hvtiPlotR, hvtiRbootstrap, hvtiRdatasets, hvtiRlifetables, hvtiRpropensity, hvtiRtables, hvtiRtemplates, hvtiRutilities) · hazard (SAS/C)
+> Open-source software: ggRandomForests · TemporalHazard (CRAN) · the nine-package hvtiR family (hvtiBoostmtree, hvtiPlotR, hvtiRbootstrap, hvtiRdatabuild, hvtiRlifetables, hvtiRpropensity, hvtiRtables, hvtiRtemplates, hvtiRutilities) · hazard (SAS/C)
 <!-- END:summary -->
 
 ---
@@ -143,7 +143,7 @@ Add each R package as a project (Projects section, or in the relevant Experience
 - [ ] **ggRandomForests** — github.com/ehrlinger/ggRandomForests
   > Visual exploration of random forest models — graphical analysis of survival, regression, and classification forests.
 
-- [ ] **TemporalHazard** — github.com/ehrlinger/temporal_hazard
+- [ ] **TemporalHazard** — github.com/ehrlinger/TemporalHazard
   > R port of the C computational core underlying the Cleveland Clinic Hazard SAS module.
 
 - [ ] **hazard** — github.com/ehrlinger/hazard
@@ -158,13 +158,13 @@ Add each R package as a project (Projects section, or in the relevant Experience
 - [ ] **hvtiRbootstrap** — github.com/ehrlinger/hvtiRbootstrap
   > Bootstrap model building — fit across many replicates and report how often each variable survives selection; an R port of the bootreg, SUMBOOT and cluster SAS macros; in active development.
 
-- [ ] **hvtiRdatasets** — github.com/ehrlinger/hvtiRdatasets
+- [ ] **hvtiRdatabuild** — github.com/ehrlinger/hvtiRdatabuild
   > Analysis-ready clinical datasets for HVTI CORR studies, verified against the legacy SAS datasets they replace; in active development.
 
 - [ ] **hvtiRlifetables** — github.com/ehrlinger/hvtiRlifetables
   > Age-, sex- and race-matched US reference survival; replaces the usmatchd SAS macro by evaluating a stored three-phase parametric hazard fit rather than interpolating a life table; in active development.
 
-- [ ] **hvtiRpropensity** — github.com/ehrlinger/hvtiPropensityScores
+- [ ] **hvtiRpropensity** — github.com/ehrlinger/hvtiRpropensity
   > Propensity score estimation, matching and IPTW with standardized balance diagnostics, for cardiac surgery comparative-effectiveness research; in active development.
 
 - [ ] **hvtiRtables** — github.com/ehrlinger/hvtiRtables
@@ -176,7 +176,7 @@ Add each R package as a project (Projects section, or in the relevant Experience
 - [ ] **hvtiRutilities** — github.com/ehrlinger/hvtiRutilities
   > Utility functions supporting reproducible HVTI research workflows.
 
-- [ ] **HVTI Recipes** — ehrlinger.github.io/hvti_graphics/
+- [ ] **HVTI Recipes** — ehrlinger.github.io/hvtiGraphics/
   > Catalog of publication-ready figures, tables, and datasets for clinical outcomes research — Kaplan-Meier, propensity balance, CONSORT, random-forest visualizations — each paired with reproducible code. Quarto book, CC BY 4.0.
 <!-- END:packages -->
 
