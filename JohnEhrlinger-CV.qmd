@@ -57,10 +57,10 @@ on open-source implementations of multi-phase hazard analysis methods.
 
 # Professional Experience
 
-*Cleveland Clinic — Department of Thoracic and Cardiovascular Surgery,
-Heart, Vascular & Thoracic Institute*
+*Cleveland Clinic — Cardiovascular Outcomes, Registries and Research,
+Department of Thoracic and Cardiovascular Surgery, Heart, Vascular & Thoracic Institute*
 
-Assistant Staff, Lead Data Scientist — Cardiovascular Outcomes, Registries and Research \hfill December 2024–Present
+Assistant Staff, Lead Data Scientist \hfill December 2024–Present
 
 Lead a multidisciplinary team of data engineers, clinical data experts, and
 biostatisticians supporting cardiovascular outcomes research. The role carries two
@@ -81,10 +81,10 @@ department's future outcomes research is built on.
 
 Assistant Professor of Surgery (Joint Appointment) \hfill June 2025–Present
 
-Serving as faculty mentor and statistical advisor to medical students and trainees
-conducting clinical research within the Heart, Vascular & Thoracic Institute.
-Providing guidance in statistical methods, research design, and data analysis
-for trainee-led research projects.
+Co-advise a master's student whose machine learning research on cardiopulmonary
+bypass perfusion contributes directly to manuscripts in the department's active
+publication pipeline. Mentor cardiovascular surgery fellows in research methods,
+analytic best practices, and scientific communication.
 
 *Altamira Technologies*
 
