@@ -49,8 +49,8 @@ documentation.
 
 **Genomics collaboration.** Collaborate on the HVTI genomics and
 biorepository initiative, linking CORR’s phenotypic registry to
-whole-genome sequencing across approximately 4,000 surgical patients and
-contributing to the emerging genotype–phenotype research agenda.
+whole-genome sequencing and contributing to the emerging
+genotype–phenotype research agenda.
 
 *Cleveland Clinic Lerner College of Medicine*
 
