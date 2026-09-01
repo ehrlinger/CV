@@ -65,17 +65,15 @@ Department of Thoracic and Cardiovascular Surgery, Heart, Vascular & Thoracic In
 Assistant Staff, Lead Data Scientist \hfill December 2024–Present
 
 Lead a multidisciplinary team of data engineers, clinical data experts, and
-biostatisticians supporting cardiovascular outcomes research. The role carries two
-parallel mandates, alongside an institute-level research collaboration.
+biostatisticians supporting cardiovascular outcomes research.
 
 **Methods and publication.** Drive statistical methods research applied to observational
 clinical data, including multi-phase hazard modeling, ensemble methods, and
-stability-based clustering for phenotype discovery. Carry that work through both to
-peer-reviewed publication with departmental investigators and to open-source
-implementations released on CRAN.
+stability-based clustering for phenotype discovery. Carry that work through to peer-reviewed
+publication with departmental investigators and to open-source releases on CRAN.
 
 **Research infrastructure.** Lead research-side architecture and data governance for
-HVTR, the institute's successor clinical registry platform, and direct the migration
+HVTR, the next-generation clinical registry platform, and direct the migration
 of the department's legacy SAS analytic infrastructure to reproducible,
 version-controlled open-source R. Built the department's manuscript and proposal
 authoring infrastructure: a structured SharePoint editing workflow that replaced
@@ -83,9 +81,8 @@ email-based document exchange and carried 30+ AATS 2026 abstract submissions, a
 knowledge base compiling prior publications and protocols to support proposal
 review, and an automated copy-editorial review tool for manuscripts under
 submission. Lead the group's adoption of AI tooling for research productivity,
-including transcript analysis for HVTI umbrella research meetings, automation of
-data requests and registry maintenance, and AI-assisted software development and
-documentation.
+including transcript analysis for HVTI umbrella research meetings and AI-assisted
+software development and documentation.
 
 **Genomics collaboration.** Collaborate on the HVTI genomics and biorepository
 initiative, linking CORR's phenotypic registry to whole-genome sequencing across
