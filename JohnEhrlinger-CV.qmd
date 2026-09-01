@@ -52,9 +52,9 @@ cardiovascular surgeons, cardiologists, and clinical investigators. Methodologic
 spans random forest and ensemble methods, clustering, deep learning, and time series
 analysis, with emphasis on time-to-event and longitudinal data in cardiovascular
 outcomes. A parallel and equally sustained interest is the research infrastructure that
-makes such work reproducible at scale — clinical registry and data governance design,
+makes such work reproducible at scale: clinical registry and data governance design,
 versioned analytic workflows, and the translation of methodological advances into
-open-source software, currently implementations of multi-phase hazard analysis methods.
+open-source software.
 
 # Professional Experience
 
@@ -68,14 +68,15 @@ biostatisticians supporting cardiovascular outcomes research. The role carries t
 parallel mandates.
 
 **Methods and publication.** Drive statistical methods research applied to observational
-clinical data — multi-phase hazard modeling, ensemble methods, and stability-based
-clustering for phenotype discovery — carried through both to peer-reviewed publication
-with departmental investigators and to open-source implementations released on CRAN.
+clinical data, including multi-phase hazard modeling, ensemble methods, and
+stability-based clustering for phenotype discovery. Carry that work through both to
+peer-reviewed publication with departmental investigators and to open-source
+implementations released on CRAN.
 
 **Research infrastructure.** Lead research-side architecture and data governance for
 HVTR, the institute's successor clinical registry platform, and direct the migration
 of the department's legacy SAS analytic infrastructure to reproducible,
-version-controlled open-source R — establishing the analytic foundation the
+version-controlled open-source R, establishing the analytic foundation the
 department's future outcomes research is built on.
 
 *Cleveland Clinic Lerner College of Medicine*
