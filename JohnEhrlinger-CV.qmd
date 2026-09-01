@@ -196,6 +196,8 @@ Mathematics
 ::: {#refs-talks}
 :::
 
+\newpage
+
 # Software
 
 <!-- BEGIN:packages -->
