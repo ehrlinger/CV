@@ -9,36 +9,48 @@ collaboration with cardiovascular surgeons, cardiologists, and clinical
 investigators. Methodological work spans random forest and ensemble
 methods, clustering, deep learning, and time series analysis, with
 emphasis on time-to-event and longitudinal data in cardiovascular
-outcomes. A parallel and equally sustained interest is the research
-infrastructure that makes such work reproducible at scale — clinical
-registry and data governance design, versioned analytic workflows, and
-the translation of methodological advances into open-source software,
-currently implementations of multi-phase hazard analysis methods.
+outcomes. Equally central is the communication of that work to clinical
+audiences, through model explainability and the visual presentation of
+results. Both rest on research infrastructure: clinical registry and
+data governance design, versioned analytic workflows, and open-source
+implementations that make the work reproducible at scale.
 
 # Professional Experience
 
-*Cleveland Clinic — Cardiovascular Outcomes, Registries and Research,
-Department of Thoracic and Cardiovascular Surgery, Heart, Vascular &
-Thoracic Institute*
+*Cleveland Clinic — Cardiovascular Outcomes, Registries and Research
+(CORR), Department of Thoracic and Cardiovascular Surgery, Heart,
+Vascular & Thoracic Institute*
 
 Assistant Staff, Lead Data Scientist December 2024–Present
 
 Lead a multidisciplinary team of data engineers, clinical data experts,
-and biostatisticians supporting cardiovascular outcomes research. The
-role carries two parallel mandates.
+and biostatisticians supporting cardiovascular outcomes research.
 
 **Methods and publication.** Drive statistical methods research applied
-to observational clinical data — multi-phase hazard modeling, ensemble
-methods, and stability-based clustering for phenotype discovery —
-carried through both to peer-reviewed publication with departmental
-investigators and to open-source implementations released on CRAN.
+to observational clinical data, including multi-phase hazard modeling,
+ensemble methods, and stability-based clustering for phenotype
+discovery. Carry that work through to peer-reviewed publication with
+departmental investigators and to open-source releases on CRAN.
 
 **Research infrastructure.** Lead research-side architecture and data
-governance for HVTR, the institute’s successor clinical registry
-platform, and direct the migration of the department’s legacy SAS
-analytic infrastructure to reproducible, version-controlled open-source
-R — establishing the analytic foundation the department’s future
-outcomes research is built on.
+governance for HVTR, the next-generation clinical registry platform, and
+direct the migration of the department’s legacy SAS analytic
+infrastructure to reproducible, version-controlled open-source R.
+
+**Research tooling.** Built the department’s manuscript and proposal
+authoring infrastructure: a structured SharePoint editing workflow that
+replaced email-based document exchange and carried 30+ AATS 2026
+abstract submissions, a knowledge base compiling prior publications and
+protocols to support proposal review, and an automated copy-editorial
+review tool for manuscripts under submission. Lead the group’s adoption
+of AI for research productivity, including transcript analysis for HVTI
+umbrella research meetings and AI-assisted software development and
+documentation.
+
+**Genomics collaboration.** Collaborate on the HVTI genomics and
+biorepository initiative, linking CORR’s phenotypic registry to
+whole-genome sequencing across approximately 4,000 surgical patients and
+contributing to the emerging genotype–phenotype research agenda.
 
 *Cleveland Clinic Lerner College of Medicine*
 
@@ -54,19 +66,19 @@ scientific communication.
 
 Senior Data Scientist — Technical Lead March 2023–October 2024
 
-Technical lead of the data science team supporting USAF customers on
-secure networks. Built a reusable Plotly-based dashboard framework;
-developed predictive traffic flow models and a computer vision pipeline
-for vehicle volume estimation at base entry points.
+Led the data science team supporting USAF customers on secure networks.
+Built a reusable Plotly-based dashboard framework; developed predictive
+traffic flow models and a computer vision pipeline for vehicle volume
+estimation at base entry points.
 
 *Microsoft — Azure Global Commercial Industry (AGCI-AI)*
 
 Senior Data and Applied Scientist — Technical Lead July 2015–April 2023
 
-Technical lead for customer-facing ML/AI engagements across oil & gas
-(Chevron), aerospace (Rolls Royce), and medical devices (Stryker).
-Developed Azure ML solution accelerators for predictive maintenance.
-Presented at Microsoft MLADS conference four times (2016–2020).
+Led customer-facing ML/AI engagements across oil & gas (Chevron),
+aerospace (Rolls Royce), and medical devices (Stryker). Developed Azure
+ML solution accelerators for predictive maintenance. Presented at
+Microsoft MLADS conference four times (2016–2020).
 
 *Cleveland Clinic — Quantitative Health Sciences*
 
@@ -83,7 +95,7 @@ Clinical Assistant Professor (Joint Appointment) 2015
 
 Mentored medical students and fellows in statistical methods and
 research design as part of joint fellowship programs within the
-Cardiovascular Outcomes, Registries and Research (CORR) group.
+Cardiovascular Outcomes, Registries and Research group.
 
 *Cleveland Clinic — Thoracic and Cardiovascular Surgery*
 
@@ -111,6 +123,22 @@ Engineering 1994
 NASA Graduate Research Fellowship 1992–1994
 
 Cleveland Clinic Innovations Award 2003
+
+# Professional Service
+
+Moderator, CORR monthly research proposal review 2025–Present
+
+Moderate the departmental research proposal review, and lead the
+proposal intake and review-process improvements adopted over the past
+year.
+
+Ad hoc reviewer, *European Journal of Medical Research*
+
+Ad hoc advisor to HVTI artificial intelligence initiatives on technology
+selection and clinical use-case assessment
+
+Member, American Statistical Association and Society for Industrial and
+Applied Mathematics
 
 # Publications
 
@@ -390,6 +418,18 @@ Welke, K., Jacobs, J. P., DeCampli, W., Kirklin, J. K., Pourmoghadam,
 K., Polimenakos, A., Kumar, T. K. S., Jegatheeswaran, A., Herrmann, J.
 L., … Overman, D. (2026). *The search for borderline hearts within
 complete atrioventricular septal defects*.
+
+</div>
+
+<div id="ref-Bhagat2026Decannulation" class="csl-entry">
+
+Bhagat, R., Thuita, L., Curran, K., Blackledge, M., Raghavan, A., Zlota,
+A., Putnam, J., Snyder, A., Bagaber, G., Diz Ferre, J. L., Zaki, A. L.,
+Sharma, I., Donaldson, C., Ehrlinger, J., Soltesz, E. G., Al-Hossan, A.,
+Blackstone, E. H., Tong, M. Z. Y. (2026). *Who is ready for
+decannulation? Understanding the predictive effects of hemodynamics
+parameters on readiness for weaning from veno-arterial extracorporeal
+membrane oxygenation*.
 
 </div>
 
