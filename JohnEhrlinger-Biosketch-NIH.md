@@ -59,7 +59,7 @@ I am well positioned to contribute to projects at the intersection of machine le
 | 2015–2023 | Senior Data and Applied Scientist, Artificial Intelligence, Azure Global Commercial Industry (AGCI-AI), Microsoft, Cambridge, MA |
 | 2023–2024 | Senior Data Scientist, Altamira Technologies, McLean, VA |
 | 2024–present | Assistant Staff, Lead Data Scientist, Dept. of Thoracic and Cardiovascular Surgery, Heart, Vascular & Thoracic Institute, Cleveland Clinic, Cleveland, OH |
-| 2025–present | Clinical Assistant Professor, Cleveland Clinic Lerner College of Medicine, Cleveland, OH |
+| 2025–present | Assistant Professor of Surgery, Cleveland Clinic Lerner College of Medicine – Case Western Reserve University, Cleveland, OH |
 
 ### Honors
 
