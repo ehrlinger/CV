@@ -65,7 +65,7 @@ Assistant Staff, Lead Data Scientist \hfill December 2024–Present
 
 Lead a multidisciplinary team of data engineers, clinical data experts, and
 biostatisticians supporting cardiovascular outcomes research. The role carries two
-parallel mandates.
+parallel mandates, alongside an institute-level research collaboration.
 
 **Methods and publication.** Drive statistical methods research applied to observational
 clinical data, including multi-phase hazard modeling, ensemble methods, and
