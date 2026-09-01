@@ -5,38 +5,49 @@ September 2026
 # Research Interests
 
 Applied statistical machine learning research conducted in close
-collaboration with cardiovascular surgeons and clinicians.
-Methodological focus spans random forest and ensemble methods,
-clustering, deep learning, and time series analysis, with emphasis on
-time-to-event and longitudinal data in cardiovascular outcomes. A
-sustained focus is the translation of methodological advances into
-clinical practice through open-source software development and
-reproducible analytical workflows, with current work centered on
+collaboration with cardiovascular surgeons, cardiologists, and clinical
+investigators. Methodological focus spans random forest and ensemble
+methods, clustering, deep learning, and time series analysis, with
+emphasis on time-to-event and longitudinal data in cardiovascular
+outcomes. A sustained focus is the translation of methodological
+advances into clinical practice through open-source software development
+and reproducible analytical workflows, with current work centered on
 open-source implementations of multi-phase hazard analysis methods.
 
 # Professional Experience
 
-*Cleveland Clinic — Heart, Vascular & Thoracic Institute*
+*Cleveland Clinic — Cardiovascular Outcomes, Registries and Research,
+Department of Thoracic and Cardiovascular Surgery, Heart, Vascular &
+Thoracic Institute*
 
-Assistant Staff, Lead Data Scientist — Cardiovascular Outcomes,
-Registries and Research (CORR) December 2024–Present
+Assistant Staff, Lead Data Scientist December 2024–Present
 
-Lead a team of data engineers and data scientists supporting
-cardiovascular outcomes research within CORR. Drive statistical methods
-research as applied to observational clinical research, advancing
-rigorous analytic approaches for cardiovascular outcomes data. Champion
-software engineering best practices and implement process improvements
-to optimize the departmental research pipeline from data collection
-through publication.
+Lead a multidisciplinary team of data engineers, clinical data experts,
+and biostatisticians supporting cardiovascular outcomes research. The
+role carries two parallel mandates.
+
+**Methods and publication.** Drive statistical methods research applied
+to observational clinical data — multi-phase hazard modeling, ensemble
+methods, and stability-based clustering for phenotype discovery —
+carried through both to peer-reviewed publication with departmental
+investigators and to open-source implementations released on CRAN.
+
+**Research infrastructure.** Lead research-side architecture and data
+governance for HVTR, the institute’s successor clinical registry
+platform, and direct the migration of the department’s legacy SAS
+analytic infrastructure to reproducible, version-controlled open-source
+R — establishing the analytic foundation the department’s future
+outcomes research is built on.
 
 *Cleveland Clinic Lerner College of Medicine*
 
-Clinical Assistant Professor (Joint Appointment) June 2025–Present
+Assistant Professor of Surgery (Joint Appointment) June 2025–Present
 
-Serving as faculty mentor and statistical advisor to medical students
-and trainees conducting clinical research within the Heart, Vascular &
-Thoracic Institute. Providing guidance in statistical methods, research
-design, and data analysis for trainee-led research projects.
+Co-advise a master’s student whose machine learning research on
+cardiopulmonary bypass perfusion contributes directly to manuscripts in
+the department’s active publication pipeline. Mentor cardiovascular
+surgery fellows in research methods, analytic best practices, and
+scientific communication.
 
 *Altamira Technologies*
 
@@ -58,7 +69,7 @@ Presented at Microsoft MLADS conference four times (2016–2020).
 
 *Cleveland Clinic — Quantitative Health Sciences*
 
-Assistant Staff / Assistant Professor of Medicine August 2012–July 2015
+Assistant Staff August 2012–July 2015
 
 Applied random survival forests to cardiovascular outcomes research.
 Initiated development of the ggRandomForests R package. Began migration
