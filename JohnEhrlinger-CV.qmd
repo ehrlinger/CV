@@ -60,11 +60,11 @@ on open-source implementations of multi-phase hazard analysis methods.
 *Cleveland Clinic — Department of Thoracic and Cardiovascular Surgery,
 Heart, Vascular & Thoracic Institute*
 
-Assistant Staff, Lead Data Scientist — Cardiovascular Outcomes, Registries and Research (CORR) \hfill December 2024–Present
+Assistant Staff, Lead Data Scientist — Cardiovascular Outcomes, Registries and Research \hfill December 2024–Present
 
 Lead a multidisciplinary team of data engineers, clinical data experts, and
-biostatisticians supporting cardiovascular outcomes research within CORR. The role
-carries two parallel mandates.
+biostatisticians supporting cardiovascular outcomes research. The role carries two
+parallel mandates.
 
 **Methods and publication.** Drive statistical methods research applied to observational
 clinical data — multi-phase hazard modeling, ensemble methods, and stability-based
