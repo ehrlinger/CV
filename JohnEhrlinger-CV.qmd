@@ -48,12 +48,13 @@ validate-yaml: false
 # Research Interests
 
 Applied statistical machine learning research conducted in close collaboration with
-cardiovascular surgeons and clinicians. Methodological focus spans random forest and
-ensemble methods, clustering, deep learning, and time series analysis, with emphasis
-on time-to-event and longitudinal data in cardiovascular outcomes. A sustained focus
-is the translation of methodological advances into clinical practice through open-source
-software development and reproducible analytical workflows, with current work centered
-on open-source implementations of multi-phase hazard analysis methods.
+cardiovascular surgeons, cardiologists, and clinical investigators. Methodological focus
+spans random forest and ensemble methods, clustering, deep learning, and time series
+analysis, with emphasis on time-to-event and longitudinal data in cardiovascular
+outcomes. A sustained focus is the translation of methodological advances into clinical
+practice through open-source software development and reproducible analytical workflows,
+with current work centered on open-source implementations of multi-phase hazard analysis
+methods.
 
 # Professional Experience
 
