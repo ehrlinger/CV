@@ -57,15 +57,25 @@ on open-source implementations of multi-phase hazard analysis methods.
 
 # Professional Experience
 
-*Cleveland Clinic — Heart, Vascular & Thoracic Institute*
+*Cleveland Clinic — Department of Thoracic and Cardiovascular Surgery,
+Heart, Vascular & Thoracic Institute*
 
 Assistant Staff, Lead Data Scientist — Cardiovascular Outcomes, Registries and Research (CORR) \hfill December 2024–Present
 
-Lead a team of data engineers and data scientists supporting cardiovascular outcomes
-research within CORR. Drive statistical methods research as applied to observational
-clinical research, advancing rigorous analytic approaches for cardiovascular outcomes
-data. Champion software engineering best practices and implement process improvements
-to optimize the departmental research pipeline from data collection through publication.
+Lead a multidisciplinary team of data engineers, clinical data experts, and
+biostatisticians supporting cardiovascular outcomes research within CORR. The role
+carries two parallel mandates.
+
+**Methods and publication.** Drive statistical methods research applied to observational
+clinical data — multi-phase hazard modeling, ensemble methods, and stability-based
+clustering for phenotype discovery — carried through both to peer-reviewed publication
+with departmental investigators and to open-source implementations released on CRAN.
+
+**Research infrastructure.** Lead research-side architecture and data governance for
+HVTR, the institute's successor clinical registry platform, and direct the migration
+of the department's legacy SAS analytic infrastructure to reproducible,
+version-controlled open-source R — establishing the analytic foundation the
+department's future outcomes research is built on.
 
 *Cleveland Clinic Lerner College of Medicine*
 
@@ -84,6 +94,8 @@ Technical lead of the data science team supporting USAF customers on secure netw
 Built a reusable Plotly-based dashboard framework; developed predictive traffic flow
 models and a computer vision pipeline for vehicle volume estimation at base entry points.
 
+\newpage
+
 *Microsoft — Azure Global Commercial Industry (AGCI-AI)*
 
 Senior Data and Applied Scientist — Technical Lead \hfill July 2015–April 2023
@@ -93,11 +105,9 @@ aerospace (Rolls Royce), and medical devices (Stryker). Developed Azure ML solut
 accelerators for predictive maintenance. Presented at Microsoft MLADS conference four
 times (2016–2020).
 
-\newpage
-
 *Cleveland Clinic — Quantitative Health Sciences*
 
-Assistant Staff / Assistant Professor of Medicine \hfill August 2012–July 2015
+Assistant Staff \hfill August 2012–July 2015
 
 Applied random survival forests to cardiovascular outcomes research. Initiated
 development of the ggRandomForests R package. Began migration of institutional
