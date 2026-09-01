@@ -1,6 +1,6 @@
 # Curriculum Vitae
 John Ehrlinger, PhD
-August 2026
+September 2026
 
 # Research Interests
 
@@ -530,9 +530,9 @@ and report how often each variable survives selection; an R port of the
 bootreg, SUMBOOT and cluster SAS macros; in active development.
 <https://github.com/ehrlinger/hvtiRbootstrap>
 
-*hvtiRdatasets* — Analysis-ready clinical datasets for HVTI CORR
+*hvtiRdatabuild* — Analysis-ready clinical datasets for HVTI CORR
 studies, verified against the legacy SAS datasets they replace; in
-active development. <https://github.com/ehrlinger/hvtiRdatasets>
+active development. <https://github.com/ehrlinger/hvtiRdatabuild>
 
 *hvtiRlifetables* — Age-, sex- and race-matched US reference survival;
 replaces the usmatchd SAS macro by evaluating a stored three-phase
@@ -542,7 +542,7 @@ development. <https://github.com/ehrlinger/hvtiRlifetables>
 *hvtiRpropensity* — Propensity score estimation, matching and IPTW with
 standardized balance diagnostics, for cardiac surgery
 comparative-effectiveness research; in active development.
-<https://github.com/ehrlinger/hvtiPropensityScores>
+<https://github.com/ehrlinger/hvtiRpropensity>
 
 *hvtiRtables* — Manuscript-compliant Word tables from gtsummary objects,
 following HVTI CORR table construction standards, with a JTCVS
@@ -562,7 +562,7 @@ research workflows. <https://github.com/ehrlinger/hvtiRutilities>
 datasets for clinical outcomes research — Kaplan-Meier, propensity
 balance, CONSORT, random-forest visualizations — each paired with
 reproducible code. Quarto book, CC BY 4.0.
-<https://ehrlinger.github.io/hvti_graphics/>
+<https://ehrlinger.github.io/hvtiGraphics/>
 
 **SAS/C Software**
 
