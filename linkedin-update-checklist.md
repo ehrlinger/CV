@@ -1,5 +1,6 @@
 # LinkedIn Update Checklist
-*Based on John Ehrlinger CV — March 2026*
+*Based on John Ehrlinger CV — 1 September 2026.* Regenerate this after any CV rewrite;
+the prose below is hand-maintained and goes stale independently of the CV.
 
 Work through each section in order. LinkedIn's editor is at:
 **linkedin.com/in/ehrlinger → Edit profile (pencil icon)**
@@ -9,7 +10,7 @@ Work through each section in order. LinkedIn's editor is at:
 ## 1. Intro (top of profile)
 
 - [ ] **Name:** John Ehrlinger
-- [ ] **Headline:** Assistant Staff, Lead Data Scientist · Cardiovascular Outcomes, Registries and Research · Cleveland Clinic
+- [ ] **Headline:** Assistant Staff, Lead Data Scientist · Cardiovascular Outcomes, Registries and Research · Thoracic & Cardiovascular Surgery · Cleveland Clinic
 - [ ] **Location:** Hiram, Ohio
 - [ ] **Website:** https://ehrlinger.github.io *(add under Contact Info)*
 - [ ] **ORCID:** https://orcid.org/0000-0002-5340-5154 *(add as a second website or Other link)*
@@ -20,9 +21,9 @@ Work through each section in order. LinkedIn's editor is at:
 
 Replace with:
 
-> Applied statistician and machine learning researcher at Cleveland Clinic's Cardiovascular Outcomes, Registries and Research (CORR) group. I lead a team of data engineers and data scientists supporting cardiovascular outcomes research, with methodological focus on survival analysis, random forest and ensemble methods, longitudinal data, and time-to-event modeling.
+> Applied statistician and machine learning researcher in the Department of Thoracic and Cardiovascular Surgery at Cleveland Clinic, where I lead the Cardiovascular Outcomes, Registries and Research (CORR) analytic team — data engineers, clinical data experts and biostatisticians. Methodological focus on survival analysis, random forest and ensemble methods, clustering, longitudinal data and time-to-event modelling.
 >
-> I translate methodological advances into clinical practice through open-source software development and reproducible analytical workflows. Current work is centered on open-source implementations of multi-phase hazard analysis methods — including the hazard SAS/C package and the TemporalHazard R port — and on establishing rigorous, version-controlled research pipelines for cardiovascular outcomes data.
+> Equally central to my work is making that analysis land with a clinical audience: model explainability, and the visual communication of results. Both rest on research infrastructure — clinical registry and data governance design, versioned analytic workflows, and open-source implementations that make the work reproducible at scale.
 >
 <!-- BEGIN:summary -->
 > Open-source software: ggRandomForests · TemporalHazard (CRAN) · the nine-package hvtiR family (hvtiBoostmtree, hvtiPlotR, hvtiRbootstrap, hvtiRdatabuild, hvtiRlifetables, hvtiRpropensity, hvtiRtables, hvtiRtemplates, hvtiRutilities) · hazard (SAS/C)
@@ -36,14 +37,33 @@ Update or add each position in reverse chronological order.
 
 ### ✏️ Current — Cleveland Clinic
 - [ ] **Title:** Assistant Staff, Lead Data Scientist
-- [ ] **Department:** Cardiovascular Outcomes, Registries and Research (CORR)
+- [ ] **Department:** Department of Thoracic and Cardiovascular Surgery
+- [ ] **Team:** Cardiovascular Outcomes, Registries and Research (CORR)
 - [ ] **Division:** Heart, Vascular & Thoracic Institute
 - [ ] **Start date:** December 2024
 - [ ] **End date:** Present
 - [ ] **Description:**
-  > Lead a team of data engineers and data scientists supporting cardiovascular outcomes research. Drive statistical methods research as applied to observational clinical research, advancing rigorous analytic approaches for cardiovascular outcomes data, and collaborate with staff and resident physicians on grant applications and peer-reviewed publications.
+  > Lead a multidisciplinary team of data engineers, clinical data experts and biostatisticians supporting cardiovascular outcomes research within CORR.
   >
-  > Champion software engineering best practices — version control, code review, and automated workflows — and implement process improvements to optimize the research pipeline from data collection through publication. Lead open-source development of multi-phase hazard analysis methods, enabling broader access to tools currently dependent on a proprietary SAS implementation.
+  > **Methods and publication.** Statistical methods research applied to observational clinical data — multi-phase hazard modelling, ensemble methods, and stability-based clustering for phenotype discovery — carried through to peer-reviewed publication with departmental investigators and to open-source releases on CRAN.
+  >
+  > **Research infrastructure.** Research-side architecture and data governance for HVTR, the next-generation clinical registry platform, and the migration of the department's legacy SAS analytic infrastructure to reproducible, version-controlled open-source R.
+  >
+  > **Research tooling.** Built the department's manuscript and proposal authoring infrastructure: a structured collaborative editing workflow that replaced email-based document exchange, a knowledge base compiling prior publications and protocols to support proposal review, and an automated copy-editorial review tool. Lead adoption of AI for research productivity, including meeting transcript analysis and AI-assisted software development.
+  >
+  > **Genomics collaboration.** Collaborate on the institute's genomics and biorepository initiative, linking the phenotypic registry to whole-genome sequencing and contributing to the emerging genotype–phenotype research agenda.
+
+---
+
+### ➕ Cleveland Clinic Lerner College of Medicine — MISSING, add this
+- [ ] **Title:** Assistant Professor of Surgery (Joint Appointment)
+- [ ] **Company:** Cleveland Clinic Lerner College of Medicine of Case Western Reserve University
+- [ ] **Start date:** June 2025
+- [ ] **End date:** Present
+- [ ] **Description:**
+  > Co-advise a master's student whose machine learning research on cardiopulmonary bypass perfusion contributes directly to manuscripts in the department's active publication pipeline. Mentor cardiovascular surgery fellows in research methods, analytic best practices, and scientific communication.
+
+⚠️ This appointment was absent from the checklist. The rank is **Assistant Professor of Surgery**, per the appointment letter of 2025-06-06 — not "Clinical Assistant Professor", which is what every surface said until 2026-09-01.
 
 ---
 
@@ -53,7 +73,7 @@ Update or add each position in reverse chronological order.
 - [ ] **Start date:** March 2023
 - [ ] **End date:** October 2024
 - [ ] **Description:**
-  > Technical lead of the data science team supporting United States Air Force customers on secure networks. Drove team best practices in Python development and version control. Built a reusable Plotly-based dashboard framework enabling rapid development across multiple analytical solutions. Developed predictive traffic flow models and a computer vision pipeline using publicly available traffic monitoring video to estimate vehicle volumes at base entry points and guide staffing levels.
+  > Led the data science team supporting United States Air Force customers on secure networks. Drove team best practices in Python development and version control. Built a reusable Plotly-based dashboard framework enabling rapid development across multiple analytical solutions. Developed predictive traffic flow models and a computer vision pipeline using publicly available traffic monitoring video to estimate vehicle volumes at base entry points and guide staffing levels.
 
 ---
 
@@ -63,14 +83,14 @@ Update or add each position in reverse chronological order.
 - [ ] **Start date:** July 2015
 - [ ] **End date:** April 2023
 - [ ] **Description:**
-  > Technical lead for customer-facing machine learning and AI engagements across industries including oil and gas (Chevron), aerospace engineering (Rolls Royce), and medical devices (Stryker). Led end-to-end solution development with focus on time series forecasting, predictive maintenance, and deep learning for imaging and sequential data.
+  > Led customer-facing machine learning and AI engagements across industries including oil and gas (Chevron), aerospace engineering (Rolls Royce), and medical devices (Stryker). Led end-to-end solution development with focus on time series forecasting, predictive maintenance, and deep learning for imaging and sequential data.
   >
   > Developed published Azure Machine Learning solution accelerators for predictive maintenance. Presented research findings at Microsoft's Machine Learning and Data Science (MLADS) conference four times (2016–2020).
 
 ---
 
 ### ✏️ Cleveland Clinic — Quantitative Health Sciences
-- [ ] **Title:** Assistant Staff / Assistant Professor of Medicine
+- [ ] **Title:** Assistant Staff
 - [ ] **Department:** Department of Quantitative Health Sciences – Lerner Research Institute
 - [ ] **Start date:** August 2012
 - [ ] **End date:** July 2015
@@ -127,6 +147,8 @@ Add or confirm these are listed (LinkedIn lets you pin the top 3):
 - [ ] Deep Learning
 - [ ] Python
 - [ ] Data Visualization
+- [ ] Model Explainability / Interpretable ML
+- [ ] Data Governance
 - [ ] Reproducible Research
 - [ ] Clinical Research
 - [ ] Cardiovascular Outcomes Research
@@ -185,10 +207,24 @@ Add each R package as a project (Projects section, or in the relevant Experience
 ## 7. Honors & Awards
 
 - [ ] NASA Graduate Research Fellowship (1992–1994)
+- [ ] Cleveland Clinic Innovations Award (2003)
 
 ---
 
-## 8. Contact Info (gear icon on profile)
+## 8. Organizations & Service
+
+LinkedIn has no "Service" section; use **Organizations** for memberships and put the
+reviewing and moderator roles in the current-role description or in About.
+
+- [ ] **Organizations:** American Statistical Association
+- [ ] **Organizations:** Society for Industrial and Applied Mathematics
+- [ ] Moderator, CORR monthly research proposal review (2025–Present) — including proposal intake and review-process improvements
+- [ ] Ad hoc reviewer, *European Journal of Medical Research*
+- [ ] Ad hoc advisor to HVTI artificial intelligence initiatives on technology selection and clinical use-case assessment
+
+---
+
+## 9. Contact Info (gear icon on profile)
 
 - [ ] Profile URL: linkedin.com/in/ehrlinger *(customize if not already set)*
 - [ ] Website: https://ehrlinger.github.io
