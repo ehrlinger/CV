@@ -86,6 +86,11 @@ including transcript analysis for HVTI umbrella research meetings, automation of
 data requests and registry maintenance, and AI-assisted software development and
 documentation.
 
+**Genomics collaboration.** Collaborate on the HVTI genomics and biorepository
+initiative, linking CORR's phenotypic registry to whole-genome sequencing across
+approximately 4,000 surgical patients and contributing to the emerging
+genotype–phenotype research agenda.
+
 *Cleveland Clinic Lerner College of Medicine*
 
 Assistant Professor of Surgery (Joint Appointment) \hfill June 2025–Present
@@ -163,10 +168,10 @@ Moderator, CORR monthly research proposal review \hfill 2025–Present
 Moderate the departmental research proposal review, and lead the proposal intake
 and review-process improvements adopted over the past year.
 
-Advisor on technology selection and clinical use cases, HVTI artificial
-intelligence initiatives \hfill 2025–Present
-
 Ad hoc reviewer, *European Journal of Medical Research*
+
+Ad hoc advisor to HVTI artificial intelligence initiatives on technology selection
+and clinical use-case assessment
 
 Member, American Statistical Association and Society for Industrial and Applied
 Mathematics
