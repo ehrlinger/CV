@@ -6,13 +6,14 @@ September 2026
 
 Applied statistical machine learning research conducted in close
 collaboration with cardiovascular surgeons, cardiologists, and clinical
-investigators. Methodological focus spans random forest and ensemble
+investigators. Methodological work spans random forest and ensemble
 methods, clustering, deep learning, and time series analysis, with
 emphasis on time-to-event and longitudinal data in cardiovascular
-outcomes. A sustained focus is the translation of methodological
-advances into clinical practice through open-source software development
-and reproducible analytical workflows, with current work centered on
-open-source implementations of multi-phase hazard analysis methods.
+outcomes. A parallel and equally sustained interest is the research
+infrastructure that makes such work reproducible at scale — clinical
+registry and data governance design, versioned analytic workflows, and
+the translation of methodological advances into open-source software,
+currently implementations of multi-phase hazard analysis methods.
 
 # Professional Experience
 
