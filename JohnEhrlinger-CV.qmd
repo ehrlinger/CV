@@ -51,10 +51,11 @@ Applied statistical machine learning research conducted in close collaboration w
 cardiovascular surgeons, cardiologists, and clinical investigators. Methodological work
 spans random forest and ensemble methods, clustering, deep learning, and time series
 analysis, with emphasis on time-to-event and longitudinal data in cardiovascular
-outcomes. A parallel and equally sustained interest is the research infrastructure that
-makes such work reproducible at scale: clinical registry and data governance design,
-versioned analytic workflows, and the translation of methodological advances into
-open-source software.
+outcomes. Equally central is the communication of that work to clinical audiences,
+through model explainability and the visual presentation of results. Both rest on
+research infrastructure: clinical registry and data governance design, versioned
+analytic workflows, and open-source implementations that make the work reproducible
+at scale.
 
 # Professional Experience
 
