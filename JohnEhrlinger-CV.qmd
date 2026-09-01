@@ -75,12 +75,14 @@ publication with departmental investigators and to open-source releases on CRAN.
 **Research infrastructure.** Lead research-side architecture and data governance for
 HVTR, the next-generation clinical registry platform, and direct the migration
 of the department's legacy SAS analytic infrastructure to reproducible,
-version-controlled open-source R. Built the department's manuscript and proposal
-authoring infrastructure: a structured SharePoint editing workflow that replaced
+version-controlled open-source R.
+
+**Research tooling.** Built the department's manuscript and proposal authoring
+infrastructure: a structured SharePoint editing workflow that replaced
 email-based document exchange and carried 30+ AATS 2026 abstract submissions, a
 knowledge base compiling prior publications and protocols to support proposal
 review, and an automated copy-editorial review tool for manuscripts under
-submission. Lead the group's adoption of AI tooling for research productivity,
+submission. Lead the group's adoption of AI for research productivity,
 including transcript analysis for HVTI umbrella research meetings and AI-assisted
 software development and documentation.
 
