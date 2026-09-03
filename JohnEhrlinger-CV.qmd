@@ -221,8 +221,9 @@ Eleven member packages — the nine below, plus *ggRandomForests* and *TemporalH
 unit by *hvtiR*, a one-command installer and environment diagnostic.
 <https://github.com/ehrlinger/hvtiR>
 
-*hvtiBoostmtree* — Boosted multivariate trees for longitudinal data; an extended fork of
-boostmtree. <https://github.com/ehrlinger/hvtiBoostmtree>
+*ggBoostedTrees* — Visual exploration of boosted tree models — graphical analysis of
+boostmtree and BoostMLR fits for longitudinal responses; in active development.
+<https://github.com/ehrlinger/ggBoostedTrees>
 
 *hvtiPlotR* — HVTI-standard publication graphics for reproducible clinical research
 figures. <https://github.com/ehrlinger/hvtiPlotR>
