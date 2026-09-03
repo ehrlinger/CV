@@ -20,6 +20,10 @@
 # Compiled output (track PDFs explicitly if desired; comment out to include them)
 *.pdf
 
+# Rendered CV markdown — CI builds it (quarto render --to gfm) and deploys it to
+# gh-pages; a committed copy would silently drift from the .qmd it came from.
+JohnEhrlinger-CV.md
+
 # R project artifacts
 .Rhistory
 .RData
