@@ -26,7 +26,7 @@ Replace with:
 > Equally central to my work is making that analysis land with a clinical audience: model explainability, and the visual communication of results. Both rest on research infrastructure — clinical registry and data governance design, versioned analytic workflows, and open-source implementations that make the work reproducible at scale.
 >
 <!-- BEGIN:summary -->
-> Open-source software: ggRandomForests · TemporalHazard (CRAN) · the nine-package hvtiR family (hvtiBoostmtree, hvtiPlotR, hvtiRbootstrap, hvtiRdatabuild, hvtiRlifetables, hvtiRpropensity, hvtiRtables, hvtiRtemplates, hvtiRutilities) · hazard (SAS/C)
+> Open-source software: ggRandomForests · TemporalHazard (CRAN) · the nine-package hvtiR family (ggBoostedTrees, hvtiPlotR, hvtiRbootstrap, hvtiRdatabuild, hvtiRlifetables, hvtiRpropensity, hvtiRtables, hvtiRtemplates, hvtiRutilities) · hazard (SAS/C)
 <!-- END:summary -->
 
 ---
@@ -171,8 +171,8 @@ Add each R package as a project (Projects section, or in the relevant Experience
 - [ ] **hazard** — github.com/ehrlinger/hazard
   > SAS and C implementation of multi-phase hazard analysis for time-to-event decomposition. (Maintainer)
 
-- [ ] **hvtiBoostmtree** — github.com/ehrlinger/hvtiBoostmtree
-  > Boosted multivariate trees for longitudinal data; an extended fork of boostmtree.
+- [ ] **ggBoostedTrees** — github.com/ehrlinger/ggBoostedTrees
+  > Visual exploration of boosted tree models — graphical analysis of boostmtree and BoostMLR fits for longitudinal responses; in active development.
 
 - [ ] **hvtiPlotR** — github.com/ehrlinger/hvtiPlotR
   > HVTI-standard publication graphics for reproducible clinical research figures.

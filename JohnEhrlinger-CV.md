@@ -145,6 +145,18 @@ Applied Mathematics
 <div id="refs-peer" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" data-line-spacing="2">
 
+<div id="ref-Alshneikat2026CAA" class="csl-entry">
+
+Alshneikat, M., Alaraj, R., Awad, A. K., Ramsingh, R., Ehrlinger, J.,
+Houghtaling, P. L., Koprivanac, M. J., Kapadia, S., Tong, M. Z.,
+Soltesz, E. G., Smedira, N. G., Roselli, E. E., Wierup, P., Gillinov, A.
+M., Svensson, L. G., Blackstone, E. H., Pettersson, G. B., Unai, S. G.,
+Bakaeen, F. G. (2026). Coronary artery aneurysms: Evolving trends in
+surgical management. *The Journal of Thoracic and Cardiovascular
+Surgery*.
+
+</div>
+
 <div id="ref-Robinson2026AVSD" class="csl-entry">
 
 Robinson, J., Belitsis, G., Ehrlinger, J., Blackstone, E. H., Li, X.,
@@ -369,18 +381,6 @@ Annals of Statistics*, *40*(2), 1074–1101.
 <div id="refs-submitted" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" data-line-spacing="2">
 
-<div id="ref-Alshneikat2026CAA" class="csl-entry">
-
-Alshneikat, M., Alaraj, R., Awad, A. K., Ramsingh, R., Ehrlinger, J.,
-Houghtaling, P. L., Koprivanac, M. J., Kapadia, S., Tong, M. Z.,
-Soltesz, E. G., Smedira, N. G., Roselli, E. E., Wierup, P., Gillinov, A.
-M., Svensson, L. G., Blackstone, E. H., Pettersson, G. B., Unai, S. G.,
-Bakaeen, F. G. (2026). Coronary artery aneurysms: Evolving trends in
-surgical management. *The Journal of Thoracic and Cardiovascular
-Surgery*.
-
-</div>
-
 <div id="ref-Barron2026Achalasia" class="csl-entry">
 
 Barron, J. O., Jain, N., Conner, A., Toth, A. J., Ehrlinger, J., Lee,
@@ -570,9 +570,9 @@ installed, updated and version-checked as a unit by *hvtiR*, a
 one-command installer and environment diagnostic.
 <https://github.com/ehrlinger/hvtiR>
 
-*hvtiBoostmtree* — Boosted multivariate trees for longitudinal data; an
-extended fork of boostmtree.
-<https://github.com/ehrlinger/hvtiBoostmtree>
+*ggBoostedTrees* — Visual exploration of boosted tree models — graphical
+analysis of boostmtree and BoostMLR fits for longitudinal responses; in
+active development. <https://github.com/ehrlinger/ggBoostedTrees>
 
 *hvtiPlotR* — HVTI-standard publication graphics for reproducible
 clinical research figures. <https://github.com/ehrlinger/hvtiPlotR>
