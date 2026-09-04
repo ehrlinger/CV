@@ -1,7 +1,7 @@
 # Catalog version fields — design
 
 **Date:** 2026-09-04
-**Status:** Draft, one open decision (§6)
+**Status:** Accepted 2026-09-04 (§6 settled). Implemented in [ehrlinger/hvtiR#33](https://github.com/ehrlinger/hvtiR/pull/33).
 **Extends:** [2026-08-26 package manifest sync design](2026-08-26-package-manifest-sync-design.md)
 
 ## 1. What prompted this
@@ -103,24 +103,73 @@ It is network-dependent and therefore `skip_on_cran()` +
 `skip_if_offline()` — it is a maintenance check, not a package correctness
 check, and must never block a CRAN submission of `hvtiR` itself.
 
-## 6. OPEN DECISION — where the check runs
+## 6. DECISION — where the check runs
 
-This is the trade-off flagged before drafting, and it is yours to settle.
+**Settled 2026-09-04 (John): Option A, scheduled CI — with the reporting
+mechanism changed from an issue to a pull request.** Implemented in
+[ehrlinger/hvtiR#33](https://github.com/ehrlinger/hvtiR/pull/33).
 
-**Option A — scheduled CI (recommended).** A weekly GitHub Actions job in
-`hvtiR` runs the check and opens an issue listing every row that drifted.
-*For:* catches drift without anyone remembering to look, which is the actual
-failure mode — the table was audited 2026-08-28 and nobody looked again until
-prompted. *Against:* one more workflow to maintain; needs network in CI.
+The options as drafted:
 
-**Option B — on-demand only.** The test exists but runs when someone runs it,
-e.g. as part of the existing release gate. *For:* nothing new to maintain,
-no scheduled network calls. *Against:* it is exactly the "someone remembers"
-model that produced six stale rows.
+**Option A — scheduled CI. CHOSEN.** A weekly GitHub Actions job in `hvtiR`
+runs the check. *For:* catches drift without anyone remembering to look, which
+is the actual failure mode — the table was audited 2026-08-28 and nobody
+looked again until prompted. *Against:* one more workflow to maintain; needs
+network in CI.
 
-**Option C — render-time.** The CV build resolves versions live.
-*Against:* couples the CV build to network and to eleven clones, to populate
-two cells whose correct source is CRAN. **Not recommended** — see §2.
+**Option B — on-demand only.** *Rejected:* it is exactly the "someone
+remembers" model that produced six stale rows.
+
+**Option C — render-time.** *Rejected:* couples the CV build to network and to
+eleven clones, to populate two cells whose correct source is CRAN. See §2.
+
+### 6.1 Amendment — a pull request, not an issue
+
+This draft said the job would open an **issue** listing every row that
+drifted. It opens a **pull request** instead.
+
+The reasoning is that an issue and a PR are not equally far from the fix. The
+refresh tool has already computed the corrected values by the time it reports,
+so an issue would describe a change it is holding in its hand and then ask a
+person to reapply it by hand — reintroducing, at the last step, the manual
+transcription this whole design exists to remove. A PR's **diff is the drift
+report**: same information, reviewable in the same place, and merging it *is*
+the correction.
+
+The residual risk this accepts is a bot writing to the catalog. It is bounded
+by scope — `add-paths` limits the commit to `inst/extdata/catalog.csv`, the
+machine never writes `dev_ahead` (§3), and nothing merges without review.
+
+### 6.2 The job must not fail a build
+
+Decided during implementation and recorded here because it is a design
+constraint, not a detail. The job reports; it never turns a check red.
+
+These packages release often — that is the premise of the whole document — so
+a version-drift check that fails would be red most weeks for the most ordinary
+possible reason: someone shipped something. A signal that is usually red is
+trained away within a month, and it would take the real findings with it.
+
+The same reasoning settles the unreadable-oracle case. A failed fetch keeps
+the recorded value rather than blanking it, and exits with a warning: the file
+is still correct, merely not re-verified this run. Overwriting a known-good
+version with an empty string because the network stalled would turn an outage
+into data loss — the "result-shaped nothing" failure mode this family has
+already been bitten by four separate ways.
+
+### 6.3 Confirmed during implementation
+
+- **`members.json` is byte-identical** before and after the change, so the CV,
+  profile README and site renders are provably untouched. §2's claim that this
+  is not a render change is now measured rather than argued.
+- **The R-side tests guard shape only.** The live comparison belongs to the
+  schedule, deliberately not to `R CMD check`, so an ordinary check never
+  depends on the network or on what someone merged that morning.
+- **A permanent 404 is not a transient failure.** `hazard` and `HVTI Recipes`
+  have no `DESCRIPTION`; under `curl -sf` their 404 was indistinguishable from
+  a stall, which would have put two warnings in every scheduled run forever.
+  §4 gained no new rule here, but the implementation must separate them by
+  status code.
 
 ## 7. Explicitly out of scope
 
