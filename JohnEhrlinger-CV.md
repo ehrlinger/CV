@@ -165,7 +165,7 @@ Welke, K., Jacobs, J. P., DeCampli, W., Kirklin, J. K., Pourmoghadam,
 K., Polimenakos, A. C., Kumar, T. K. S., Jegatheeswaran, A., Herrmann,
 J. L., … Overman, D. M. (2026). The search for borderline hearts within
 biventricular repairs of complete atrioventricular septal defects. *The
-Journal of Thoracic and Cardiovascular Surgery*.
+Journal of Thoracic and Cardiovascular Surgery*. In press.
 <https://doi.org/10.1016/j.jtcvs.2026.05.027>
 
 </div>
