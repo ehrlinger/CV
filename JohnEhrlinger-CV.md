@@ -153,7 +153,7 @@ Soltesz, E. G., Smedira, N. G., Roselli, E. E., Wierup, P., Gillinov, A.
 M., Svensson, L. G., Blackstone, E. H., Pettersson, G. B., Unai, S. G.,
 Bakaeen, F. G. (2026). Coronary artery aneurysms: Evolving trends in
 surgical management. *The Journal of Thoracic and Cardiovascular
-Surgery*.
+Surgery*. In press.
 
 </div>
 
