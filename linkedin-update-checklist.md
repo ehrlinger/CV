@@ -26,7 +26,7 @@ Replace with:
 > Equally central to my work is making that analysis land with a clinical audience: model explainability, and the visual communication of results. Both rest on research infrastructure — clinical registry and data governance design, versioned analytic workflows, and open-source implementations that make the work reproducible at scale.
 >
 <!-- BEGIN:summary -->
-> Open-source software: ggRandomForests · TemporalHazard (CRAN) · the nine-package hvtiR family (ggBoostedTrees, hvtiPlotR, hvtiRbootstrap, hvtiRdatabuild, hvtiRlifetables, hvtiRpropensity, hvtiRtables, hvtiRtemplates, hvtiRutilities) · hazard (SAS/C)
+> Open-source software: ggRandomForests · TemporalHazard (CRAN) · the ten-package hvtiR family (ggBoostedTrees, hvtiPlotR, hvtiRbootstrap, hvtiRdatabuild, hvtiRimputation, hvtiRlifetables, hvtiRpropensity, hvtiRtables, hvtiRtemplates, hvtiRutilities) · hazard (SAS/C)
 <!-- END:summary -->
 
 ---
@@ -182,6 +182,9 @@ Add each R package as a project (Projects section, or in the relevant Experience
 
 - [ ] **hvtiRdatabuild** — github.com/ehrlinger/hvtiRdatabuild
   > Analysis-ready clinical datasets for HVTI CORR studies, verified against the legacy SAS datasets they replace; in active development.
+
+- [ ] **hvtiRimputation** — github.com/ehrlinger/hvtiRimputation
+  > Missing value imputation — fill by a stated method and return a row-level record of exactly which values were changed; an R port of the CORR group's PROC STANDARD REPLACE and imputsub macros; in active development.
 
 - [ ] **hvtiRlifetables** — github.com/ehrlinger/hvtiRlifetables
   > Age-, sex- and race-matched US reference survival; replaces the usmatchd SAS macro by evaluating a stored three-phase parametric hazard fit rather than interpolating a life table; in active development.

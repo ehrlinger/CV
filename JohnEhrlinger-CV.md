@@ -564,7 +564,7 @@ Cleveland Clinic Hazard SAS module. v1.1.0 on CRAN.
 
 **HVTI R Package Family**
 
-Eleven member packages — the nine below, plus *ggRandomForests* and
+Twelve member packages — the ten below, plus *ggRandomForests* and
 *TemporalHazard* above — resolved from public GitHub repositories and
 installed, updated and version-checked as a unit by *hvtiR*, a
 one-command installer and environment diagnostic.
@@ -585,6 +585,11 @@ bootreg, SUMBOOT and cluster SAS macros; in active development.
 *hvtiRdatabuild* — Analysis-ready clinical datasets for HVTI CORR
 studies, verified against the legacy SAS datasets they replace; in
 active development. <https://github.com/ehrlinger/hvtiRdatabuild>
+
+*hvtiRimputation* — Missing value imputation — fill by a stated method
+and return a row-level record of exactly which values were changed; an R
+port of the CORR group’s PROC STANDARD REPLACE and imputsub macros; in
+active development. <https://github.com/ehrlinger/hvtiRimputation>
 
 *hvtiRlifetables* — Age-, sex- and race-matched US reference survival;
 replaces the usmatchd SAS macro by evaluating a stored three-phase
