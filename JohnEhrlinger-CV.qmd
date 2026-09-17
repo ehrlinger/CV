@@ -62,7 +62,9 @@ at scale.
 *Cleveland Clinic — Cardiovascular Outcomes, Registries and Research (CORR),
 Department of Thoracic and Cardiovascular Surgery, Heart, Vascular & Thoracic Institute*
 
-Assistant Staff, Lead Data Scientist \hfill December 2024–Present
+Associate Staff, Lead Data Scientist \hfill Effective October 2026
+
+Assistant Staff, Lead Data Scientist \hfill December 2024–September 2026
 
 Lead a multidisciplinary team of data engineers, clinical data experts, and
 biostatisticians supporting cardiovascular outcomes research.
@@ -208,7 +210,7 @@ Mathematics
 **R Packages (CRAN)**
 
 *ggRandomForests* — Visual exploration of random forest models — graphical analysis of
-survival, regression, and classification forests. v3.5.2 on CRAN.
+survival, regression, and classification forests. v3.5.3 on CRAN.
 <https://CRAN.R-project.org/package=ggRandomForests>
 
 *TemporalHazard* — R port of the C computational core underlying the Cleveland Clinic
