@@ -21,7 +21,9 @@ implementations that make the work reproducible at scale.
 (CORR), Department of Thoracic and Cardiovascular Surgery, Heart,
 Vascular & Thoracic Institute*
 
-Assistant Staff, Lead Data Scientist December 2024–Present
+Associate Staff, Lead Data Scientist Effective October 2026
+
+Assistant Staff, Lead Data Scientist December 2024–September 2026
 
 Lead a multidisciplinary team of data engineers, clinical data experts,
 and biostatisticians supporting cardiovascular outcomes research.
@@ -396,10 +398,9 @@ Cardiovascular Surgery*.
 Stembal, F., Fang, M. Z., Houghtaling, P., Ehrlinger, J., Lieber, E.,
 Kelava, M., Grady, P., Krzelj, K., Indorf, J., Somogyi, D., Troy, A.,
 Lou, X., Kimmaliardjuk, D., Vargo, P., Malas, T., Smedira, N., Tong, M.
-Z., Soltesz, E., Yun, J., … Blackstone, E. H. (2026). Is there still
-room for improvement of cardiopulmonary bypass? Analysis of lactate and
-other clinical and hemodynamic characteristics. *The Annals of Thoracic
-Surgery*.
+Z., Soltesz, E., Yun, J., … Blackstone, E. H. (2026). Is there (still)
+room for improvement of cardiopulmonary bypass? Descriptive analysis of
+lactate and other clinical characteristics. *ASAIO Journal*.
 
 </div>
 
@@ -556,7 +557,7 @@ UCLA, Los Angeles, CA.
 
 *ggRandomForests* — Visual exploration of random forest models —
 graphical analysis of survival, regression, and classification forests.
-v3.5.2 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
+v3.5.3 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
 
 *TemporalHazard* — R port of the C computational core underlying the
 Cleveland Clinic Hazard SAS module. v1.1.0 on CRAN.
