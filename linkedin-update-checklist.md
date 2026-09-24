@@ -171,11 +171,20 @@ Add each R package as a project (Projects section, or in the relevant Experience
 - [ ] **hazard** — github.com/ehrlinger/hazard
   > SAS and C implementation of multi-phase hazard analysis for time-to-event decomposition. (Maintainer)
 
-- [ ] **ggBoostedTrees** — github.com/ehrlinger/ggBoostedTrees
-  > Visual exploration of boosted tree models — graphical analysis of boostmtree and BoostMLR fits for longitudinal responses; in active development.
-
 - [ ] **hvtiPlotR** — github.com/ehrlinger/hvtiPlotR
   > HVTI-standard publication graphics for reproducible clinical research figures.
+
+- [ ] **hvtiRtables** — github.com/ehrlinger/hvtiRtables
+  > Manuscript-compliant Word tables from gtsummary objects, following HVTI CORR table construction standards, with a JTCVS submission mode.
+
+- [ ] **hvtiRtemplates** — github.com/ehrlinger/hvtiRtemplates
+  > Versioned analysis job templates and the analysis-prefix taxonomy the CORR group organizes jobs by, so a study binds to a versioned template rather than to a copy.
+
+- [ ] **hvtiRutilities** — github.com/ehrlinger/hvtiRutilities
+  > Utility functions supporting reproducible HVTI research workflows.
+
+- [ ] **ggBoostedTrees** — github.com/ehrlinger/ggBoostedTrees
+  > Visual exploration of boosted tree models — graphical analysis of boostmtree and BoostMLR fits for longitudinal responses; in active development.
 
 - [ ] **hvtiRbootstrap** — github.com/ehrlinger/hvtiRbootstrap
   > Bootstrap model building — fit across many replicates and report how often each variable survives selection; an R port of the bootreg, SUMBOOT and cluster SAS macros; in active development.
@@ -191,15 +200,6 @@ Add each R package as a project (Projects section, or in the relevant Experience
 
 - [ ] **hvtiRpropensity** — github.com/ehrlinger/hvtiRpropensity
   > Propensity score estimation, matching and IPTW with standardized balance diagnostics, for cardiac surgery comparative-effectiveness research; in active development.
-
-- [ ] **hvtiRtables** — github.com/ehrlinger/hvtiRtables
-  > Manuscript-compliant Word tables from gtsummary objects, following HVTI CORR table construction standards, with a JTCVS submission mode.
-
-- [ ] **hvtiRtemplates** — github.com/ehrlinger/hvtiRtemplates
-  > Versioned analysis job templates and the analysis-prefix taxonomy the CORR group organizes jobs by, so a study binds to a versioned template rather than to a copy.
-
-- [ ] **hvtiRutilities** — github.com/ehrlinger/hvtiRutilities
-  > Utility functions supporting reproducible HVTI research workflows.
 
 - [ ] **HVTI Recipes** — ehrlinger.github.io/hvtiGraphics/
   > Catalog of publication-ready figures, tables, and datasets for clinical outcomes research — Kaplan-Meier, propensity balance, CONSORT, random-forest visualizations — each paired with reproducible code. Quarto book, CC BY 4.0.

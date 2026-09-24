@@ -59,6 +59,13 @@ class GroupTests(unittest.TestCase):
             self.assertEqual(b.count(f"*{name}* —"), 1, name)
 
 
+class FamilyOrderTests(unittest.TestCase):
+    def test_stable_members_precede_wip_members_each_group_alphabetical(self):
+        b = block()
+        order = sorted(("beta", "gamma", "delta"), key=lambda n: b.index(f"*{n}* —"))
+        self.assertEqual(order, ["delta", "gamma", "beta"])
+
+
 class EntryTests(unittest.TestCase):
     def _entry(self, name):
         # The final entry has no trailing blank line, so fall back to EOF.
@@ -238,7 +245,7 @@ class ChecklistTests(unittest.TestCase):
 
     def test_entries_are_ordered_cran_then_standalone_then_family_then_book(self):
         names = re.findall(r"^- \[ \] \*\*(.+?)\*\*", self.block(), re.M)
-        self.assertEqual(names, ["alpha", "sassy", "beta", "delta", "gamma", "The Book"])
+        self.assertEqual(names, ["alpha", "sassy", "delta", "gamma", "beta", "The Book"])
 
     def test_the_repo_path_is_shown_without_the_scheme(self):
         self.assertIn("— github.com/ehrlinger/alpha", self.block())
