@@ -387,9 +387,9 @@ data-entry-spacing="0" data-line-spacing="2">
 
 Barron, J. O., Jain, N., Conner, A., Toth, A. J., Ehrlinger, J., Lee,
 S., Ramji, S., Sudarshan, M., Raymond, D. P., Blackstone, E. H., Murthy,
-S. C., Raja, S. (2026). Form over function: Development of a
-morphology-based achalasia classification. *The Journal of Thoracic and
-Cardiovascular Surgery*.
+S. C., Raja, S. (2026). A morphology-based classification of esophageal
+achalasia: Development and assessment of longitudinal outcomes. *The
+Journal of Thoracic and Cardiovascular Surgery*.
 
 </div>
 
