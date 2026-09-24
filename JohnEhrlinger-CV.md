@@ -571,12 +571,24 @@ installed, updated and version-checked as a unit by *hvtiR*, a
 one-command installer and environment diagnostic.
 <https://github.com/ehrlinger/hvtiR>
 
+*hvtiPlotR* — HVTI-standard publication graphics for reproducible
+clinical research figures. <https://github.com/ehrlinger/hvtiPlotR>
+
+*hvtiRtables* — Manuscript-compliant Word tables from gtsummary objects,
+following HVTI CORR table construction standards, with a JTCVS
+submission mode. <https://github.com/ehrlinger/hvtiRtables>
+
+*hvtiRtemplates* — Versioned analysis job templates and the
+analysis-prefix taxonomy the CORR group organizes jobs by, so a study
+binds to a versioned template rather than to a copy.
+<https://github.com/ehrlinger/hvtiRtemplates>
+
+*hvtiRutilities* — Utility functions supporting reproducible HVTI
+research workflows. <https://github.com/ehrlinger/hvtiRutilities>
+
 *ggBoostedTrees* — Visual exploration of boosted tree models — graphical
 analysis of boostmtree and BoostMLR fits for longitudinal responses; in
 active development. <https://github.com/ehrlinger/ggBoostedTrees>
-
-*hvtiPlotR* — HVTI-standard publication graphics for reproducible
-clinical research figures. <https://github.com/ehrlinger/hvtiPlotR>
 
 *hvtiRbootstrap* — Bootstrap model building — fit across many replicates
 and report how often each variable survives selection; an R port of the
@@ -601,18 +613,6 @@ development. <https://github.com/ehrlinger/hvtiRlifetables>
 standardized balance diagnostics, for cardiac surgery
 comparative-effectiveness research; in active development.
 <https://github.com/ehrlinger/hvtiRpropensity>
-
-*hvtiRtables* — Manuscript-compliant Word tables from gtsummary objects,
-following HVTI CORR table construction standards, with a JTCVS
-submission mode. <https://github.com/ehrlinger/hvtiRtables>
-
-*hvtiRtemplates* — Versioned analysis job templates and the
-analysis-prefix taxonomy the CORR group organizes jobs by, so a study
-binds to a versioned template rather than to a copy.
-<https://github.com/ehrlinger/hvtiRtemplates>
-
-*hvtiRutilities* — Utility functions supporting reproducible HVTI
-research workflows. <https://github.com/ehrlinger/hvtiRutilities>
 
 **Open-Source Documentation**
 
