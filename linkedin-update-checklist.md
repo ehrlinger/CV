@@ -10,7 +10,7 @@ Work through each section in order. LinkedIn's editor is at:
 ## 1. Intro (top of profile)
 
 - [ ] **Name:** John Ehrlinger
-- [ ] **Headline:** Assistant Staff, Lead Data Scientist · Cardiovascular Outcomes, Registries and Research · Thoracic & Cardiovascular Surgery · Cleveland Clinic
+- [ ] **Headline:** Associate Staff, Lead Data Scientist · Cardiovascular Outcomes, Registries and Research · Thoracic & Cardiovascular Surgery · Cleveland Clinic
 - [ ] **Location:** Hiram, Ohio
 - [ ] **Website:** https://ehrlinger.github.io *(add under Contact Info)*
 - [ ] **ORCID:** https://orcid.org/0000-0002-5340-5154 *(add as a second website or Other link)*
@@ -36,11 +36,12 @@ Replace with:
 Update or add each position in reverse chronological order.
 
 ### ✏️ Current — Cleveland Clinic
-- [ ] **Title:** Assistant Staff, Lead Data Scientist
+- [ ] **Title:** Associate Staff, Lead Data Scientist
 - [ ] **Department:** Department of Thoracic and Cardiovascular Surgery
 - [ ] **Team:** Cardiovascular Outcomes, Registries and Research (CORR)
 - [ ] **Division:** Heart, Vascular & Thoracic Institute
-- [ ] **Start date:** December 2024
+- [ ] **Start date:** October 2026
+- [ ] **Previous title, same entry:** Assistant Staff, Lead Data Scientist, December 2024 – September 2026. Add it as a second position under the same Cleveland Clinic entry so LinkedIn shows the promotion rather than a new job
 - [ ] **End date:** Present
 - [ ] **Description:**
   > Lead a multidisciplinary team of data engineers, clinical data experts and biostatisticians supporting cardiovascular outcomes research within CORR.
