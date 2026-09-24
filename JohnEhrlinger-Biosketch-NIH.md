@@ -55,7 +55,7 @@ I am well positioned to contribute to projects at the intersection of machine le
 | 1995–1998 | Aerodynamic Engineer, Cooper Turbocompressor, Inc., Buffalo, NY |
 | 1999–2012 | Lead Systems Analyst: Scientific Programmer, Dept. of Thoracic and Cardiovascular Surgery, Cleveland Clinic, Cleveland, OH |
 | 2012–2015 | Assistant Staff, Dept. of Quantitative Health Sciences, Lerner Research Institute, Cleveland Clinic, Cleveland, OH |
-| 2015 | Assistant Professor of Medicine, Cleveland Clinic Lerner College of Medicine – Case Western Reserve University |
+| 2015 | Clinical Assistant Professor (Joint Appointment), Cleveland Clinic Lerner College of Medicine – Case Western Reserve University |
 | 2015–2023 | Senior Data and Applied Scientist, Artificial Intelligence, Azure Global Commercial Industry (AGCI-AI), Microsoft, Cambridge, MA |
 | 2023–2024 | Senior Data Scientist, Altamira Technologies, McLean, VA |
 | 2024–present | Assistant Staff, Lead Data Scientist, Dept. of Thoracic and Cardiovascular Surgery, Heart, Vascular & Thoracic Institute, Cleveland Clinic, Cleveland, OH |
