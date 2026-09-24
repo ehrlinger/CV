@@ -26,7 +26,7 @@ Replace with:
 > Equally central to my work is making that analysis land with a clinical audience: model explainability, and the visual communication of results. Both rest on research infrastructure — clinical registry and data governance design, versioned analytic workflows, and open-source implementations that make the work reproducible at scale.
 >
 <!-- BEGIN:summary -->
-> Open-source software: ggRandomForests · TemporalHazard (CRAN) · the ten-package hvtiR family (ggBoostedTrees, hvtiPlotR, hvtiRbootstrap, hvtiRdatabuild, hvtiRimputation, hvtiRlifetables, hvtiRpropensity, hvtiRtables, hvtiRtemplates, hvtiRutilities) · hazard (SAS/C)
+> Open-source software: ggRandomForests · TemporalHazard (CRAN) · the ten-package hvtiR family (hvtiPlotR, hvtiRtables, hvtiRtemplates, hvtiRutilities, ggBoostedTrees, hvtiRbootstrap, hvtiRdatabuild, hvtiRimputation, hvtiRlifetables, hvtiRpropensity) · hazard (SAS/C)
 <!-- END:summary -->
 
 ---

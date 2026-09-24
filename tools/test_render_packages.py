@@ -34,6 +34,16 @@ MANIFEST = {
 VERSIONS = {"alpha": "9.9.9"}
 
 
+def _with_second_wip():
+    """MANIFEST plus a wip member listed after beta but sorting before it."""
+    m = json.loads(json.dumps(MANIFEST))
+    m["packages"].insert(4, {
+        "package": "alef", "repo": "ehrlinger/alef", "url": "https://github.com/ehrlinger/alef",
+        "family": "member", "blurb": "Fifth.", "cran": None, "status": "wip", "role": None})
+    m["counts"] = {"members": 5, "members_on_cran": 1, "members_github_only": 4}
+    return m
+
+
 def block():
     return render_block(MANIFEST, VERSIONS)
 
@@ -61,9 +71,15 @@ class GroupTests(unittest.TestCase):
 
 class FamilyOrderTests(unittest.TestCase):
     def test_stable_members_precede_wip_members_each_group_alphabetical(self):
-        b = block()
-        order = sorted(("beta", "gamma", "delta"), key=lambda n: b.index(f"*{n}* —"))
-        self.assertEqual(order, ["delta", "gamma", "beta"])
+        b = render_block(_with_second_wip(), VERSIONS)
+        names = ("alef", "beta", "gamma", "delta")
+        self.assertEqual(sorted(names, key=lambda n: b.index(f"*{n}* —")),
+                         ["delta", "gamma", "alef", "beta"])
+
+    def test_the_summary_line_uses_the_same_order(self):
+        from render_packages import render_summary_line
+        line = render_summary_line(_with_second_wip())
+        self.assertIn("(delta, gamma, alef, beta)", line)
 
 
 class EntryTests(unittest.TestCase):

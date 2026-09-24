@@ -188,8 +188,8 @@ def render_summary_line(manifest: dict) -> str:
     """The one-line \"open-source software\" summary pasted into a profile."""
     pkgs = manifest["packages"]
     cran = [p["package"] for p in pkgs if p["family"] == "member" and p["cran"]]
-    fam = sorted((p["package"] for p in pkgs if p["family"] == "member" and not p["cran"]),
-                 key=str.lower)
+    fam = [p["package"] for p in
+           _stable_first([p for p in pkgs if p["family"] == "member" and not p["cran"]])]
     sas = [p["package"] for p in pkgs if p["family"] == "standalone"]
     parts = []
     if cran:
