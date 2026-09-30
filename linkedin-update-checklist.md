@@ -1,5 +1,5 @@
 # LinkedIn Update Checklist
-*Based on John Ehrlinger CV — 1 September 2026.* Regenerate this after any CV rewrite;
+*Based on John Ehrlinger CV — 1 October 2026.* Regenerate this after any CV rewrite;
 the prose below is hand-maintained and goes stale independently of the CV.
 
 Work through each section in order. LinkedIn's editor is at:
