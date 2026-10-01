@@ -1,6 +1,6 @@
 # Curriculum Vitae
 John Ehrlinger, PhD
-September 2026
+October 2026
 
 # Research Interests
 
@@ -21,7 +21,7 @@ implementations that make the work reproducible at scale.
 (CORR), Department of Thoracic and Cardiovascular Surgery, Heart,
 Vascular & Thoracic Institute*
 
-Associate Staff, Lead Data Scientist Effective October 2026
+Associate Staff, Lead Data Scientist October 2026–present
 
 Assistant Staff, Lead Data Scientist December 2024–September 2026
 
