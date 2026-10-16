@@ -123,8 +123,6 @@ c. Dalton JE, Glance LG, Mascha EJ, **Ehrlinger J**, Chamoun N, Sessler DI. Impa
 
 d. Wojnarski CM, Svensson LG, Roselli EE, et al. Aortic Dissection in Patients with Bicuspid Aortic Valve–Associated Aneurysm. *Annals of Thoracic Surgery.* **100**(5): 1666–1674. 2015.
 
-e. Robinson J, Belitsis G, **Ehrlinger J**, Blackstone EH, et al. The Search for Borderline Hearts within Biventricular Repairs of Complete Atrioventricular Septal Defects. *The Journal of Thoracic and Cardiovascular Surgery.* 2026. Published online June 12, 2026. doi:10.1016/j.jtcvs.2026.05.027. PMID: 42285288.
-
 ---
 
 ## D. Additional Information: Research Support and/or Scholastic Performance
