@@ -155,7 +155,7 @@ Soltesz, E. G., Smedira, N. G., Roselli, E. E., Wierup, P., Gillinov, A.
 M., Svensson, L. G., Blackstone, E. H., Pettersson, G. B., Unai, S. G.,
 Bakaeen, F. G. (2026). Coronary artery aneurysms: Evolving trends in
 surgical management. *The Journal of Thoracic and Cardiovascular
-Surgery*. In press.
+Surgery*. In press. <https://doi.org/10.1016/j.jtcvs.2026.09.014>
 
 </div>
 
@@ -557,7 +557,7 @@ UCLA, Los Angeles, CA.
 
 *ggRandomForests* — Visual exploration of random forest models —
 graphical analysis of survival, regression, and classification forests.
-v3.5.3 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
+v3.5.4 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
 
 *TemporalHazard* — R port of the C computational core underlying the
 Cleveland Clinic Hazard SAS module. v1.1.0 on CRAN.
