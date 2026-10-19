@@ -393,6 +393,17 @@ Journal of Thoracic and Cardiovascular Surgery*.
 
 </div>
 
+<div id="ref-Belitsis2026AVSD" class="csl-entry">
+
+Belitsis, G., Robinson, J., Ehrlinger, J., Blackstone, E. H., Li, X.,
+Mertens, L., Fackoury, C., Cohen, M., Williams, W. G., Karamlou, T.,
+Jacobs, M. L., Welke, K., Jacobs, J. P., DeCampli, W., Kirklin, J. K.,
+Pourmoghadam, K., Polimenakos, A., Kumar, T. K. S., Jegatheeswaran, A.,
+… Overman, D. (2026). Morphologic groups within the spectrum of complete
+atrioventricular septal defects. *Circulation*.
+
+</div>
+
 <div id="ref-Stembal2026CPB" class="csl-entry">
 
 Stembal, F., Fang, M. Z., Houghtaling, P., Ehrlinger, J., Lieber, E.,
@@ -410,17 +421,6 @@ lactate and other clinical characteristics. *ASAIO Journal*.
 
 <div id="refs-inprep" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" data-line-spacing="2">
-
-<div id="ref-Belitsis2026AVSD" class="csl-entry">
-
-Belitsis, G., Robinson, J., Ehrlinger, J., Blackstone, E. H., Li, X.,
-Mertens, L., Fackoury, C., Williams, W. G., Karamlou, T., Jacobs, M. L.,
-Welke, K., Jacobs, J. P., DeCampli, W., Kirklin, J. K., Pourmoghadam,
-K., Polimenakos, A., Kumar, T. K. S., Jegatheeswaran, A., Herrmann, J.
-L., … Overman, D. (2026). *The search for borderline hearts within
-complete atrioventricular septal defects*.
-
-</div>
 
 <div id="ref-Bhagat2026Decannulation" class="csl-entry">
 
