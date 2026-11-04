@@ -1,6 +1,6 @@
 # Curriculum Vitae
 John Ehrlinger, PhD
-October 2026
+November 2026
 
 # Research Interests
 
@@ -495,6 +495,15 @@ Exploring a Random Forest for Regression</span>*. arXiv preprint.
 <div id="refs-talks" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" data-line-spacing="2">
 
+<div id="ref-Ehrlinger2026TallRounds" class="csl-entry">
+
+Ehrlinger, J. (2026). *<span class="nocase">How Well, and Why: Looking
+Inside Clinical AI</span>*. Invited talk, HVTI Tall Rounds (AI in
+Cardiovascular Care: Current State and Future Vision), Cleveland Clinic,
+Cleveland, OH.
+
+</div>
+
 <div id="ref-Ehrlinger2026RMedicine" class="csl-entry">
 
 Ehrlinger, J. (2026). *<span class="nocase">Care and Feeding of Your
@@ -557,7 +566,7 @@ UCLA, Los Angeles, CA.
 
 *ggRandomForests* — Visual exploration of random forest models —
 graphical analysis of survival, regression, and classification forests.
-v3.5.4 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
+v4.0.0 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
 
 *TemporalHazard* — R port of the C computational core underlying the
 Cleveland Clinic Hazard SAS module. v1.1.0 on CRAN.
