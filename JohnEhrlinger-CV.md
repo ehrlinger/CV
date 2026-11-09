@@ -159,6 +159,16 @@ Surgery*. In press. <https://doi.org/10.1016/j.jtcvs.2026.09.014>
 
 </div>
 
+<div id="ref-Barron2026Achalasia" class="csl-entry">
+
+Barron, J. O., Jain, N., Conner, A., Toth, A. J., Ehrlinger, J., Lee,
+S., Ramji, S., Sudarshan, M., Raymond, D. P., Blackstone, E. H., Murthy,
+S. C., Raja, S. (2026). A morphology-based classification of esophageal
+achalasia: Development and assessment of longitudinal outcomes. *JTCVS
+Open*. In press.
+
+</div>
+
 <div id="ref-Robinson2026AVSD" class="csl-entry">
 
 Robinson, J., Belitsis, G., Ehrlinger, J., Blackstone, E. H., Li, X.,
@@ -382,16 +392,6 @@ Annals of Statistics*, *40*(2), 1074–1101.
 
 <div id="refs-submitted" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" data-line-spacing="2">
-
-<div id="ref-Barron2026Achalasia" class="csl-entry">
-
-Barron, J. O., Jain, N., Conner, A., Toth, A. J., Ehrlinger, J., Lee,
-S., Ramji, S., Sudarshan, M., Raymond, D. P., Blackstone, E. H., Murthy,
-S. C., Raja, S. (2026). A morphology-based classification of esophageal
-achalasia: Development and assessment of longitudinal outcomes. *The
-Journal of Thoracic and Cardiovascular Surgery*.
-
-</div>
 
 <div id="ref-Belitsis2026AVSD" class="csl-entry">
 
