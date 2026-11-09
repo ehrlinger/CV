@@ -569,7 +569,7 @@ graphical analysis of survival, regression, and classification forests.
 v4.0.0 on CRAN. <https://CRAN.R-project.org/package=ggRandomForests>
 
 *TemporalHazard* — R port of the C computational core underlying the
-Cleveland Clinic Hazard SAS module. v1.1.0 on CRAN.
+Cleveland Clinic Hazard SAS module. v1.3.0 on CRAN.
 <https://CRAN.R-project.org/package=TemporalHazard>
 
 **HVTI R Package Family**
